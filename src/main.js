@@ -2,21 +2,21 @@ const app = Vue.createApp({
   el: "#app",
   data() {
     return {
-      appVersion: "0.1.0",
+      appVersion: "0.1.1",
       counter: 0,
       teamRed: [],
       teamBlue: [],
       playerList: undefined,
-      name: undefined,
       beta: undefined,
-      currentMap: undefined,
       alertInput: false,
       alertModalMessage: undefined,
       alertInputMessage: undefined,
       mapList: undefined,
-      mapFilter: undefined,
       mapNames: undefined,
       mapModes: undefined,
+      mapFilter: undefined,
+      currentMap: undefined,
+      localStorageAlert: undefined,
     }
   },
   mounted() {
@@ -32,6 +32,9 @@ const app = Vue.createApp({
     this.setMapFilter()
     this.loadPlayersFromLocalStorage()
   },
+  props: [
+    'inputName'
+  ],
   watch: {
     mapFilter: {
       handler(newValue, oldValue) { if (newValue != undefined && oldValue != undefined) this.updateLocalStorage("mapFilter") },
@@ -80,7 +83,7 @@ const app = Vue.createApp({
     setMapFilter() {
       mls = window.localStorage.getItem("mapFilter")
       if (mls != null) this.mapFilter = JSON.parse(mls)
-      else this.mapFilter = mapList.reduce((prev, cur) => ({ ...prev, [cur.id]: true}), {})
+      else this.mapFilter = mapList.reduce((prev, cur) => ({ ...prev, [cur.id]: true }), {})
       // console.log("FILTERS", this.mapFilter)
     },
     setMapNames() {
@@ -89,18 +92,18 @@ const app = Vue.createApp({
     getMapsByMode(mode) {
       if (!!mode) return this.mapList.filter(x => x.mode == mode)
     },
-    addPlayer() {
+    addPlayer(name) {
       const playerLimit = (this.beta) ? 10 : 12
-      if (!!this.name) {
+      if (!!name) {
         if (this.playerList) {
-          dupItem = this.playerList.find(x => this.name.toLowerCase() == x.name.toLowerCase())
+          dupItem = this.playerList.find(x => name.toLowerCase() == x.name.toLowerCase())
           if (dupItem == undefined && this.playerList.length < playerLimit) {
-            newPlayer = { id: this.counter++, name: this.name }
+            newPlayer = { id: this.counter++, name: name }
             this.playerList.push(newPlayer)
             // console.info("ADDED", newPlayer)
           }
           else if (dupItem != undefined) {
-            dupName = this.playerList[this.playerList.findIndex(x => this.name.toLowerCase() == x.name.toLowerCase())].name
+            dupName = this.playerList[this.playerList.findIndex(x => name.toLowerCase() == x.name.toLowerCase())].name
             msg = `Игрок с именем "${dupName}" уже существует`
             this.toggleAlertInput(msg)
             console.warn(`Duplicate found: ${dupName}`)
@@ -149,7 +152,7 @@ const app = Vue.createApp({
         this.toggleAlertModal(true, "Нечётное количество игроков: невозможно честно разделить игроков по командам.")
         console.warn("Roster is not even")
       }
-      else if (this.playerList.length == 0){
+      else if (this.playerList.length == 0) {
         this.toggleAlertModal(true, "Невозможно разделить игроков по командам: список игроков пуст.")
         console.warn("Roster is empty")
       }
@@ -199,7 +202,7 @@ const app = Vue.createApp({
           break
         case "playerList":
           // console.log(`Updated ${obj}`, this.playerList)
-          (this.playerList.length != 0) 
+          (this.playerList.length != 0)
             ? window.localStorage.setItem("playerList", JSON.stringify(this.playerList))
             : window.localStorage.removeItem("playerList")
           break
@@ -207,6 +210,10 @@ const app = Vue.createApp({
     },
     clearLocalStorage() {
       window.localStorage.clear()
+      this.localStorageAlert = true
+      setTimeout(() => {
+        this.localStorageAlert = false
+      }, 3000)
     },
   }
 })
