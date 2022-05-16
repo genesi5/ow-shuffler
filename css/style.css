@@ -1,0 +1,132 @@
+@font-face {
+  font-family: 'Bebas Neue Pro Bold Italic';
+  src: local('Bebas Neue Pro Bold Italic'), local('Bebas-Neue-Pro-Bold-Italic'),
+    url('./BebasNeuePro-BoldItalic.woff2') format('woff2'),
+    url('./BebasNeuePro-BoldItalic.woff') format('woff'),
+    url('./BebasNeuePro-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Bebas Neue Pro Middle Italic';
+  src: local('Bebas Neue Pro Middle Italic'), local('Bebas-Neue-Pro-Middle-Italic'),
+    url('./BebasNeuePro-MiddleItalic.woff2') format('woff2'),
+    url('./BebasNeuePro-MiddleItalic.woff') format('woff'),
+    url('./BebasNeuePro-MiddleItalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background: #ffffff;
+}
+
+.player-roster {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.ow-font-bold {
+  font-family: 'Bebas Neue Pro Bold Italic';
+}
+
+.ow-font-middle {
+  font-family: 'Bebas Neue Pro Middle Italic';
+}
+
+.team-red {
+  color: rgb(255, 61, 61);
+}
+
+.team-blue {
+  color: rgb(55, 101, 255);
+}
+
+.input-alert-enter-active,
+.input-alert-leave-active {
+  transition: opacity 1s;
+}
+
+.input-alert-enter-from,
+.input-alert-leave-to {
+  opacity: 0;
+}
+
+.list-enter-active {
+  transition: opacity 1s;
+}
+
+.list-leave-active {
+  position: absolute;
+  transition: opacity 1s;
+}
+
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+}
+
+.list-enter-from {
+  transform: translateY(50%);
+}
+
+.list-leave-to {
+  transform: translateX(300%);
+}
+
+.panel {
+  overflow: hidden;
+  transition: all 0.25s;
+  display: inline-block;
+}
+
+.bgm-img {
+  /* background: linear-gradient(0deg, rgba(46, 46, 46, 0.5), rgba(250, 250, 250, 0.25)), url("../src/img/ow_wlp.jpg"); */
+  background-image: url("../src/img/ow_wlp.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.navbar-title {
+  color: #e78b00 !important;
+}
+
+.player-list {
+  color: #585858 !important;
+  /* color: #fdfdfd !important; */
+  /* text-shadow: #000000 1px 1px 5px; */
+  /* text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000; */
+}
+
+.btn-ow {
+  color: #e78b00 !important;
+  border-color: #e78b00 !important;
+}
+
+.btn-ow:hover,
+.btn-outline-warning.active {
+  color: #ffffff !important;
+  background-color: #e78b00 !important;
+}
+
+.form-check-input:checked {
+  background-color: #e78b00 !important;
+  border-color: #e78b00 !important;
+}
+
+.li-no-ul {
+  border: none !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+.opac {
+  opacity: 0.9 !important;
+}
