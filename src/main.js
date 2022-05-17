@@ -1,3 +1,175 @@
+const messages = {
+  en: {
+    general: {
+      close: "CLOSE",
+      nextMap: "Next map is:",
+      errors: {
+        title: "ERROR",
+        rosterNotEven: "Unable to assign players fairly: roster is not even.",
+        rosterEmpty: "Unable to assign players: roster is empty.",
+        mapPoolEmpty: "Selected map pool for random pick is empty.",
+      },
+    },
+    input: {
+      placeholder: " Enter player nickname...",
+      alerts: {
+        rosterExceded: "OVERWATCH player limit has been exceded (12 players maximum).",
+        duplicateFound: ({ named }) => `Player with nickname "${named('name')}" is already exists`
+      }
+    },
+    settings: {
+      navButton: "SETTINGS",
+      ls: {
+        title: "Local storage",
+        clearCache: {
+          base: "CLEAR CACHE",
+          extend: ""
+        },
+        exist: "(cached data in storage)",
+        alert: {
+          short: "Storage has been successfully cleared",
+          full: "Storage has been successfully cleared"
+        }
+      },
+      mapFilter: {
+        title: "Map filter",
+        resetFilter: {
+          base: "RESET FILTER",
+          extend: ""
+        },
+        alert: {
+          short: "Map filter has been reset to default",
+          full: "Map filter has been reset to default"
+        }
+      },
+    },
+    maps: {
+      lijiang: "Lijiang Tower",
+      ilios: "Ilios",
+      nepal: "Nepal",
+      oasis: "Oasis",
+      busan: "Busan",
+      havana: "Havana",
+      junkertown: "Junkertown",
+      monaco: "Curcuit Royale",
+      dorado: "Dorado",
+      rialto: "Rialto",
+      gibraltar: "Watchpoint: Gibraltar",
+      route66: "Route 66",
+      blizzworld: "Blizzard World",
+      eichenwalde: "Eichenwalde",
+      hollywood: "Hollywood",
+      kingsrow: "King's Row",
+      midtown: "Midtown",
+      numbani: "Numbani",
+      volskaya: "Volskaya Industries",
+      horizon: "Horizon Lunar Colony",
+      paris: "Paris",
+      hanamura: "Hanamura",
+      anubis: "Temple of Anubis",
+      rome: "Colloseo",
+      toronto: "New Queen Street",
+    },
+    modes: {
+      hybrid: "Hybrid",
+      control: "Control",
+      assault: "Assault",
+      escort: "Escort",
+      push: "Push",
+    }
+  },
+  ru: {
+    general: {
+      close: "ЗАКРЫТЬ",
+      nextMap: "Следующая карта:",
+      errors: {
+        title: "ОШИБКА",
+        rosterNotEven: "Нечётное количество игроков: невозможно честно разделить игроков по командам.",
+        rosterEmpty: "Невозможно разделить игроков по командам: список игроков пуст.",
+        mapPoolEmpty: "Пул карт, отмеченных для случайного выбора, пуст.",
+      },
+    },
+    input: {
+      placeholder: " Введите ник игрока...",
+      alerts: {
+        rosterExceded: "Лимит игроков в OVERWATCH превышен (максимум 12 игроков).",
+        duplicateFound: ({ named }) => `рок с именем "${named('name')}" уже существует`
+      }
+    },
+    settings: {
+      navButton: "НАСТРОЙКИ",
+      ls: {
+        title: 'Локальное хранилище',
+        clearCache: {
+          base: "ОЧИСТИТЬ",
+          extend: "&nbsp;КЭШ"
+        },
+        exist: "(имеются сохр. данные)",
+        alert: {
+          short: "Хранилище успешно очищено",
+          full: "Локальное хранилище успешно очищено"
+        }
+      },
+      mapFilter: {
+        title: "Фильтр карт",
+        resetFilter: {
+          base: "СБРОСИТЬ",
+          extend: "&nbsp;ФИЛЬТР"
+        },
+        alert: {
+          short: "Фильтр успешно сброшен",
+          full: "Фильтр карт успешно сброшен"
+        }
+      },
+    },
+    maps: {
+      lijiang: "Башня Лицзянь",
+      ilios: "Илиос",
+      nepal: "Непал",
+      oasis: "Оазис",
+      busan: "Пусан",
+      havana: "Гавана",
+      junkertown: "Джанкертаун",
+      monaco: "Королевская трасса",
+      dorado: "Дорадо",
+      rialto: "Риальто",
+      gibraltar: "Пункт наблюдения: Гибралтар",
+      route66: "Шоссе 66",
+      blizzworld: "Blizzard World",
+      eichenwalde: "Айхенвальд",
+      hollywood: "Голливуд",
+      kingsrow: "Кингс Роу",
+      midtown: "Мидтаун",
+      numbani: "Нумбани",
+      volskaya: "КБ Вольской",
+      horizon: "Лунная колония \"Горизонт\"",
+      paris: "Париж",
+      hanamura: "Ханамура",
+      anubis: "Храм Анубиса",
+      rome: "Коллизей",
+      toronto: "Нью Квин Стрит",
+    },
+    modes: {
+      hybrid: "Гибридный режим",
+      control: "Контроль точки",
+      assault: "Захват точек",
+      escort: "Эскорт",
+      push: "Натиск",
+    }
+  }
+}
+
+const i18n = VueI18n.createI18n({
+  locale: navigator.language,
+  availableLocales: ['ru', 'en'],
+  fallbackLocale: {
+    'default': ['en']
+  },
+  silentTranslationWarn: true,
+  silentFallbackWarn: true,
+  messages,
+})
+
 const app = Vue.createApp({
   el: "#app",
   data() {
@@ -6,12 +178,12 @@ const app = Vue.createApp({
       counter: 0,
       teamRed: [],
       teamBlue: [],
+      locale: undefined,
       playerList: undefined,
       alertInput: false,
       alertModalMessage: undefined,
       alertInputMessage: undefined,
       mapList: undefined,
-      mapNames: undefined,
       mapModes: undefined,
       mapFilter: undefined,
       currentMap: undefined,
@@ -21,11 +193,10 @@ const app = Vue.createApp({
       settingsEventListeners: undefined
     }
   },
-  mounted() { },
   created() {
     this.setMapList()
-    this.setMapNames()
     this.setMapFilter()
+    this.setLocale()
     this.loadPlayersFromLocalStorage()
   },
   props: [
@@ -56,12 +227,9 @@ const app = Vue.createApp({
       // console.log("MAPS",this.mapList.map(x => this.mapNames[x.id]))
     },
     setMapModes() {
-      newModes = new Object()
-      this.mapList
+      this.mapModes = Object.create(this.mapList
         .map(({ mode }) => mode)
-        .filter(function (item, pos, self) { return self.indexOf(item) == pos })
-        .forEach(function (value) { newModes[value] = mapModes[value] })
-      this.mapModes = newModes
+        .filter(function (item, pos, self) { return self.indexOf(item) == pos }))
       // console.log("MODES", this.mapModes)
     },
     setMapFilter() {
@@ -70,8 +238,12 @@ const app = Vue.createApp({
       else this.mapFilter = mapList.reduce((prev, cur) => ({ ...prev, [cur.id]: true }), {})
       // console.log("FILTERS", this.mapFilter)
     },
-    setMapNames() {
-      this.mapNames = mapNames
+    setLocale() {
+      if (navigator.language == undefined) {
+        this.locale = navigator.languages[1]
+      }
+      else this.locale = navigator.language
+      // console.warn("LOCALE", this.locale)
     },
     getMapsByMode(mode) {
       if (!!mode) return this.mapList.filter(x => x.mode == mode)
@@ -88,14 +260,14 @@ const app = Vue.createApp({
           }
           else if (dupItem != undefined) {
             dupName = this.playerList[this.playerList.findIndex(x => name.toLowerCase() == x.name.toLowerCase())].name
-            msg = `Игрок с именем "${dupName}" уже существует`
+            msg = this.$t('input.alerts.duplicateFound', { name: dupName })
             this.toggleAlertInput(msg)
             console.warn(`Duplicate found: ${dupName}`)
           }
           else if (this.playerList.length >= 12) {
-            msg = "Лимит игроков в Overwatch превышен (максимум 12 игроков)"
+            msg = this.$t(`input.alerts.rosterExceded`)
             this.toggleAlertInput(msg)
-            console.warn("Overwatch player limit has been exceded (12 players maximum)")
+            console.warn("OVERWATCH player limit has been exceded (12 players maximum)")
           }
         }
       }
@@ -142,16 +314,16 @@ const app = Vue.createApp({
         this.pickRandomMap()
         if (!!this.currentMap) this.togglePlayerModal(true)
         else {
-          this.toggleAlertModal(true, "Пул карт, отмеченных для случайного выбора, пуст.")
+          this.toggleAlertModal(true, this.$t('general.errors.emptyMapPool'))
           console.warn("Map pool is empty")
         }
       }
       else if (this.playerList.length % 2 != 0) {
-        this.toggleAlertModal(true, "Нечётное количество игроков: невозможно честно разделить игроков по командам.")
+        this.toggleAlertModal(true, this.$t('general.errors.rosterNotEven'))
         console.warn("Roster is not even")
       }
       else if (this.playerList.length == 0) {
-        this.toggleAlertModal(true, "Невозможно разделить игроков по командам: список игроков пуст.")
+        this.toggleAlertModal(true, this.$t('general.errors.rosterEmpty'))
         console.warn("Roster is empty")
       }
     },
@@ -163,7 +335,7 @@ const app = Vue.createApp({
     toggleSettingsModal(opt) {
       if (this.settingsEventListeners == undefined) {
         this.settingsEventListeners = new Object
-        Object.entries(this.mapModes).forEach(([mode, name]) => {
+        Object.entries(this.mapModes).forEach((mode) => {
           this.settingsEventListeners[mode] = document.getElementById(`collapse-${mode}`)
           this.settingsEventListeners[mode].addEventListener('show.bs.collapse', function () {
             document.getElementById(`chevron-${mode}`).classList.replace('bi-chevron-down', 'bi-chevron-up')
@@ -229,42 +401,6 @@ const app = Vue.createApp({
     },
   }
 })
-
-const mapModes = {
-  hybrid: "Гибридный режим",
-  control: "Контроль точки",
-  assault: "Захват точек",
-  escort: "Эскорт",
-  push: "Натиск",
-}
-
-const mapNames = {
-  lijiang: "Башня Лицзянь",
-  ilios: "Илиос",
-  nepal: "Непал",
-  oasis: "Оазис",
-  busan: "Пусан",
-  havana: "Гавана",
-  junkertown: "Джанкертаун",
-  monaco: "Королевская трасса",
-  dorado: "Дорадо",
-  rialto: "Риальто",
-  gibraltar: "Пункт наблюдения: Гибралтар",
-  route66: "Шоссе 66",
-  blizzworld: "Blizzard World",
-  eichenwalde: "Айхенвальд",
-  hollywood: "Голливуд",
-  kingsrow: "Кингс Роу",
-  midtown: "Мидтаун",
-  numbani: "Нумбани",
-  volskaya: "КБ Вольской",
-  horizon: "Лунная колония \"Горизонт\"",
-  paris: "Париж",
-  hanamura: "Ханамура",
-  anubis: "Храм Анубиса",
-  rome: "Коллизей",
-  toronto: "Нью Квин Стрит",
-}
 
 const mapList = [
   {
@@ -444,5 +580,6 @@ const mapList = [
   }
 ]
 
+app.use(i18n)
 app.mount("#app")
 
