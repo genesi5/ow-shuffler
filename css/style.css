@@ -18,12 +18,16 @@
   font-style: italic;
 }
 
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 40px;
-  background: #ffffff;
+@media (max-width: 575.98px) {
+  .player-list-margin {
+    margin-top: 45px !important;
+    margin-bottom: 40px !important;
+  }
+}
+
+.player-list-margin {
+  margin-top: 80px;
+  margin-bottom: 75px;
 }
 
 .player-roster {
@@ -54,6 +58,16 @@ footer {
 
 .input-alert-enter-from,
 .input-alert-leave-to {
+  opacity: 0;
+}
+
+.settings-status-enter-active,
+.settings-status-leave-active {
+  transition: opacity 1s;
+}
+
+.settings-status-enter-from,
+.settings-status-leave-to {
   opacity: 0;
 }
 
@@ -100,9 +114,6 @@ footer {
 
 .player-list {
   color: #585858 !important;
-  /* color: #fdfdfd !important; */
-  /* text-shadow: #000000 1px 1px 5px; */
-  /* text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000; */
 }
 
 .btn-ow {
@@ -129,4 +140,8 @@ footer {
 
 .opac {
   opacity: 0.9 !important;
+}
+
+.opac p a button {
+  opacity: 1;
 }

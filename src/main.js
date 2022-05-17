@@ -2,12 +2,11 @@ const app = Vue.createApp({
   el: "#app",
   data() {
     return {
-      appVersion: "0.1.1",
+      shufflerVersion: "0.1.2",
       counter: 0,
       teamRed: [],
       teamBlue: [],
       playerList: undefined,
-      beta: undefined,
       alertInput: false,
       alertModalMessage: undefined,
       alertInputMessage: undefined,
@@ -17,17 +16,14 @@ const app = Vue.createApp({
       mapFilter: undefined,
       currentMap: undefined,
       localStorageAlert: undefined,
+      localStorageStatus: undefined,
+      mapFilterAlert: undefined,
+      settingsEventListeners: undefined
     }
   },
-  mounted() {
-    if ((new Date(Date.UTC(2022, 4, 17)).getTime() - new Date(Date.now()).getTime()) > 0) this.setVersion(true)
-    else {
-      this.setVersion(false)
-      document.getElementById("versionSwitcher").remove()
-      console.warn("Overwatch 2 Beta is over")
-    }
-  },
+  mounted() { },
   created() {
+    this.setMapList()
     this.setMapNames()
     this.setMapFilter()
     this.loadPlayersFromLocalStorage()
@@ -46,16 +42,6 @@ const app = Vue.createApp({
     },
   },
   methods: {
-    setVersion(beta) {
-      this.beta = beta
-      this.setMapList()
-
-      const playerLimit = (beta) ? 10 : 12
-      if (this.playerList != undefined) {
-        if (this.playerList.length > playerLimit) this.playerList = this.playerList.slice(0, playerLimit)
-      }
-      console.info("Switched to Overwatch %smode", (this.beta) ? "2 Beta " : "")
-    },
     loadPlayersFromLocalStorage() {
       pls = JSON.parse(window.localStorage.getItem("playerList"))
       if (pls != null) {
@@ -65,9 +51,7 @@ const app = Vue.createApp({
       else this.playerList = []
     },
     setMapList() {
-      this.mapList = (this.beta)
-        ? Object.create(mapList.filter(x => !x.deprecated))
-        : Object.create(mapList.filter(x => x.legacy))
+      this.mapList = Object.create(mapList.filter(x => x.legacy))
       this.setMapModes()
       // console.log("MAPS",this.mapList.map(x => this.mapNames[x.id]))
     },
@@ -93,11 +77,11 @@ const app = Vue.createApp({
       if (!!mode) return this.mapList.filter(x => x.mode == mode)
     },
     addPlayer(name) {
-      const playerLimit = (this.beta) ? 10 : 12
       if (!!name) {
         if (this.playerList) {
           dupItem = this.playerList.find(x => name.toLowerCase() == x.name.toLowerCase())
-          if (dupItem == undefined && this.playerList.length < playerLimit) {
+          if (dupItem == undefined && this.playerList.length < 12) {
+            document.getElementById('playerInput').value = ''
             newPlayer = { id: this.counter++, name: name }
             this.playerList.push(newPlayer)
             // console.info("ADDED", newPlayer)
@@ -108,11 +92,10 @@ const app = Vue.createApp({
             this.toggleAlertInput(msg)
             console.warn(`Duplicate found: ${dupName}`)
           }
-          else if (this.playerList.length >= playerLimit) {
-            const ver = (this.beta) ? "2 Beta " : ""
-            msg = `Лимит игроков в Overwatch ${ver}превышен (максимум ${playerLimit} игроков)`
+          else if (this.playerList.length >= 12) {
+            msg = "Лимит игроков в Overwatch превышен (максимум 12 игроков)"
             this.toggleAlertInput(msg)
-            console.warn(`Overwatch ${ver}player limit has been exceded (${playerLimit} players maximum)`)
+            console.warn("Overwatch player limit has been exceded (12 players maximum)")
           }
         }
       }
@@ -127,8 +110,23 @@ const app = Vue.createApp({
         }
       }
     },
+    pickRandomMap() {
+      newMaps = Object.create(this.mapList.filter(x => this.mapFilter[x.id]))
+      this.currentMap = newMaps[Math.floor(Math.random() * newMaps.length)]
+      // console.info("CURRENT MAP", this.currentMap)
+    },
+    resetMapFilter() {
+      this.mapFilter = Object.fromEntries(Object.keys(this.mapFilter).map((key) => [key, true]))
+      this.mapFilterAlert = true
+      setTimeout(() => {
+        this.mapFilterAlert = false
+      }, 3000)
+    },
+    uppercase(string) {
+      if (!string) return ''
+      return string.toUpperCase()
+    },
     shuffleTeams() {
-      console.log
       if (this.playerList.length != 0 && this.playerList.length % 2 == 0) {
         list = Object.create(this.playerList)
         var randomIndex, currentIndex = list.length, half = Math.ceil(list.length / 2);
@@ -139,8 +137,8 @@ const app = Vue.createApp({
         }
         this.teamRed = list.slice(0, half)
         this.teamBlue = list.slice(-half)
-        // console.info(this.teamRed.map(x => x.name))
-        // console.info(this.teamBlue.map(x => x.name))
+        // console.info('TEAM RED', this.teamRed.map(x => x.name))
+        // console.info('TEAM BLUE', this.teamBlue.map(x => x.name))
         this.pickRandomMap()
         if (!!this.currentMap) this.togglePlayerModal(true)
         else {
@@ -157,17 +155,25 @@ const app = Vue.createApp({
         console.warn("Roster is empty")
       }
     },
-    pickRandomMap() {
-      newMaps = Object.create(this.mapList.filter(x => this.mapFilter[x.id]))
-      this.currentMap = newMaps[Math.floor(Math.random() * newMaps.length)]
-      // console.info("CURRENT MAP", this.currentMap)
-    },
     togglePlayerModal(opt) {
       playerModal = new bootstrap.Modal(document.getElementById('shuffleResult'))
       if (opt) playerModal.show()
       else playerModal.hide()
     },
     toggleSettingsModal(opt) {
+      if (this.settingsEventListeners == undefined) {
+        this.settingsEventListeners = new Object
+        Object.entries(this.mapModes).forEach(([mode, name]) => {
+          this.settingsEventListeners[mode] = document.getElementById(`collapse-${mode}`)
+          this.settingsEventListeners[mode].addEventListener('show.bs.collapse', function () {
+            document.getElementById(`chevron-${mode}`).classList.replace('bi-chevron-down', 'bi-chevron-up')
+          })
+          this.settingsEventListeners[mode].addEventListener('hide.bs.collapse', function () {
+            document.getElementById(`chevron-${mode}`).classList.replace('bi-chevron-up', 'bi-chevron-down')
+          })
+        })
+      }
+      this.updateLocalStorageStatus()
       settingsModal = new bootstrap.Modal(document.getElementById('settings'))
       if (opt) settingsModal.show()
       else settingsModal.hide()
@@ -190,30 +196,36 @@ const app = Vue.createApp({
         this.alertInput = false
       }, 3000)
     },
-    uppercase(string) {
-      if (!string) return ''
-      return string.toUpperCase()
+    updateLocalStorageStatus() {
+      if (window.localStorage.getItem("mapFilter") || window.localStorage.getItem("playerList")) this.localStorageStatus = true
+      else this.localStorageStatus = false
     },
     updateLocalStorage(obj) {
       switch (obj) {
         case "mapFilter":
           // console.log(`Updated ${obj}`, this.mapFilter)
           window.localStorage.setItem("mapFilter", JSON.stringify(this.mapFilter))
+          this.updateLocalStorageStatus()
           break
         case "playerList":
           // console.log(`Updated ${obj}`, this.playerList)
-          (this.playerList.length != 0)
-            ? window.localStorage.setItem("playerList", JSON.stringify(this.playerList))
-            : window.localStorage.removeItem("playerList")
+          if (this.playerList.length != 0) {
+            window.localStorage.setItem("playerList", JSON.stringify(this.playerList))
+            this.updateLocalStorageStatus()
+          }
+          else window.localStorage.removeItem("playerList")
           break
       }
     },
     clearLocalStorage() {
-      window.localStorage.clear()
-      this.localStorageAlert = true
-      setTimeout(() => {
-        this.localStorageAlert = false
-      }, 3000)
+      if (this.localStorageStatus) {
+        window.localStorage.clear()
+        this.localStorageStatus = false
+        this.localStorageAlert = true
+        setTimeout(() => {
+          this.localStorageAlert = false
+        }, 3000)
+      }
     },
   }
 })

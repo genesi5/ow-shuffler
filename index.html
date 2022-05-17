@@ -22,51 +22,56 @@
 <body class="bgm-img">
   <div id="app">
 
-    <header>
-      <nav class="navbar navbar-expand-lg opac navbar-light bg-light">
-        <div class="container-fluid">
-          <div class="col-4 d-flex align-items-end navbar-title ">
+    <div class="container">
+      <header>
+        <nav class="navbar navbar-expand-lg bg-light fixed-top navbar-light ">
+          <div class="col-4 d-flex align-items-end navbar-title  ps-3">
             <img class="navbar-brand d-inline-block align-text-top me-2" width="50" src="./src/img/icon.png">
-            <p class="ow-font-bold mb-0 h4">OVERWATCH</br>TEAM SHUFFLER</p>
-            <p class="ow-font-middle ms-2 mb-0 fs-6">ver. {{appVersion}}</p>
-
+            <p class="d-none d-md-block ow-font-bold mb-0 h4">OVERWATCH</br>TEAM SHUFFLER</p>
+            <p class="d-none d-md-block ow-font-middle ms-2 mb-0 fs-6">ver. {{shufflerVersion}}</p>
 
           </div>
           <div class="col-4 d-flex justify-content-center">
-            <button class="btn btn-outline-warning btn-ow justify-content-center btn-lg ow-font-bold pb-0"
+            <button
+              class="btn btn-lg btn-outline-warning btn-ow justify-content-center align-items-stretch ow-font-bold pb-0"
               v-on:click="shuffleTeams">
-              <p class="h3">SHUFFLE!</p>
+              <p class="d-none d-sm-block h3">SHUFFLE!</p>
+              <p class="d-sm-none h1 mb-2">SHUFFLE!</p>
             </button>
           </div>
-          <div class="col-4 d-flex justify-content-end">
-            <button class="btn btn-outline-warning btn-ow justify-content-center btn-lg ow-font-bold pb-0"
+          <div class="col-4 d-flex justify-content-end pe-3">
+            <button
+              class="btn btn-lg btn-outline-warning btn-ow justify-content-between align-items-stretch ow-font-bold pb-0"
               v-on:click="toggleSettingsModal(true)">
-              <p class="h3">НАСТРОЙКИ</p>
+              <p class="d-none d-sm-block h3">НАСТРОЙКИ</p>
+              <p class="d-sm-none bi-gear-fill mb-2 pt-1 h1" />
             </button>
           </div>
-        </div>
-      </nav>
-    </header>
+        </nav>
+      </header>
+    </div>
 
-    <div class="container">
+    <div class="container player-list-margin">
       <div class="row justify-content-center">
-        <div class="col-6">
-          <div class="input-group opac mt-5 mb-2">
-            <input type="text" style="font-size: 1.5rem;" class="form-control ow-font-middle"
-              placeholder=" Добавить игрока..." v-bind:value='inputName' v-on:keyup.enter="addPlayer($event.target.value)">
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6">
+          <div class="input-group opac mt-5">
+            <input type="text" style="font-size: 1.5rem;" id="playerInput" class="form-control ow-font-middle"
+              placeholder=" Добавить игрока..." v-bind:value='inputName'
+              v-on:keyup.enter="addPlayer($event.target.value)">
           </div>
 
           <transition name="input-alert" mode="out-in">
-            <div class="alert alert-warning d-flex align-items-center" v-if="alertInput" role="alert">
-              <p class="bi-exclamation-triangle-fill mb-0 h5"></p>
-              <p class="ow-font-middle h5 ms-2 mb-0" id="alertInputMessage">{{alertInputMessage}}</p>
+            <div class="alert alert-warning d-flex align-items-center" id="alertInputMessage" v-if="alertInput"
+              role="alert">
+              <p class="bi-exclamation-triangle-fill mb-0 h5" />
+              <p class="ow-font-middle h5 ms-2 mb-0">{{alertInputMessage}} </p>
             </div>
           </transition>
 
           <transition-group name="list" class="list-group player-roster mb-5" tag="ul">
             <li class="list-group-item opac d-flex justify-content-between align-items-center text-break panel"
               v-for="item in playerList" :key="item.id">
-              <p class="mb-0 ow-font-bold h4">{{uppercase(item.name)}}</p>
+              <p class="mb-0 ow-font-bold h4" style="color: #585858 !important">{{uppercase(item.name)}}</p>
               <button class="btn-close" v-on:click="delPlayer(item.id)"></button>
             </li>
           </transition-group>
@@ -80,6 +85,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title ow-font-bold h4" id="exampleModalLabel">ОШИБКА</h5>
+            <button type="button" class="btn-close d-sm-none" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body ow-font-middle h4">{{alertModalMessage}}</div>
           <div class="modal-footer">
@@ -94,43 +100,58 @@
       <div class="modal-dialog modal-lg ">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title ow-font-bold h4" id="exampleModalLabel">НАСТРОЙКИ</h5>
+            <h5 class="modal-title ow-font-bold h4">НАСТРОЙКИ</h5>
+            <button type="button" class="btn-close d-sm-none" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
 
-          <div class="modal-body">
-            <div class="row mb-3" id="versionSwitcher">
+          <div class="modal-body" style="overflow-y: auto;overflow-x: hidden;">
+
+            <!-- <div class="row mb-3" id="versionSwitcher">
               <p class="ow-font-bold h4">Версия игры</p>
-              <div class="col-6">
+              <div class="col-12 col-lg-6">
                 <div class="btn-group ow-font-bold" id="versionSwitch" role="group">
                   <input type="radio" class="btn-check">
-                  <label class="btn btn-outline-warning btn-ow pb-0" v-bind:class="{active: !beta}"
-                    v-on:click="setVersion(false)">
-                    <p class="h3">OVERWATCH</p>
-                  </label>
-                  <input type="radio" class="btn-check">
-                  <label class="btn btn-outline-warning btn-ow pb-0" v-bind:class="{active: beta}"
-                    v-on:click="setVersion(true)">
-                    <p class="h3">OVERWATCH 2 BETA</p>
-                  </label>
-                </div>
-              </div>
-              <hr class="mt-4 mb-0">
+                  <label class="btn btn-sm btn-outline-warning btn-ow pb-0" v-bind:class="{active: !beta}"
+                  v-on:click="setVersion(false)">
+                  <p class="mb-0 pb-1 h4">OVERWATCH</p>
+                </label>
+                <input type="radio" class="btn-check">
+                <label class="btn btn-sm btn-outline-warning btn-ow pb-0" v-bind:class="{active: beta}"
+                v-on:click="setVersion(true)">
+                <p class="mb-0 pb-1 h4">OVERWATCH 2 BETA</p>
+              </label>
             </div>
+          </div>
+          <hr class="mt-4 mb-0">
+        </div> -->
 
             <div class="row mb-3">
-              <p class="ow-font-bold h4">Локальное хранилище</p>
-              <div class="col-4">
+              <div class="d-flex align-items-center">
+                <p class="ow-font-bold h4">Локальное хранилище</p>
+                <transition name="input-alert" style="transition: opacity .5s" mode="out-in">
+                  <div v-if="localStorageStatus">
+                    <p class="ow-font-middle h6 ms-2 ">(имеются сохр. данные)</p>
+                  </div>
+                </transition>
+              </div>
+              <div class="col-4 col-lg-3">
                 <div class="btn-group ow-font-bold" role="group">
-                  <button class="btn btn-outline-warning btn-ow justify-content-center btn-lg ow-font-bold pb-0"
+                  <button class="btn btn-sm btn-outline-warning btn-ow d-flex justify-content-center ow-font-bold pb-0"
                     v-on:click="clearLocalStorage">
-                    <p class="h3">ОЧИСТИТЬ КЭШ</p>
+                    <p class="mb-0 pb-1 h4">ОЧИСТИТЬ</p>
+                    <p class="d-none d-sm-block mb-0 pb-1 h4">&nbsp;КЭШ</p>
                   </button>
                 </div>
               </div>
-              <div class="col-6" >
-                <transition name="input-alert" mode="out-in">
-                  <div class="alert alert-success d-flex align-items-center p-2 mb-0" v-if="localStorageAlert" role="alert">
-                    <p class="ow-font-middle h5 mb-0" id="settingsAlert">Локальное хранилище успешно очищено</p>
+              <div class="col-8 col-sm-8 col-md-8 col-lg-6">
+                <transition name="settings-status" mode="out-in">
+                  <div class="alert alert-success justify-content-start p-1 mb-0" v-if="localStorageAlert" role="alert">
+                    <h5 class="d-none d-sm-block ow-font-middle text-center p-0 m-0">
+                      Хранилище успешно очищено
+                    </h5>
+                    <h6 class="d-sm-none ow-font-middle text-center p-0 m-0">
+                      Хранилище успешно очищено
+                    </h6>
                   </div>
                 </transition>
               </div>
@@ -139,16 +160,47 @@
 
             <div class="row mb-3">
               <p class="ow-font-bold h4">Фильтр карт</p>
-              <div class="col-6 mb-3" v-for="(modeValue, modeKey) in mapModes">
-                <p class="ow-font-middle h4">{{modeValue}}</p>
-                <ul class="list-group list-group-flush">
-                  <li
-                    class="list-group-item ow-font-middle justify-content-between align-items-center text-break li-no-ul"
+              <div class="col-4 col-xs-6 col-sm-4 col-md-4 col-lg-3">
+                <div class="btn-group ow-font-bold" role="group">
+                  <button class="btn btn-sm btn-outline-warning btn-ow d-flex ow-font-bold pb-0"
+                    v-on:click="resetMapFilter">
+                    <p class="mb-0 pb-1 h4">СБРОСИТЬ</p>
+                    <p class="d-none d-sm-block mb-0 pb-1 h4">&nbsp;ФИЛЬТР</p>
+                  </button>
+                </div>
+              </div>
+              <div class="col-8 col-sm-8 col-md-8 col-lg-6">
+                <transition name="settings-status" mode="out-in">
+                  <div class="alert alert-success justify-content-start p-1 mb-0" v-if="mapFilterAlert" role="alert">
+                    <h5 class="d-none d-sm-block ow-font-middle text-center p-0 m-0">Фильтр успешно сброшен</h5>
+                    <h6 class="d-sm-none ow-font-middle text-center p-0 m-0">Фильтр успешно сброшен</h6>
+                  </div>
+                </transition>
+              </div>
+            </div>
+            <div class="row mb-0">
+              <div class="col-12 col-lg-6 mb-3" v-for="(modeValue, modeKey) in mapModes">
+                <div class="d-flex" data-bs-toggle="collapse" :id="`block-`+modeKey" :href="`#collapse-`+modeKey">
+                  <p class="ow-font-middle h4">{{modeValue}}</p>
+                  <p class="d-lg-none h3 ps-2 mb-0 bi-chevron-down" :id="`chevron-`+modeKey" />
+                </div>
+                <ul class="d-lg-none list-group list-group-flush collapse" :id="`collapse-`+modeKey">
+                  <li class="list-group-item ow-font-middle align-items-center text-break li-no-ul"
                     v-for="item in getMapsByMode(modeKey)">
                     <div class="form-check form-switch">
                       <input class="form-check-input" type="checkbox" v-model="mapFilter[item.id]"
                         v-on:click="mapFilter[item.id]=!mapFilter[item.id]">
-                      <label class="form-check-label h5 mb-0" for="flexSwitchCheckDefault">{{mapNames[item.id]}}</label>
+                      <label class="form-check-label h5 mb-0">{{mapNames[item.id]}}</label>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="d-none d-lg-block list-group list-group-flush">
+                  <li class="list-group-item ow-font-middle align-items-center text-break li-no-ul"
+                    v-for="item in getMapsByMode(modeKey)">
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" v-model="mapFilter[item.id]"
+                        v-on:click="mapFilter[item.id]=!mapFilter[item.id]">
+                      <label class="form-check-label h5 mb-0">{{mapNames[item.id]}}</label>
                     </div>
                   </li>
                 </ul>
@@ -170,53 +222,86 @@
           <div class="modal-body">
             <div class="container-fluid" v-if="teamRed.length != 0 && teamBlue.length != 0">
               <div class="row justify-content-center">
-                <div class="col-6">
-                  <p class="ow-font-bold team-blue text-end h1" v-if="teamBlue.length != 0 || teamBlue != undefined">TEAM BLUE</p>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 "
+                  v-if="teamBlue.length != 0 || teamBlue != undefined">
+                  <p class="d-none d-lg-block ow-font-bold team-blue text-end h1">TEAM BLUE</p>
+                  <p class="d-lg-none ow-font-bold team-blue text-start h1">TEAM BLUE</p>
                   <hr class="mb-0 mt-0">
-                  <ul class="list-group list-group-flush text-end">
-                    <li class="list-group-item ow-font-bold player-list pb-0 pt-0 mb-0 h1" v-for="item in teamBlue">
-                      {{uppercase(item.name)}}</li>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item ow-font-bold player-list pb-0 pt-0" v-for="item in teamBlue">
+                      <p class="d-none d-lg-block text-end pb-0 pt-0 mb-0 h1">{{uppercase(item.name)}}</p>
+                      <p class="d-lg-none text-start pb-0 pt-0 mb-0 h1">{{uppercase(item.name)}}</p>
+                    </li>
                   </ul>
                 </div>
-                <div class="col-6">
-                  <p class="ow-font-bold team-red text-start h1" v-if="teamRed.length != 0 || teamRed != undefined">TEAM RED</p>
+                <div class="col-12 d-md-none" style="height: 15px;"></div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 "
+                  v-if="teamRed.length != 0 || teamRed != undefined">
+                  <p class="d-none d-lg-block ow-font-bold team-red text-start h1">TEAM RED</p>
+                  <p class="d-lg-none ow-font-bold team-red text-end h1">TEAM RED</p>
                   <hr class="mb-0 mt-0">
-                  <ul class="list-group list-group-flush text-start">
-                    <li class="list-group-item ow-font-bold player-list pb-0 pt-0 mb-0 h1" v-for="item in teamRed">
-                      {{uppercase(item.name)}}</li>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item ow-font-bold player-list pb-0 pt-0" v-for="item in teamRed">
+                      <p class="d-none d-lg-block text-start pb-0 pt-0 mb-0 h1">{{uppercase(item.name)}}</p>
+                      <p class="d-lg-none text-end pb-0 pt-0 mb-0 h1">{{uppercase(item.name)}}</p>
+                    </li>
                   </ul>
                 </div>
               </div>
               <hr>
+
               <!-- придумать, как запихивать картинки в бэкграунд -->
               <div class="row justify-content-center" v-if="currentMap">
                 <div class="col-6 text-end">
                   <p class="h4 ow-font-middle">Слeдующая карта:</p>
                 </div>
                 <div class="clearfix col-6 text-start">
-                  <p class="h2 ow-font-bold player-list lh-1 mb-0">{{mapNames[currentMap.id]}}</p>
+                  <p class="d-none d-md-block h2 ow-font-bold player-list lh-1 mb-0">{{mapNames[currentMap.id]}}</p>
+                  <p class="d-md-none h4 ow-font-bold player-list lh-1 mb-0">{{mapNames[currentMap.id]}}</p>
                   <p class="fs-6 ow-font-middle">{{mapModes[currentMap.mode]}}</p>
                 </div>
               </div>
             </div>
             <div class="modal-footer">
-              <div class="col-4"></div>
+              <div class="col-xs-2 col-sm-2"></div>
+
               <button type="button" class="btn btn-outline-warning btn-ow col ow-font-bold h3"
                 data-bs-dismiss="modal">ЗАКРЫТЬ</button>
-              <div class="col-4"></div>
+
+              <div class="col-xs-2 col-sm-2"></div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <footer class="footer opac">
-      <div class="container text-nowrap no-wrap ow-font-bold mb-0 mt-2">
-        <p>created by genesi5</p>
-      </div>
-    </footer>
-  </div>
+    <div class="container">
+      <footer class="d-flex flex-wrap justify-content-between align-items-center py-2 fixed-bottom bg-light">
+        <div class="col-8 d-flex ps-2 me-0 align-items-center">
+          <img src="src/img/icon.png" class="ps-2" style="height:30px;">
+          <p class="ow-font-middle text-muted lh-1 m-1 pe-2">2022 CREATED BY GENESI5</br>OVERWATCH © 2022 BLIZZARD</p>
+        </div>
+        <ul class="col-4 justify-content-end align-items-center m-0 list-unstyled text-muted d-flex pe-2">
+          <li class="m-2 mb-0">
+            <a class="text-decoration-none text-reset" href="https://github.com/genesi5">
+              <p class="bi-github h2"></p>
+            </a>
+          </li>
+          <!-- <li class="m-2 mb-0">
+            <a class="text-decoration-none text-reset" href="">
+              <p class="bi-instagram h2"></p>
+            </a>
+          </li>
+          <li class="m-2 mb-0">
+            <a class="text-decoration-none text-reset" href="">
+              <p class="bi-twitter h2"></p>
+            </a>
+          </li> -->
+        </ul>
 
+      </footer>
+    </div>
+  </div>
   <script type="text/javascript" src="src/main.js"></script>
 </body>
 
