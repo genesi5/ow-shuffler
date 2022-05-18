@@ -174,7 +174,7 @@ const app = Vue.createApp({
   el: "#app",
   data() {
     return {
-      shufflerVersion: "0.1.2",
+      shufflerVersion: "0.1.3",
       counter: 0,
       teamRed: [],
       teamBlue: [],
@@ -582,4 +582,3 @@ const mapList = [
 
 app.use(i18n)
 app.mount("#app")
-
