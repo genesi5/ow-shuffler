@@ -113,7 +113,7 @@
             <div class="row mb-3">
               <div class="d-flex align-items-center">
                 <p class="ow-font-bold h4">{{ $t('settings.ls.title') }}</p>
-                <transition name="input-alert" style="transition: opacity .5s" mode="out-in">
+                <transition name="settings-status" style="transition: opacity .5s" mode="out-in">
                   <div v-if="localStorageStatus">
                     <p class="ow-font-middle h6 ms-2 ">{{ $t('settings.ls.exist') }}</p>
                   </div>
@@ -310,7 +310,7 @@
         </ul>
       </footer>
     </div>
-    
+
   </div>
   <script type="text/javascript" src="src/main.js"></script>
 </body>
