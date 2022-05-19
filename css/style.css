@@ -51,16 +51,6 @@
   color: rgb(55, 101, 255);
 }
 
-.input-alert-enter-active,
-.input-alert-leave-active {
-  transition: opacity 1s;
-}
-
-.input-alert-enter-from,
-.input-alert-leave-to {
-  opacity: 0;
-}
-
 .settings-status-enter-active,
 .settings-status-leave-active {
   transition: opacity 1s;
@@ -71,26 +61,19 @@
   opacity: 0;
 }
 
-.list-enter-active {
-  transition: opacity 1s;
-}
-
+.list-enter-active,
 .list-leave-active {
-  position: absolute;
   transition: opacity 1s;
-}
-
-.list-enter-from,
-.list-leave-to {
-  opacity: 0;
 }
 
 .list-enter-from {
-  transform: translateY(50%);
+  transform: translateY(-100%);
+  opacity: 0;
 }
 
 .list-leave-to {
-  transform: translateX(300%);
+  transform: translateX(100%);
+  opacity: 0;
 }
 
 .panel {
@@ -125,6 +108,21 @@
 .btn-outline-warning.active {
   color: #ffffff !important;
   background-color: #e78b00 !important;
+}
+
+.gear {
+  color: #e78b00 !important;
+  font-size: 2.5rem;
+}
+
+.gear-enter-active,
+.gear-leave-active {
+  transition: opacity 0.5s;
+}
+
+.gear-enter-from,
+.gear-leave-to {
+  opacity: 1;
 }
 
 .form-check-input:checked {

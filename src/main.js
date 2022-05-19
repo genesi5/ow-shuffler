@@ -13,34 +13,22 @@ const messages = {
     input: {
       placeholder: " Enter player nickname...",
       alerts: {
-        rosterExceded: "OVERWATCH player limit has been exceded (12 players maximum).",
-        duplicateFound: ({ named }) => `Player with nickname "${named('name')}" is already exists`
+        rosterExceded: "Player limit has been exceded (12 players maximum).",
+        duplicateFound: "Player with nickname \"{0}\" is already exists"
       }
     },
     settings: {
       navButton: "SETTINGS",
       ls: {
         title: "Local storage",
-        clearCache: {
-          base: "CLEAR CACHE",
-          extend: ""
-        },
+        clearButton: "CLEAR CACHE",
         exist: "(cached data in storage)",
-        alert: {
-          short: "Storage has been successfully cleared",
-          full: "Storage has been successfully cleared"
-        }
+        alert: "Storage has been successfully cleared",
       },
       mapFilter: {
         title: "Map filter",
-        resetFilter: {
-          base: "RESET FILTER",
-          extend: ""
-        },
-        alert: {
-          short: "Map filter has been reset to default",
-          full: "Map filter has been reset to default"
-        }
+        resetButton: "RESET FILTER",
+        alert: "Map filter has been reset to default",
       },
     },
     maps: {
@@ -51,7 +39,7 @@ const messages = {
       busan: "Busan",
       havana: "Havana",
       junkertown: "Junkertown",
-      monaco: "Curcuit Royale",
+      monaco: "Curcuit Royal",
       dorado: "Dorado",
       rialto: "Rialto",
       gibraltar: "Watchpoint: Gibraltar",
@@ -92,34 +80,23 @@ const messages = {
     input: {
       placeholder: " Введите ник игрока...",
       alerts: {
-        rosterExceded: "Лимит игроков в OVERWATCH превышен (максимум 12 игроков).",
-        duplicateFound: ({ named }) => `рок с именем "${named('name')}" уже существует`
+        rosterExceded: "Лимит игроков превышен (максимум 12 игроков).",
+        duplicateFound: "Игрок с ником \"{0}\" уже существует"
       }
     },
     settings: {
       navButton: "НАСТРОЙКИ",
       ls: {
         title: 'Локальное хранилище',
-        clearCache: {
-          base: "ОЧИСТИТЬ",
-          extend: "&nbsp;КЭШ"
-        },
+        clearButton: "ОЧИСТИТЬ КЭШ",
         exist: "(имеются сохр. данные)",
-        alert: {
-          short: "Хранилище успешно очищено",
-          full: "Локальное хранилище успешно очищено"
-        }
+        alert: "Локальное хранилище успешно очищено"
+
       },
       mapFilter: {
         title: "Фильтр карт",
-        resetFilter: {
-          base: "СБРОСИТЬ",
-          extend: "&nbsp;ФИЛЬТР"
-        },
-        alert: {
-          short: "Фильтр успешно сброшен",
-          full: "Фильтр карт успешно сброшен"
-        }
+        resetButton: "СБРОСИТЬ ФИЛЬТР",
+        alert: "Фильтр карт успешно сброшен"
       },
     },
     maps: {
@@ -174,29 +151,26 @@ const app = Vue.createApp({
   el: "#app",
   data() {
     return {
-      shufflerVersion: "0.1.3",
+      shufflerVersion: "0.1.4",
       counter: 0,
       teamRed: [],
       teamBlue: [],
-      locale: undefined,
       playerList: undefined,
-      alertInput: false,
       alertModalMessage: undefined,
       alertInputMessage: undefined,
       mapList: undefined,
       mapModes: undefined,
       mapFilter: undefined,
       currentMap: undefined,
-      localStorageAlert: undefined,
       localStorageStatus: undefined,
-      mapFilterAlert: undefined,
-      settingsEventListeners: undefined
     }
   },
   created() {
     this.setMapList()
     this.setMapFilter()
-    this.setLocale()
+  },
+  mounted() {
+    this.setupEventHandlers()
     this.loadPlayersFromLocalStorage()
   },
   props: [
@@ -213,6 +187,24 @@ const app = Vue.createApp({
     },
   },
   methods: {
+    setupEventHandlers() {
+      // Map mode filter collapse
+      this.mapModes.forEach((mode) => {
+        document.getElementById(`collapse-${mode}`).addEventListener('show.bs.collapse', function () {
+          document.getElementById(`chevron-${mode}`).classList.replace('bi-chevron-down', 'bi-chevron-up')
+        })
+        document.getElementById(`collapse-${mode}`).addEventListener('hide.bs.collapse', function () {
+          document.getElementById(`chevron-${mode}`).classList.replace('bi-chevron-up', 'bi-chevron-down')
+        })
+      })
+      // XS settings icon switcher
+      document.getElementById('settingsButton').addEventListener('mouseenter', function () {
+        document.getElementById('settingsButton').classList.replace('bi-gear', 'bi-gear-fill')
+      })
+      document.getElementById('settingsButton').addEventListener('mouseleave', function () {
+        document.getElementById('settingsButton').classList.replace('bi-gear-fill', 'bi-gear')
+      })
+    },
     loadPlayersFromLocalStorage() {
       pls = JSON.parse(window.localStorage.getItem("playerList"))
       if (pls != null) {
@@ -238,13 +230,6 @@ const app = Vue.createApp({
       else this.mapFilter = mapList.reduce((prev, cur) => ({ ...prev, [cur.id]: true }), {})
       // console.log("FILTERS", this.mapFilter)
     },
-    setLocale() {
-      if (navigator.language == undefined) {
-        this.locale = navigator.languages[1]
-      }
-      else this.locale = navigator.language
-      // console.warn("LOCALE", this.locale)
-    },
     getMapsByMode(mode) {
       if (!!mode) return this.mapList.filter(x => x.mode == mode)
     },
@@ -260,7 +245,7 @@ const app = Vue.createApp({
           }
           else if (dupItem != undefined) {
             dupName = this.playerList[this.playerList.findIndex(x => name.toLowerCase() == x.name.toLowerCase())].name
-            msg = this.$t('input.alerts.duplicateFound', { name: dupName })
+            msg = this.$t('input.alerts.duplicateFound', [dupName])
             this.toggleAlertInput(msg)
             console.warn(`Duplicate found: ${dupName}`)
           }
@@ -288,15 +273,19 @@ const app = Vue.createApp({
       // console.info("CURRENT MAP", this.currentMap)
     },
     resetMapFilter() {
-      this.mapFilter = Object.fromEntries(Object.keys(this.mapFilter).map((key) => [key, true]))
-      this.mapFilterAlert = true
-      setTimeout(() => {
-        this.mapFilterAlert = false
-      }, 3000)
-    },
-    uppercase(string) {
-      if (!string) return ''
-      return string.toUpperCase()
+      if (Object.keys(this.mapFilter).some((key) => !this.mapFilter[key])) {
+        this.mapFilter = Object.fromEntries(Object.keys(this.mapFilter).map((key) => [key, true]))
+        mapFilterCollapse = {
+          lg: new bootstrap.Collapse("#collapseMapFilterAlertLg"),
+          sm: new bootstrap.Collapse("#collapseMapFilterAlertSm")
+        }
+        mapFilterCollapse.lg.show()
+        mapFilterCollapse.sm.show()
+        setTimeout(() => {
+          mapFilterCollapse.lg.hide()
+          mapFilterCollapse.sm.hide()
+        }, 3000)
+      }
     },
     shuffleTeams() {
       if (this.playerList.length != 0 && this.playerList.length % 2 == 0) {
@@ -308,8 +297,8 @@ const app = Vue.createApp({
           [list[currentIndex], list[randomIndex]] = [list[randomIndex], list[currentIndex]]
         }
         this.teamRed = list.slice(0, half)
-        this.teamBlue = list.slice(-half)
         // console.info('TEAM RED', this.teamRed.map(x => x.name))
+        this.teamBlue = list.slice(-half)
         // console.info('TEAM BLUE', this.teamBlue.map(x => x.name))
         this.pickRandomMap()
         if (!!this.currentMap) this.togglePlayerModal(true)
@@ -333,18 +322,6 @@ const app = Vue.createApp({
       else playerModal.hide()
     },
     toggleSettingsModal(opt) {
-      if (this.settingsEventListeners == undefined) {
-        this.settingsEventListeners = new Object
-        Object.entries(this.mapModes).forEach((mode) => {
-          this.settingsEventListeners[mode] = document.getElementById(`collapse-${mode}`)
-          this.settingsEventListeners[mode].addEventListener('show.bs.collapse', function () {
-            document.getElementById(`chevron-${mode}`).classList.replace('bi-chevron-down', 'bi-chevron-up')
-          })
-          this.settingsEventListeners[mode].addEventListener('hide.bs.collapse', function () {
-            document.getElementById(`chevron-${mode}`).classList.replace('bi-chevron-up', 'bi-chevron-down')
-          })
-        })
-      }
       this.updateLocalStorageStatus()
       settingsModal = new bootstrap.Modal(document.getElementById('settings'))
       if (opt) settingsModal.show()
@@ -363,9 +340,11 @@ const app = Vue.createApp({
     },
     toggleAlertInput(message) {
       this.alertInputMessage = message
-      this.alertInput = true
+      alertInputCollapse = new bootstrap.Collapse("#collapseInputAlert")
+      alertInputCollapse.show()
       setTimeout(() => {
-        this.alertInput = false
+        alertInputCollapse.hide()
+        this.alertInputMessage = undefined
       }, 3000)
     },
     updateLocalStorageStatus() {
@@ -392,10 +371,16 @@ const app = Vue.createApp({
     clearLocalStorage() {
       if (this.localStorageStatus) {
         window.localStorage.clear()
+        localStorageCollapse = {
+          lg: new bootstrap.Collapse("#collapseLocalStorageAlertLg"),
+          sm: new bootstrap.Collapse("#collapseLocalStorageAlertSm")
+        }
         this.localStorageStatus = false
-        this.localStorageAlert = true
+        localStorageCollapse.lg.show()
+        localStorageCollapse.sm.show()
         setTimeout(() => {
-          this.localStorageAlert = false
+          localStorageCollapse.lg.hide()
+          localStorageCollapse.sm.hide()
         }, 3000)
       }
     },
