@@ -23,7 +23,7 @@ const messages = {
         title: "Local storage",
         clearButton: "CLEAR CACHE",
         exist: "(cached data in storage)",
-        alert: "Storage has been successfully cleared",
+        alert: "Local storage has been successfully cleared",
       },
       mapFilter: {
         title: "Map filter",
@@ -303,7 +303,7 @@ const app = Vue.createApp({
         this.pickRandomMap()
         if (!!this.currentMap) this.togglePlayerModal(true)
         else {
-          this.toggleAlertModal(true, this.$t('general.errors.emptyMapPool'))
+          this.toggleAlertModal(true, this.$t('general.errors.mapPoolEmpty'))
           console.warn("Map pool is empty")
         }
       }
