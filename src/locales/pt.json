@@ -1,0 +1,79 @@
+{
+  "general": {
+    "close": "Fechar",
+    "nextMap": "Próximo mapa é:",
+    "errors": {
+      "title": "Erro",
+      "rosterNotEven": "Incapaz de atribuir jogadores de forma justa: lista não é mesmo.",
+      "rosterEmpty": "Não é possível atribuir jogadores: a lista está vazia.",
+      "mapPoolEmpty": "O pool de mapas selecionado para seleção aleatória está vazio."
+    }
+  },
+  "input": {
+    "placeholder": "Digite o apelido do jogador...",
+    "alerts": {
+      "rosterExceeded": "O limite do jogador foi excedido(máximo de 12 jogadores).",
+      "duplicateFound": "Jogador com apelido \"{0}\" já existe"
+    }
+  },
+  "settings": {
+    "navButton": "Configuracao","lang": {
+      "title": "Linguagem",
+      "langButton": "Selecione o idioma"      
+    },
+    "ls": {
+      "title": "Armazenamento Local",
+      "clearButton": "Limpar cache",
+      "exist": "(dados armazenados em cache)",
+      "alert": "O armazenamento Local foi limpo com sucesso"
+    },
+    "mapFilter": {
+      "title": "Filtro mapa",
+      "resetButton": "Redefinir filtro",
+      "alert": "O filtro de mapa foi redefinido para Padrão"
+    }
+  },
+  "maps": {
+    "lijiang": "Torre Lijiang",
+    "ilios": "Ilios",
+    "nepal": "Nepal",
+    "oasis": "Oásis",
+    "busan": "Busan",
+    "havana": "Havana",
+    "junkertown": "Junkertown",
+    "monaco": "Curcuit Royal",
+    "dorado": "Dorado",
+    "rialto": "Rialto",
+    "gibraltar": "Observatório: Gibraltar",
+    "route66": "Rota 66",
+    "blizzworld": "Blizzard World",
+    "eichenwalde": "Eichenwalde",
+    "hollywood": "Hollywood",
+    "kingsrow": "King's Row",
+    "midtown": "Midtown",
+    "numbani": "Numbani",
+    "volskaya": "Indústrias Volskaya",
+    "horizon": "Colônia Lunar Horizon",
+    "paris": "Paris",
+    "hanamura": "Hanamura",
+    "anubis": "Templo de Anúbis",
+    "rome": "Colloseo",
+    "toronto": "New Queen Street"
+  },
+  "modes": {
+    "hybrid": "Híbrido",
+    "control": "Controle",
+    "assault": "Ataque",
+    "escort": "Escolta",
+    "push": "Avanço"
+  },
+  "locales": {
+    "de": "Alemão (Deutsche)",
+    "en": "Inglês (English)",
+    "es": "Espanhol (Español)",
+    "fr": "Francês (Français)",
+    "it": "Italiano (Italiano)",
+    "pt": "Português",
+    "ru": "Russo (Русский)"
+  }
+}

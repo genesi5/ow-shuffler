@@ -1,0 +1,80 @@
+{
+  "general": {
+    "close": "Chiudere",
+    "nextMap": "La prossima mappa è:",
+    "errors": {
+      "title": "Errore",
+      "rosterNotEven": "Impossibile assegnare i giocatori abbastanza: lista non è nemmeno.",
+      "rosterEmpty": "Impossibile assegnare giocatori: lista è vuoto.",
+      "mapPoolEmpty": "Il pool di mappe selezionato per la scelta casuale è vuoto."
+    }
+  },
+  "input": {
+    "placeholder": "Inserisci giocatore nomignolo...",
+    "alerts": {
+      "rosterExceeded": "Limite giocatore è stato superato (12 giocatori massimo)",
+      "duplicateFound": "Il giocatore con nomignolo \"{0}\" esiste già"
+    }
+  },
+  "settings": {
+    "navButton": "Impostazioni",
+    "lang": {
+      "title": "Linguaggio",
+      "langButton": "Seleziona la lingua"
+    },
+    "ls": {
+      "title": "Memoria locale",
+      "clearButton": "Svuota la cache",
+      "exist": "(dati memorizzati nella cache)",
+      "alert": "La memoria locale è stata cancellata correttamente"
+    },
+    "mapFilter": {
+      "title": "Filtro mappa",
+      "resetButton": "Reimposta filtro",
+      "alert": "Il filtro della mappa è stato ripristinato ai valori predefiniti"
+    }
+  },
+  "maps": {
+    "lijiang": "Torre di Lijiang",
+    "ilios": "Ilio",
+    "nepal": "Nepal",
+    "oasis": "Oasi",
+    "busan": "Busan",
+    "havana": "L'Avana",
+    "junkertown": "Junkertown",
+    "monaco": "Curcuit Royal",
+    "dorado": "El Dorado",
+    "rialto": "Rialto",
+    "gibraltar": "Osservatorio: Gibilterra",
+    "route66": "Route 66",
+    "blizzworld": "Blizzard World",
+    "eichenwalde": "Eichenwalde",
+    "hollywood": "Hollywood",
+    "kingsrow": "King's Row",
+    "midtown": "Midtown",
+    "numbani": "Numbani",
+    "volskaya": "Industrie Volskaya",
+    "horizon": "Colonia Lunare Horizon",
+    "paris": "Parigi",
+    "hanamura": "Hanamura",
+    "anubis": "Tempio di Anubi",
+    "rome": "Colloseo",
+    "toronto": "New Queen Street"
+  },
+  "modes": {
+    "hybrid": "Ibrida",
+    "control": "Controllo",
+    "assault": "Conquista",
+    "escort": "Trasporto",
+    "push": "Scorta"
+  },
+  "locales": {
+    "de": "Tedesco (Deutsche)",
+    "en": "Inglese (English)",
+    "es": "Spagnolo (Español)",
+    "fr": "Francese (Français)",
+    "it": "Italiano",
+    "pt": "Portoghese (Português)",
+    "ru": "Russo (Русский)"
+  }
+}

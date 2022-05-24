@@ -1,0 +1,80 @@
+{
+  "general": {
+    "close": "Clausurar",
+    "nextMap": "El siguiente mapa es:",
+    "errors": {
+      "title": "Error",
+      "rosterNotEven": "Incapaz de asignar jugadores de manera justa: la lista no es pareja.",
+      "rosterEmpty": "No se pueden asignar jugadores: la lista está vacía.",
+      "mapPoolEmpty": "El grupo de mapas seleccionado para selección aleatoria está vacío."
+    }
+  },
+  "input": {
+    "placeholder": " Introduce el apodo del jugador...",
+    "alerts": {
+      "rosterExceeded": "Se ha superado el límite de jugadores (12 jugadores como máximo)",
+      "duplicateFound": "El jugador con el alias \"{0}\" ya existe"
+    }
+  },
+  "settings": {
+    "navButton": "Configuración",
+    "lang": {
+      "title": "Idioma",
+      "langButton": "Seleccione el idioma"      
+    },
+    "ls": {
+      "title": "Almacenamiento local",
+      "clearButton": "Borrar caché",
+      "exist": "(datos almacenados en caché)",
+      "alert": "El almacenamiento local se ha borrado correctamente"
+    },
+    "mapFilter": {
+      "title": "Filtro de mapa",
+      "resetButton": "Restablecer filtro",
+      "alert": "El filtro de mapa se ha restablecido a los valores predeterminados"
+    }
+  },
+  "maps": {
+    "lijiang": "Torre Lijiang",
+    "ilios": "Ilios",
+    "nepal": "Nepal",
+    "oasis": "Oasis",
+    "busan": "Busan",
+    "havana": "La Habana",
+    "junkertown": "Junkertown",
+    "monaco": "Curcuit Royal",
+    "dorado": "Dorado",
+    "rialto": "Rialto",
+    "gibraltar": "Observatorio: Gibraltar",
+    "route66": "Ruta 66",
+    "blizzworld": "Blizzard World",
+    "eichenwalde": "Eichenwalde",
+    "hollywood": "Hollywood",
+    "kingsrow": "King's Row",
+    "midtown": "Midtown",
+    "numbani": "Numbani",
+    "volskaya": "Industrias Volskaya",
+    "horizon": "Colonia Lunar Horizon",
+    "paris": "Paris",
+    "hanamura": "Hanamura",
+    "anubis": "Templo de Anubis",
+    "rome": "Colloseo",
+    "toronto": "New Queen Street"
+  },
+  "modes": {
+    "hybrid": "Híbrido",
+    "control": "Control",
+    "assault": "Asalto",
+    "escort": "Escolta",
+    "push": "Avance"
+  },
+  "locales": {
+    "de": "Alemán (Deutsche)",
+    "en": "Inglés (English)",
+    "es": "Español",
+    "fr": "Francés (Français)",
+    "it": "Italiano (Italiano)",
+    "pt": "Portugués (Português)",
+    "ru": "Ruso (Русский)"
+  }
+}
