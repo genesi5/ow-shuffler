@@ -1,10 +1,10 @@
 const messages = {
   en: {
     general: {
-      close: "CLOSE",
+      close: "Close",
       nextMap: "Next map is:",
       errors: {
-        title: "ERROR",
+        title: "Error",
         rosterNotEven: "Unable to assign players fairly: roster is not even.",
         rosterEmpty: "Unable to assign players: roster is empty.",
         mapPoolEmpty: "Selected map pool for random pick is empty.",
@@ -13,15 +13,15 @@ const messages = {
     input: {
       placeholder: " Enter player nickname...",
       alerts: {
-        rosterExceded: "Player limit has been exceded (12 players maximum).",
+        rosterExceded: "Player limit has been exceded (12 players maximum)",
         duplicateFound: "Player with nickname \"{0}\" is already exists"
       }
     },
     settings: {
-      navButton: "SETTINGS",
+      navButton: "Settings",
       ls: {
         title: "Local storage",
-        clearButton: "CLEAR CACHE",
+        clearButton: "Clear cache",
         exist: "(cached data in storage)",
         alert: "Local storage has been successfully cleared",
       },
@@ -68,10 +68,10 @@ const messages = {
   },
   ru: {
     general: {
-      close: "ЗАКРЫТЬ",
+      close: "Закрыть",
       nextMap: "Следующая карта:",
       errors: {
-        title: "ОШИБКА",
+        title: "Ошибка",
         rosterNotEven: "Нечётное количество игроков: невозможно честно разделить игроков по командам.",
         rosterEmpty: "Невозможно разделить игроков по командам: список игроков пуст.",
         mapPoolEmpty: "Пул карт, отмеченных для случайного выбора, пуст.",
@@ -80,27 +80,27 @@ const messages = {
     input: {
       placeholder: " Введите ник игрока...",
       alerts: {
-        rosterExceded: "Лимит игроков превышен (максимум 12 игроков).",
+        rosterExceded: "Лимит игроков превышен (максимум 12 игроков)",
         duplicateFound: "Игрок с ником \"{0}\" уже существует"
       }
     },
     settings: {
-      navButton: "НАСТРОЙКИ",
+      navButton: "Настройки",
       ls: {
         title: 'Локальное хранилище',
-        clearButton: "ОЧИСТИТЬ КЭШ",
+        clearButton: "Очистить кэш",
         exist: "(имеются сохр. данные)",
         alert: "Локальное хранилище успешно очищено"
 
       },
       mapFilter: {
         title: "Фильтр карт",
-        resetButton: "СБРОСИТЬ ФИЛЬТР",
+        resetButton: "Сбросить фильтр",
         alert: "Фильтр карт успешно сброшен"
       },
     },
     maps: {
-      lijiang: "Башня Лицзянь",
+      lijiang: "Башня Лицзян",
       ilios: "Илиос",
       nepal: "Непал",
       oasis: "Оазис",
@@ -137,7 +137,7 @@ const messages = {
 }
 
 const i18n = VueI18n.createI18n({
-  locale: navigator.language,
+  locale: String(navigator.language.trim().split(/-|_/)[0]),
   availableLocales: ['ru', 'en'],
   fallbackLocale: {
     'default': ['en']
@@ -151,7 +151,7 @@ const app = Vue.createApp({
   el: "#app",
   data() {
     return {
-      shufflerVersion: "0.1.4",
+      appVersion: "0.1.5",
       counter: 0,
       teamRed: [],
       teamBlue: [],
@@ -168,14 +168,15 @@ const app = Vue.createApp({
   created() {
     this.setMapList()
     this.setMapFilter()
+    document.title = `Overwatch Team Shuffler ver. ${this.appVersion}`
   },
   mounted() {
     this.setupEventHandlers()
     this.loadPlayersFromLocalStorage()
   },
-  props: [
-    'inputName'
-  ],
+  props: {
+    inputName: String
+  },
   watch: {
     mapFilter: {
       handler(newValue, oldValue) { if (newValue != undefined && oldValue != undefined) this.updateLocalStorage("mapFilter") },
