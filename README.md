@@ -8,6 +8,7 @@ Small SPA for shuffling custom lobbies in Overwatch
 * Map pool fltering
 * Caching lobby roster, map pool and language in browser's Local Storage
 * Multilangual app with automatic localization from supported languages
+* Responsive desing (adopted for mobile)
 
 <hr>
 
