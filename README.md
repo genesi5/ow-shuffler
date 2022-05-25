@@ -27,7 +27,7 @@ if you want to contribute a language or found an inaccurate translation - feel f
 <hr>
 
 ## Project setup
-You can either build on your machine or visit deployed branch from `github-pages` on [GitHub Pages](http://genesi5.github.io/ow-shuffler/).
+You can either build on your machine or visit deployed build from `gh-pages` branch on [GitHub Pages](http://genesi5.github.io/ow-shuffler/).
 
 ```
 npm install
