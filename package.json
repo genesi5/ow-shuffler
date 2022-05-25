@@ -3,18 +3,18 @@
   "version": "0.2.0",
   "private": true,
   "description": "Small SPA for shuffling custom lobbies in Overwatch",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/genesi5/ow-shuffler"
-  },
+  "homepage": "https://github.com/genesi5/ow-shuffler",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d ./dist"
   },
   "dependencies": {
     "autoprefixer": "10.4.5",
     "core-js": "^3.8.3",
+    "gh-pages": "^4.0.0",
     "install": "^0.13.0",
     "npm": "^8.10.0",
     "vue": "^3.2.13",
@@ -32,7 +32,9 @@
     "css-loader": "^6.7.1",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
-    "imports-loader": "^4.0.0"
+    "imports-loader": "^4.0.0",
+    "sass": "^1.52.1",
+    "sass-loader": "^13.0.0"
   },
   "eslintConfig": {
     "root": true,

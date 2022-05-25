@@ -1,0 +1,81 @@
+{
+  "general": {
+    "close": "Zamknąć",
+    "nextMap": "Następna Mapa:",
+    "errors": {
+      "title": "Pomyłka",
+      "rosterNotEven": "Nieparzysta liczba graczy: nie można uczciwie podzielić graczy według drużyn.",
+      "rosterEmpty": "Nie można podzielić graczy według drużyn: lista graczy jest pusta.",
+      "mapPoolEmpty": "Pula kart oznaczonych do losowego wyboru jest pusta."
+    }
+  },
+  "input": {
+    "placeholder": "Wprowadź pseudonim gracza...",
+    "alerts": {
+      "rosterExceeded": "Limit graczy przekroczony (maksymalnie 12 graczy)",
+      "duplicateFound": "Gracz o pseudonimie \"{0}\" już istnieje"
+    }
+  },
+  "settings": {
+    "navButton": "Konfiguracja",
+    "lang": {
+      "title": "Język",
+      "langButton": "Wybierz język"
+    },
+    "ls": {
+      "title": "Pamięć lokalna",
+      "clearButton": "Wyczyść pamięć",
+      "exist": "(są zapisane dane)",
+      "alert": "Pamięć lokalna została pomyślnie wyczyszczona"
+    },
+    "mapFilter": {
+      "title": "Filtr kart",
+      "resetButton": "Zresetuj filtr",
+      "alert": "Filtr kart został pomyślnie zresetowany"
+    }
+  },
+  "maps": {
+    "lijiang": "Wieża Lijiang",
+    "ilios": "Ilios",
+    "nepal": "Nepal",
+    "oasis": "Oaza",
+    "busan": "Pusan",
+    "havana": "Hawana",
+    "junkertown": "Junkertown",
+    "monaco": "Curcuit Royal",
+    "dorado": "Dorado",
+    "rialto": "Rialto",
+    "gibraltar": "Posterunek Gibraltar",
+    "route66": "Droga 66",
+    "blizzworld": "Blizzard World",
+    "eichenwalde": "Eichenwalde",
+    "hollywood": "Hollywood",
+    "kingsrow": "King's Row",
+    "midtown": "Midtown",
+    "numbani": "Numbani",
+    "volskaya": "Zakłady Volskaya Industries",
+    "horizon": "Kolonia księżycowa Horyzont",
+    "paris": "Paryż",
+    "hanamura": "Hanamura",
+    "anubis": "Świątynia Anubisa",
+    "rome": "Koloseum",
+    "toronto": "New Queen Street"
+  },
+  "modes": {
+    "hybrid": "Hybryda",
+    "control": "Kontrola",
+    "assault": "Szturm",
+    "escort": "Eskorta",
+    "push": "Przepychanka"
+  },
+  "locales": {
+    "de": "Niemiecki (Deutsche)",
+    "en": "Angielski (English)",
+    "es": "Hiszpański (Español)",
+    "fr": "Francuski (Français)",
+    "it": "Włoski (Italiano)",
+    "pl": "Polski",
+    "pt": "Portugalski (Português)",
+    "ru": "Rosyjski (Русский)"
+  }
+}

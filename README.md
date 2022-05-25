@@ -17,6 +17,7 @@ Small SPA for shuffling custom lobbies in Overwatch
 * Spanish
 * French
 * Italian
+* Polish
 * Portugese
 * Russian
 
@@ -26,7 +27,7 @@ if you want to contribute a language or found an inaccurate translation - feel f
 <hr>
 
 ## Project setup
-You can either build on your machine or visit deployed `master` on [GitHub Pages](http://genesi5.github.io/ow-shuffler/).
+You can either build on your machine or visit deployed branch from `github-pages` on [GitHub Pages](http://genesi5.github.io/ow-shuffler/).
 
 ```
 npm install

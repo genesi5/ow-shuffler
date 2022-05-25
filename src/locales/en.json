@@ -1,9 +1,9 @@
 {
   "general": {
-    "close": "CLOSE",
+    "close": "Close",
     "nextMap": "Next map is:",
     "errors": {
-      "title": "ERROR",
+      "title": "Error",
       "rosterNotEven": "Unable to assign players fairly: roster is not even.",
       "rosterEmpty": "Unable to assign players: roster is empty.",
       "mapPoolEmpty": "Selected map pool for random pick is empty."
@@ -24,13 +24,13 @@
     },
     "ls": {
       "title": "Local storage",
-      "clearButton": "CLEAR CACHE",
+      "clearButton": "Clear cache",
       "exist": "(cached data in storage)",
       "alert": "Local storage has been successfully cleared"
     },
     "mapFilter": {
       "title": "Map filter",
-      "resetButton": "RESET FILTER",
+      "resetButton": "Reset filter",
       "alert": "Map filter has been reset to default"
     }
   },
@@ -74,6 +74,7 @@
     "es": "Spanish (Español)",
     "fr": "French (Français)",
     "it": "Italian (Italiano)",
+    "pl": "Polish (Polski)",
     "pt": "Portugese (Português)",
     "ru": "Russian (Русский)"
   }

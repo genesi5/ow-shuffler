@@ -17,9 +17,10 @@
     }
   },
   "settings": {
-    "navButton": "Configuracao","lang": {
+    "navButton": "Configuracao",
+    "lang": {
       "title": "Linguagem",
-      "langButton": "Selecione o idioma"      
+      "langButton": "Selecione o idioma"
     },
     "ls": {
       "title": "Armazenamento Local",
@@ -73,6 +74,7 @@
     "es": "Espanhol (Español)",
     "fr": "Francês (Français)",
     "it": "Italiano (Italiano)",
+    "pl": "Polaco (Polski)",
     "pt": "Português",
     "ru": "Russo (Русский)"
   }

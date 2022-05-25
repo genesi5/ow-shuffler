@@ -10,19 +10,13 @@
       </div>
       <!-- BUTTON -->
       <div class="col-4 d-flex justify-content-center">
-        <button
-          class="btn btn-lg btn-outline-warning btn-ow justify-content-center align-items-stretch ow-font-bold pb-0"
-          v-on:click="shuffleTeams">
-          <p class="d-none d-sm-block h3">SHUFFLE!</p>
-          <p class="d-sm-none h1 mb-2">SHUFFLE!</p>
-        </button>
+        <button class="btn btn-lg btn-outline-ow justify-content-center align-items-stretch pb-0"
+          v-on:click="shuffleTeams">SHUFFLE!</button>
       </div>
       <!-- SETTINGS -->
       <div class="col-4 d-flex justify-content-end pb-0 pe-3">
-        <button
-          class="d-none d-sm-block btn btn-lg btn-outline-warning btn-ow justify-content-between align-items-stretch ow-font-bold pb-0"
-          v-on:click="toggleSettingsModal(true)">
-          <p class="d-none d-sm-block h3">{{ $t('settings.navButton').toUpperCase() }}</p>
+        <button class="d-none d-sm-block btn btn-lg btn-outline-ow justify-content-between align-items-stretch pb-0"
+          v-on:click="toggleSettingsModal(true)">{{ $t('settings.navButton').toUpperCase() }}
         </button>
         <p class="d-sm-none bi-gear gear pt-0 pe-2 mb-0" v-on:click="toggleSettingsModal(true)" id="settingsButton">
         </p>
@@ -70,7 +64,7 @@
         </div>
         <div class="modal-body ow-font-middle h4">{{ alertModalMessage }}</div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-outline-warning btn-ow ow-font-bold" data-bs-dismiss="modal">{{
+          <button type="button" class="btn btn-outline-ow btn-close-modal" data-bs-dismiss="modal">{{
               $t('general.close').toUpperCase()
           }}</button>
         </div>
@@ -86,22 +80,23 @@
           <h5 class="modal-title ow-font-bold h4">{{ $t('settings.navButton').toUpperCase() }}</h5>
           <button type="button" class="btn-close d-sm-none" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body pt-0" style="overflow-y: auto;overflow-x: hidden;">
+        <div class="modal-body pt-0 mb-2" style="overflow-y: auto;overflow-x: hidden;">
           <!-- LANGUAGE -->
           <div class="row mt-2 mb-3">
             <div class="d-flex align-items-center">
               <p class="ow-font-bold h4">{{ $t('settings.lang.title') }}</p>
             </div>
             <div class="col col-xs-12 col-lg-4">
-              <div class="btn-group ow-font-bold">
-                <button
-                  class="btn btn-sm btn-outline-warning btn-ow align-items-center d-flex p-1 pb-0 ps-2 mt-2 mb-1 dropdown-toggle"
-                  type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <p class="m-0 pt-0 pb-1 h4">{{ $t('settings.lang.langButton').toUpperCase() }}</p>
+              <div class="btn-group">
+                <button class="btn btn-sm btn-outline-ow align-items-center d-flex pb-0 pt-0 mt-2 mb-1 dropdown-toggle"
+                  type="button" data-bs-toggle="dropdown" aria-expanded="false">{{
+                      $t('settings.lang.langButton').toUpperCase()
+                  }}
+                  <!-- <p class="m-0 pt-0 pb-1 h4">{{ $t('settings.lang.langButton').toUpperCase() }}</p> -->
                 </button>
                 <ul class="dropdown-menu ow-font-middle">
-                  <li class="dropdown-item" v-for="item in supportedLocales.filter(x => x != $i18n.locale)"
-                    v-bind:key="item" v-on:click="selectLang(item)">
+                  <li class="dropdown-item" v-for="item in supportedLocales.filter(x => x != getCurrentLocale())"
+                    v-bind:key="item" v-on:click="changeLocale(item)">
                     {{ $t(`locales.${item}`) }}</li>
                 </ul>
               </div>
@@ -121,9 +116,9 @@
             <!-- LOCAL STORAGE BUTTON -->
             <div class="col col-xs-12 col-lg-4">
               <div class="btn-group ow-font-bold" role="group">
-                <button class="btn btn-sm btn-outline-warning btn-ow justify-content-center ow-font-bold pb-0 mt-2 mb-1"
-                  v-on:click="clearLocalStorage">
-                  <p class="mb-0 pb-1 h4">{{ $t('settings.ls.clearButton').toUpperCase() }}</p>
+                <button class="btn btn-sm btn-outline-ow  justify-content-center ow-font-bold pb-0 pt-0 mt-2 mb-1"
+                  v-on:click="clearLocalStorage">{{ $t('settings.ls.clearButton').toUpperCase() }}
+                  <!-- <p class="mb-0 pb-1 h4">{{ $t('settings.ls.clearButton').toUpperCase() }}</p> -->
                 </button>
               </div>
             </div>
@@ -152,10 +147,9 @@
             <!-- MAP FILTER BUTTON -->
             <div class="col col-xs-12 col-lg-4">
               <div class="btn-group ow-font-bold" role="group">
-                <button
-                  class="btn btn-sm btn-outline-warning btn-ow  justify-content-center ow-font-bold pb-0 mt-2 mb-1"
-                  v-on:click="resetMapFilter">
-                  <p class="mb-0 pb-1 h4">{{ $t('settings.mapFilter.resetButton').toUpperCase() }}</p>
+                <button class="btn btn-sm btn-outline-ow   justify-content-center ow-font-bold pb-0 pt-0 mt-2 mb-1"
+                  v-on:click="resetMapFilter">{{ $t('settings.mapFilter.resetButton').toUpperCase() }}
+                  <!-- <p class="mb-0 pb-1 h4">{{ $t('settings.mapFilter.resetButton').toUpperCase() }}</p> -->
                 </button>
               </div>
             </div>
@@ -215,7 +209,7 @@
         </div>
         <!-- SETTINGS FOOTER-->
         <div class="modal-footer">
-          <button type="button" class="btn btn-outline-warning btn-ow ow-font-bold" data-bs-dismiss="modal">{{
+          <button type="button" class="btn btn-outline-ow btn-close-modal" data-bs-dismiss="modal">{{
               $t('general.close').toUpperCase()
           }}</button>
         </div>
@@ -245,7 +239,7 @@
                 </ul>
               </div>
               <!-- XS-MD DELIMITER -->
-              <div class="col-12 d-md-none" style="height: 15px;"></div>
+              <div class="col-12 d-md-none" style="height: 15px;" />
               <!-- TEAM RED ROSTER -->
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 "
                 v-if="teamRed.length != 0 || teamRed != undefined">
@@ -277,11 +271,11 @@
           </div>
           <!-- SHUFFLE FOOTER -->
           <div class="modal-footer">
-            <div class="col-xs-2 col-sm-2"></div>
-            <button type="button" class="btn btn-outline-warning btn-ow col ow-font-bold h3" data-bs-dismiss="modal">{{
+            <div class="col-xs-2 col-sm-2" />
+            <button type="button" class="btn btn-outline-ow btn-shuffle-modal col h3" data-bs-dismiss="modal">{{
                 $t('general.close').toUpperCase()
             }}</button>
-            <div class="col-xs-2 col-sm-2"></div>
+            <div class="col-xs-2 col-sm-2" />
           </div>
         </div>
       </div>
@@ -295,20 +289,20 @@
         <img src="./assets/img/icon.png" class="ps-2" style="height:30px;">
         <p class="ow-font-bold text-muted lh-1 m-1 pe-2">2022 CREATED BY GENESI5<br />OVERWATCH © 2022 BLIZZARD</p>
       </div>
-      <ul class="col-4 justify-content-end align-items-center m-0 list-unstyled text-muted d-flex pe-2">
+      <ul class="col-4 justify-content-end align-items-center m-0 list-unstyled d-flex pe-2">
         <li class="m-2 mb-0">
-          <a class="text-decoration-none text-reset" href="https://github.com/genesi5/ow-shuffler">
-            <p class="bi-github h2" id="githubLink"></p>
+          <a class="text-decoration-none" href="https://github.com/genesi5/ow-shuffler">
+            <p class="bi-github social-item h2" id="githubLink" />
           </a>
         </li>
         <!-- <li class="m-2 mb-0">
+          <a class="text-decoration-none" href="">
+            <p class="bi-instagram social-item h2" id="instagramLink"></p>
+          </a>
+        </li> -->
+        <!--<li class="m-2 mb-0">
             <a class="text-decoration-none text-reset" href="">
-              <p class="bi-instagram h2"></p>
-            </a>
-          </li>
-          <li class="m-2 mb-0">
-            <a class="text-decoration-none text-reset" href="">
-              <p class="bi-twitter h2"></p>
+              <p class="bi-twitter h2" id="twitterLink"></p>
             </a>
           </li> -->
       </ul>
@@ -317,15 +311,19 @@
 
 </template>
 
+<style lang="scss">
+@import "./assets/scss/_custom.scss";
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+</style>
+
 <script>
-import { Collapse, Modal } from 'bootstrap'
+
 import { default as mapList } from './misc/maps.json'
 import { default as packageJson } from '../package.json'
-import { SUPPORT_LOCALES } from './i18n'
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-import './assets/css/style.css';
+import { Collapse, Modal } from 'bootstrap'
+import { SUPPORT_LOCALES } from './i18n'
 
 export default {
   name: 'app',
@@ -353,7 +351,7 @@ export default {
     this.setLocale()
     this.setMapList()
     this.setMapFilter()
-    document.title = `Overwatch Team Shuffler ${this.appVersion}`
+    document.title += ` ${this.appVersion}`
   },
   mounted() {
     this.setupEventHandlers()
@@ -405,16 +403,13 @@ export default {
     },
     setLocale() {
       let ls = window.localStorage.getItem("locale")
-      if (String(ls) != undefined) {
-        this.$i18n.locale = ls
+      if (ls != null) {
+        if (this.supportedLocales.includes(ls)) {
+          this.locale = ls
+          this.$i18n.locale = this.locale
+        }
+        else this.$i18n.locale = 'en'
       }
-    },
-    selectLang(item) {
-      this.locale = item
-      if (String(this.locale) != undefined) {
-        window.localStorage.setItem('locale', this.locale)
-      }
-      // console.log("LOCALE", this.locale)
     },
     setMapList() {
       this.mapList = Object.create(mapList.filter(x => x.legacy))
@@ -436,6 +431,13 @@ export default {
     getMapsByMode(mode) {
       if (String(mode)) return this.mapList.filter(x => x.mode == mode)
     },
+    getCurrentLocale() {
+      if (this.supportedLocales.includes(this.$i18n.locale)) return this.$i18n.locale
+      else if (this.$i18n.fallbackLocale[this.$i18n.locale] != undefined) {
+        return this.$i18n.fallbackLocale[this.$i18n.locale][0]
+      }
+      return this.$i18n.fallbackLocale.default[0]
+    },
     addPlayer(name) {
       if (String(name)) {
         if (this.playerList) {
@@ -451,12 +453,12 @@ export default {
               dupName = this.playerList[this.playerList.findIndex(x => name.toLowerCase() == x.name.toLowerCase())].name,
               msg = this.$t('input.alerts.duplicateFound', [dupName])
             this.toggleAlertInput(msg)
-            console.warn(`Duplicate found: ${dupName}`)
+            // console.warn(`Duplicate found: ${dupName}`)
           }
           else if (this.playerList.length >= 12) {
             let msg = this.$t(`input.alerts.rosterExceeded`)
             this.toggleAlertInput(msg)
-            console.warn("OVERWATCH player limit has been exceded (12 players maximum)")
+            // console.warn("OVERWATCH player limit has been exceded (12 players maximum)")
           }
         }
       }
@@ -508,16 +510,16 @@ export default {
         if (this.currentMap != undefined) this.togglePlayerModal(true)
         else {
           this.toggleAlertModal(true, this.$t('general.errors.mapPoolEmpty'))
-          console.warn("Map pool is empty")
+          // console.warn("Map pool is empty")
         }
       }
       else if (this.playerList.length % 2 != 0) {
         this.toggleAlertModal(true, this.$t('general.errors.rosterNotEven'))
-        console.warn("Roster is not even")
+        // console.warn("Roster is not even")
       }
       else if (this.playerList.length == 0) {
         this.toggleAlertModal(true, this.$t('general.errors.rosterEmpty'))
-        console.warn("Roster is empty")
+        // console.warn("Roster is empty")
       }
     },
     togglePlayerModal(opt) {
@@ -551,16 +553,22 @@ export default {
         this.alertInputMessage = undefined
       }, 3000)
     },
+    changeLocale(item) {
+      this.locale = item
+      if (this.locale != undefined) window.localStorage.setItem('locale', this.locale)
+      // console.log("LOCALE", this.locale)
+    },
     updateLocalStorageStatus() {
-      if (window.localStorage.getItem("mapFilter") || window.localStorage.getItem("playerList")) this.localStorageStatus = true
+      if (window.localStorage.length > 0) this.localStorageStatus = true
       else this.localStorageStatus = false
     },
     updateLocalStorage(obj) {
       switch (obj) {
         case "locale":
           // console.log(`Updated ${obj}`, this.locale)
-          window.localStorage.setItem("locale", this.locale)
           this.$i18n.locale = this.locale
+          window.localStorage.setItem("locale", this.locale)
+          document.querySelector('html').setAttribute('lang', this.locale)
           this.updateLocalStorageStatus()
           break
         case "mapFilter":

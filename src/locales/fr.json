@@ -20,7 +20,7 @@
     "navButton": "Paramètre",
     "lang": {
       "title": "Langue",
-      "langButton": "Choisir la langue"      
+      "langButton": "Choisir la langue"
     },
     "ls": {
       "title": "Stockage local",
@@ -74,6 +74,7 @@
     "es": "Espagnol (Español)",
     "fr": "Français",
     "it": "Italien (Italiano)",
+    "pl": "Polonais (Polski)",
     "pt": "Portugais (Português)",
     "ru": "Russe (Русский)"
   }
