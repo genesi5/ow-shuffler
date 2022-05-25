@@ -1,0 +1,81 @@
+{
+  "general": {
+    "close": "Fermer",
+    "nextMap": "La carte suivante est:",
+    "errors": {
+      "title": "Erreur",
+      "rosterNotEven": "Impossible d'attribuer les joueurs équitablement: la liste n'est même pas.",
+      "rosterEmpty": "Impossible d'assigner des joueurs: la liste est vide.",
+      "mapPoolEmpty": "Le pool de cartes sélectionné pour un choix aléatoire est vide."
+    }
+  },
+  "input": {
+    "placeholder": " Entrez le pseudo du joueur...",
+    "alerts": {
+      "rosterExceeded": "La limite de joueurs a été dépassée (12 joueurs maximum).",
+      "duplicateFound": "Le joueur avec le pseudo \"{0}\" existe déjà"
+    }
+  },
+  "settings": {
+    "navButton": "Paramètre",
+    "lang": {
+      "title": "Langue",
+      "langButton": "Choisir la langue"
+    },
+    "ls": {
+      "title": "Stockage local",
+      "clearButton": "Vider le cache",
+      "exist": "(données enregistrées dans le stockage)",
+      "alert": "Le stockage local a été effacé avec succès"
+    },
+    "mapFilter": {
+      "title": "Filtre de carte",
+      "resetButton": "Réinitialiser le filtre",
+      "alert": "Le filtre de la carte a été réinitialisé par défaut"
+    }
+  },
+  "maps": {
+    "lijiang": "Tour de Lijiang",
+    "ilios": "Ilios",
+    "nepal": "Népal",
+    "oasis": "Oasis",
+    "busan": "Busan",
+    "havana": "La Havane",
+    "junkertown": "Junkertown",
+    "monaco": "Curcuit Royal",
+    "dorado": "Dorado",
+    "rialto": "Rialto",
+    "gibraltar": "Observatoire: Gibraltar",
+    "route66": "Route 66",
+    "blizzworld": "Blizzard World",
+    "eichenwalde": "Eichenwalde",
+    "hollywood": "Hollywood",
+    "kingsrow": "King's Row",
+    "midtown": "Midtown",
+    "numbani": "Numbani",
+    "volskaya": "Usine Volskaya",
+    "horizon": "Colonie Lunaire Horizon",
+    "paris": "Paris",
+    "hanamura": "Hanamura",
+    "anubis": "Temple d'Anubis",
+    "rome": "Colloseo",
+    "toronto": "New Queen Street"
+  },
+  "modes": {
+    "hybrid": "Hybride",
+    "control": "Contrôle",
+    "assault": "Assaut",
+    "escort": "Escorte",
+    "push": "Avancée"
+  },
+  "locales": {
+    "de": "Allemand (Deutsche)",
+    "en": "Anglais (English)",
+    "es": "Espagnol (Español)",
+    "fr": "Français",
+    "it": "Italien (Italiano)",
+    "pl": "Polonais (Polski)",
+    "pt": "Portugais (Português)",
+    "ru": "Russe (Русский)"
+  }
+}

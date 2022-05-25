@@ -1,0 +1,81 @@
+{
+  "general": {
+    "close": "Schließen",
+    "nextMap": "Die nächste Karte ist:",
+    "errors": {
+      "title": "Fehler",
+      "rosterNotEven": "Spieler können nicht fair zugewiesen werden: Der Liste ist nicht gerade.",
+      "rosterEmpty": "Spieler können nicht zugewiesen werden: Der Liste ist leer.",
+      "mapPoolEmpty": "Der ausgewählte Kartenpool für die zufällige Auswahl ist leer."
+    }
+  },
+  "input": {
+    "placeholder": "Geben Sie den Spitznamen ein...",
+    "alerts": {
+      "rosterExceeded": "Das Spielerlimit wurde überschritten (maximal 12 Spieler).",
+      "duplicateFound": "Spieler mit Spitznamen \"{0}\" existiert bereits"
+    }
+  },
+  "settings": {
+    "navButton": "Einstellung",
+    "lang": {
+      "title": "Sprache",
+      "langButton": "Sprache auswählen"
+    },
+    "ls": {
+      "title": "Lokale Speicherung",
+      "clearButton": "Cache leeren",
+      "exist": "(zwischengespeicherte Daten im Speicher)",
+      "alert": "Lokaler Speicher wurde erfolgreich gelöscht"
+    },
+    "mapFilter": {
+      "title": "Kartenfilter",
+      "resetButton": "Filter zurücksetzen",
+      "alert": "Kartenfilter wurde auf Standard zurückgesetzt"
+    }
+  },
+  "maps": {
+    "lijiang": "Lijiang Tower",
+    "ilios": "Ilios",
+    "nepal": "Nepal",
+    "oasis": "Oasis",
+    "busan": "Busan",
+    "havana": "Havanna",
+    "junkertown": "Junkertown",
+    "monaco": "Curcuit Royal",
+    "dorado": "Dorado",
+    "rialto": "Rialto",
+    "gibraltar": "Watchpoint: Gibraltar",
+    "route66": "Route 66",
+    "blizzworld": "Blizzard World",
+    "eichenwalde": "Eichenwalde",
+    "hollywood": "Hollywood",
+    "kingsrow": "King's Row",
+    "midtown": "Midtown",
+    "numbani": "Numbani",
+    "volskaya": "Volskaya Industries",
+    "horizon": "Mondkolonie Horizon",
+    "paris": "Paris",
+    "hanamura": "Hanamura",
+    "anubis": "Tempel des Anubis",
+    "rome": "Colloseo",
+    "toronto": "New Queen Street"
+  },
+  "modes": {
+    "hybrid": "Hybrid",
+    "control": "Kontrolle",
+    "assault": "Angriff",
+    "escort": "Eskorte",
+    "push": "Schub"
+  },
+  "locales": {
+    "de": "Deutsche",
+    "en": "Englisch (English)",
+    "es": "Spanisch (Español)",
+    "fr": "Französisch (Français)",
+    "it": "Italienisch (Italiano)",
+    "pl": "Polnisch (Polski)",
+    "pt": "Portugiesisch (Português)",
+    "ru": "Russisch (Русский)"
+  }
+}

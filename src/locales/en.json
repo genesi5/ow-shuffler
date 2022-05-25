@@ -1,0 +1,81 @@
+{
+  "general": {
+    "close": "Close",
+    "nextMap": "Next map is:",
+    "errors": {
+      "title": "Error",
+      "rosterNotEven": "Unable to assign players fairly: roster is not even.",
+      "rosterEmpty": "Unable to assign players: roster is empty.",
+      "mapPoolEmpty": "Selected map pool for random pick is empty."
+    }
+  },
+  "input": {
+    "placeholder": " Enter player nickname...",
+    "alerts": {
+      "rosterExceeded": "Player limit has been exceeded (12 players maximum)",
+      "duplicateFound": "Player with nickname \"{0}\" is already exists"
+    }
+  },
+  "settings": {
+    "navButton": "Settings",
+    "lang": {
+      "title": "Language",
+      "langButton": "Select language"      
+    },
+    "ls": {
+      "title": "Local storage",
+      "clearButton": "Clear cache",
+      "exist": "(cached data in storage)",
+      "alert": "Local storage has been successfully cleared"
+    },
+    "mapFilter": {
+      "title": "Map filter",
+      "resetButton": "Reset filter",
+      "alert": "Map filter has been reset to default"
+    }
+  },
+  "maps": {
+    "lijiang": "Lijiang Tower",
+    "ilios": "Ilios",
+    "nepal": "Nepal",
+    "oasis": "Oasis",
+    "busan": "Busan",
+    "havana": "Havana",
+    "junkertown": "Junkertown",
+    "monaco": "Curcuit Royal",
+    "dorado": "Dorado",
+    "rialto": "Rialto",
+    "gibraltar": "Watchpoint: Gibraltar",
+    "route66": "Route 66",
+    "blizzworld": "Blizzard World",
+    "eichenwalde": "Eichenwalde",
+    "hollywood": "Hollywood",
+    "kingsrow": "King's Row",
+    "midtown": "Midtown",
+    "numbani": "Numbani",
+    "volskaya": "Volskaya Industries",
+    "horizon": "Horizon Lunar Colony",
+    "paris": "Paris",
+    "hanamura": "Hanamura",
+    "anubis": "Temple of Anubis",
+    "rome": "Colloseo",
+    "toronto": "New Queen Street"
+  },
+  "modes": {
+    "hybrid": "Hybrid",
+    "control": "Control",
+    "assault": "Assault",
+    "escort": "Escort",
+    "push": "Push"
+  },
+  "locales": {
+    "de": "German (Deutsche)",
+    "en": "English",
+    "es": "Spanish (Español)",
+    "fr": "French (Français)",
+    "it": "Italian (Italiano)",
+    "pl": "Polish (Polski)",
+    "pt": "Portugese (Português)",
+    "ru": "Russian (Русский)"
+  }
+}
