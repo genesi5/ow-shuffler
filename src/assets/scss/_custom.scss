@@ -29,6 +29,16 @@
   }
 }
 
+@media (max-width: 992px) {
+  .player-list-role {
+    font-size: 1.4rem !important;
+  }
+
+  .player-list-hero {
+    font-size: 2rem;
+  }
+}
+
 .btn {
   font-family: 'Bebas Neue Pro Bold Italic';
 }
@@ -74,6 +84,29 @@
   color: $gray-600  !important;
 }
 
+.player-list-hero {
+  font-size: 2.5rem;
+}
+
+.player-list-role {
+  font-size: 1.5rem;
+}
+
+.player-list-margin {
+  margin-top: 80px;
+  margin-bottom: 75px;
+}
+
+.player-roster {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.tooltip{
+  font-family: 'Bebas Neue Pro Middle Italic';
+  font-size:  $font-size-lg;
+}
+
 .gear {
   color: $overwatch;
   font-size: 2.5rem;
@@ -98,15 +131,6 @@
   background-size: cover;
 }
 
-.player-list-margin {
-  margin-top: 80px;
-  margin-bottom: 75px;
-}
-
-.player-roster {
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
 
 .ow-font-bold {
   font-family: 'Bebas Neue Pro Bold Italic';

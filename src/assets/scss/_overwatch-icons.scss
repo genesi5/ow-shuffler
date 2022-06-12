@@ -1,0 +1,156 @@
+@font-face {
+  font-family: 'overwatch-icons';
+  src: url('./assets/fonts/overwatch-icons.eot?78471097');
+  src: url('./assets/fonts/overwatch-icons.eot?78471097#iefix') format('embedded-opentype'),
+    url('./assets/fonts/overwatch-icons.woff2?78471097') format('woff2'),
+    url('./assets/fonts/overwatch-icons.woff?78471097') format('woff'),
+    url('./assets/fonts/overwatch-icons.ttf?78471097') format('truetype'),
+    url('./assets/fonts/overwatch-icons.svg?78471097#overwatch-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="ow-"]:before,
+[class*=" ow-"]:before {
+  font-family: "overwatch-icons";
+}
+
+.ow-hero-ana:before {
+  content: '\e800';
+}
+
+.ow-hero-ashe:before {
+  content: '\e801';
+}
+
+.ow-hero-baptiste:before {
+  content: '\e802';
+}
+
+.ow-hero-bastion:before {
+  content: '\e803';
+}
+
+.ow-hero-brigitte:before {
+  content: '\e804';
+}
+
+.ow-hero-cassidy:before {
+  content: '\e805';
+}
+
+.ow-hero-doomfist:before {
+  content: '\e806';
+}
+
+.ow-hero-dva:before {
+  content: '\e807';
+}
+
+.ow-hero-echo:before {
+  content: '\e808';
+}
+
+.ow-hero-genji:before {
+  content: '\e809';
+}
+
+.ow-hero-hammond:before {
+  content: '\e80a';
+}
+
+.ow-hero-hanzo:before {
+  content: '\e80b';
+}
+
+.ow-hero-junkrat:before {
+  content: '\e80c';
+}
+
+.ow-hero-lucio:before {
+  content: '\e80d';
+}
+
+.ow-hero-mei:before {
+  content: '\e80e';
+}
+
+.ow-hero-mercy:before {
+  content: '\e80f';
+}
+
+.ow-hero-moira:before {
+  content: '\e810';
+}
+
+.ow-hero-orisa:before {
+  content: '\e811';
+}
+
+.ow-hero-reaper:before {
+  content: '\e812';
+}
+
+.ow-hero-pharah:before {
+  content: '\e813';
+}
+
+.ow-hero-reinhardt:before {
+  content: '\e814';
+}
+
+.ow-hero-roadhog:before {
+  content: '\e815';
+}
+
+.ow-hero-sigma:before {
+  content: '\e816';
+}
+
+.ow-hero-soldier76:before {
+  content: '\e817';
+}
+
+.ow-hero-sombra:before {
+  content: '\e818';
+}
+
+.ow-hero-symmetra:before {
+  content: '\e819';
+}
+
+.ow-hero-torbjorn:before {
+  content: '\e81a';
+}
+
+.ow-hero-tracer:before {
+  content: '\e81b';
+}
+
+.ow-hero-widowmaker:before {
+  content: '\e81c';
+}
+
+.ow-hero-winston:before {
+  content: '\e81d';
+}
+
+.ow-hero-zarya:before {
+  content: '\e81e';
+}
+
+.ow-hero-zenyatta:before {
+  content: '\e81f';
+}
+
+.ow-role-damage:before {
+  content: '\e820';
+}
+
+.ow-role-support:before {
+  content: '\e821';
+}
+
+.ow-role-tank:before {
+  content: '\e822';
+}

@@ -4,7 +4,7 @@
     <nav class="navbar navbar-expand-lg bg-light fixed-top navbar-light ">
       <!-- LOGO -->
       <div class="col-4 d-flex align-items-end navbar-title  ps-3">
-        <img class="navbar-brand d-inline-block align-text-top me-2" width="50" src="./assets/img/icon.png">
+        <img class="navbar-brand d-inline-block align-text-top me-2" width="50" src="./assets/img/ow_icon.svg">
         <p class="d-none d-md-block ow-font-bold mb-0 h4">OVERWATCH<br />TEAM SHUFFLER</p>
         <p class="d-none d-md-block ow-font-middle ms-2 mb-0 fs-6">ver. {{ appVersion }}</p>
       </div>
@@ -22,6 +22,33 @@
         </p>
       </div>
     </nav>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-2 fixed-bottom bg-light">
+      <div class="col-8 d-flex ps-2 me-0 align-items-center">
+        <img src="./assets/img/ow_icon.svg" class="ps-2" style="height:30px;">
+        <p class="ow-font-bold text-muted lh-1 m-1 pe-2">2022 CREATED BY GENESI5<br />OVERWATCH © 2022 BLIZZARD</p>
+      </div>
+      <ul class="col-4 justify-content-end align-items-center m-0 list-unstyled d-flex pe-2">
+        <li class="m-2 mb-0">
+          <a class="text-decoration-none" href="https://github.com/genesi5/ow-shuffler">
+            <p class="bi-github social-item h2" id="githubLink" />
+          </a>
+        </li>
+        <!-- <li class="m-2 mb-0">
+          <a class="text-decoration-none" href="">
+            <p class="bi-instagram social-item h2" id="instagramLink"></p>
+          </a>
+        </li> -->
+        <!--<li class="m-2 mb-0">
+            <a class="text-decoration-none text-reset" href="">
+              <p class="bi-twitter h2" id="twitterLink"></p>
+            </a>
+          </li> -->
+      </ul>
+    </footer>
   </div>
 
   <!-- MAIN-->
@@ -92,7 +119,6 @@
                   type="button" data-bs-toggle="dropdown" aria-expanded="false">{{
                       $t('settings.lang.langButton').toUpperCase()
                   }}
-                  <!-- <p class="m-0 pt-0 pb-1 h4">{{ $t('settings.lang.langButton').toUpperCase() }}</p> -->
                 </button>
                 <ul class="dropdown-menu ow-font-middle">
                   <li class="dropdown-item" v-for="item in supportedLocales.filter(x => x != getCurrentLocale())"
@@ -103,6 +129,7 @@
             </div>
           </div>
           <hr class="row mt-0 mb-0">
+
           <!-- LOCAL STORAGE-->
           <div class="row mt-2 mb-3">
             <div class="d-flex align-items-center">
@@ -118,7 +145,6 @@
               <div class="btn-group ow-font-bold" role="group">
                 <button class="btn btn-sm btn-outline-ow  justify-content-center ow-font-bold pb-0 pt-0 mt-2 mb-1"
                   v-on:click="clearLocalStorage">{{ $t('settings.ls.clearButton').toUpperCase() }}
-                  <!-- <p class="mb-0 pb-1 h4">{{ $t('settings.ls.clearButton').toUpperCase() }}</p> -->
                 </button>
               </div>
             </div>
@@ -140,6 +166,41 @@
               </h6>
             </div>
           </div>
+          <hr class="row mt-0 mb-0"><!-- EXTRA OPTIONS -->
+          <div class="row mt-2 mb-3">
+            <div class="d-flex align-items-center">
+              <p class="ow-font-bold h4">{{ $t('settings.extra.title') }}</p>
+            </div>
+            <div class="col col-xs-12 col-lg-12">
+              <li class="list-group-item ow-font-middle align-items-center text-break li-no-ul">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" v-model="extraOptions.roles"
+                    v-on:click="extraOptions.roles = !extraOptions.roles">
+                  <label class="form-check-label h5 mb-0" v-bind:class="{ 'text-muted': !extraOptions.roles }">{{
+                      $t('settings.extra.options.roles')
+                  }}</label>
+                </div>
+              </li>
+              <li class="list-group-item ow-font-middle align-items-center text-break li-no-ul">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" v-model="extraOptions.heroes"
+                    v-on:click="extraOptions.heroes = !extraOptions.heroes">
+                  <label class="form-check-label h5 mb-0" v-bind:class="{ 'text-muted': !extraOptions.heroes }">{{
+                      $t('settings.extra.options.heroes')
+                  }}</label>
+                </div>
+              </li>
+              <li class="list-group-item ow-font-middle align-items-center text-break li-no-ul">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" v-model="extraOptions.map"
+                    v-on:click="extraOptions.map = !extraOptions.map">
+                  <label class="form-check-label h5 mb-0" v-bind:class="{ 'text-muted': !extraOptions.map }">{{
+                      $t('settings.extra.options.map')
+                  }}</label>
+                </div>
+              </li>
+            </div>
+          </div>
           <hr class="row mt-0 mb-0">
           <!-- MAP FILTER -->
           <div class="row mt-2 mb-3">
@@ -149,7 +210,6 @@
               <div class="btn-group ow-font-bold" role="group">
                 <button class="btn btn-sm btn-outline-ow   justify-content-center ow-font-bold pb-0 pt-0 mt-2 mb-1"
                   v-on:click="resetMapFilter">{{ $t('settings.mapFilter.resetButton').toUpperCase() }}
-                  <!-- <p class="mb-0 pb-1 h4">{{ $t('settings.mapFilter.resetButton').toUpperCase() }}</p> -->
                 </button>
               </div>
             </div>
@@ -178,7 +238,7 @@
                 <p class="ow-font-middle h4">{{ $t(`modes.${mode}`) }}</p>
                 <p class="d-lg-none h3 ps-2 mb-0 bi-chevron-down" :id="`chevron-` + mode" />
               </div>
-              <!-- MAPS BY MODE FULL-->
+              <!-- MAPS BY MODE COLLAPSE -->
               <ul class="d-lg-none list-group list-group-flush collapse" :id="`collapse-` + mode">
                 <li class="list-group-item ow-font-middle align-items-center text-break li-no-ul"
                   v-for="item in getMapsByMode(mode)" v-bind:key="item.id">
@@ -191,7 +251,7 @@
                   </div>
                 </li>
               </ul>
-              <!-- MAPS BY MODE COLLAPSE -->
+              <!-- MAPS BY MODE FULL -->
               <ul class="d-none d-lg-block list-group list-group-flush">
                 <li class="list-group-item ow-font-middle align-items-center text-break li-no-ul"
                   v-for="item in getMapsByMode(mode)" v-bind:key="item.id">
@@ -207,7 +267,7 @@
             </div>
           </div>
         </div>
-        <!-- SETTINGS FOOTER-->
+        <!-- SETTINGS FOOTER -->
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-ow btn-close-modal" data-bs-dismiss="modal">{{
               $t('general.close').toUpperCase()
@@ -222,47 +282,74 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
         <div class="modal-body">
-          <div class="container-fluid" v-if="teamRed.length != 0 && teamBlue.length != 0">
-            <div class="row justify-content-center">
+          <div class="container-fluid">
+            <div class="row">
               <!-- TEAM RED ROSTER -->
-              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 "
-                v-if="teamBlue.length != 0 || teamBlue != undefined">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6" v-if="teamBlue.length != 0">
                 <p class="d-none d-lg-block ow-font-bold team-blue text-end h1">TEAM BLUE</p>
                 <p class="d-lg-none ow-font-bold team-blue text-start h1">TEAM BLUE</p>
                 <hr class="mb-0 mt-0">
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item ow-font-bold player-list pb-0 pt-0" v-for="item in teamBlue"
-                    v-bind:key="item.id">
-                    <p class="d-none d-lg-block text-end pb-0 pt-0 mb-0 h1">{{ item.name.toUpperCase() }}</p>
-                    <p class="d-lg-none text-start pb-0 pt-0 mb-0 h1">{{ item.name.toUpperCase() }}</p>
+                  <li class="list-group-item ow-font-bold player-list p-0" v-for="item in teamBlue" :key="item"
+                    :id="`player_${item.id}`">
+                    <div class="d-flex justify-content-start justify-content-lg-end  align-items-center">
+                      <p class="d-none d-lg-block pb-0 pt-0 mb-0 h1"
+                        :class="{ 'pe-lg-2': !extraOptions.roles && !extraOptions.heroes }">{{ item.name.toUpperCase()
+                        }}
+                      </p>
+                      <p class="player-list-role lh-1 m-0 ms-lg-3 me-lg-0 me-3" :class="getIcon(item.role, 'role')"
+                        v-if="extraOptions.roles && !extraOptions.heroes" />
+                      <p class="player-list-hero lh-1 m-0 ms-lg-2 me-lg-0 me-2" data-bs-toggle="tooltip"
+                        data-bs-placement="top" data-bs-custom-class="custom-tooltip" :title="$t(`heroes.${item.hero}`)"
+                        :class="getIcon(item.hero, 'hero')" v-if="extraOptions.heroes" />
+                      <p class="d-lg-none pb-0 pt-0 mb-0 h1"
+                        :class="{ 'ps-2': !extraOptions.roles && !extraOptions.heroes }">{{ item.name.toUpperCase()
+                        }}
+                      </p>
+                    </div>
                   </li>
                 </ul>
               </div>
-              <!-- XS-MD DELIMITER -->
-              <div class="col-12 d-md-none" style="height: 15px;" />
+              <!--XS - MD DELIMITER-->
+              <div class=" col-12 d-md-none" style="height: 15px;" />
               <!-- TEAM RED ROSTER -->
-              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 "
-                v-if="teamRed.length != 0 || teamRed != undefined">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6" v-if="teamRed.length != 0">
                 <p class="d-none d-lg-block ow-font-bold team-red text-start h1">TEAM RED</p>
                 <p class="d-lg-none ow-font-bold team-red text-end h1">TEAM RED</p>
                 <hr class="mb-0 mt-0">
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item ow-font-bold player-list pb-0 pt-0" v-for="item in teamRed"
-                    v-bind:key="item.id">
-                    <p class="d-none d-lg-block text-start pb-0 pt-0 mb-0 h1">{{ item.name.toUpperCase() }}</p>
-                    <p class="d-lg-none text-end pb-0 pt-0 mb-0 h1">{{ item.name.toUpperCase() }}</p>
+                  <li class="list-group-item ow-font-bold player-list p-0" v-for="item in teamRed" :key="item"
+                    :id="`player_${item.id}`">
+                    <div class="d-flex justify-content-end justify-content-lg-start align-items-center">
+                      <p class="d-lg-none pb-0 pt-0 mb-0 h1"
+                        :class="{ 'pe-2': !extraOptions.roles && !extraOptions.heroes }">{{
+                            item.name.toUpperCase()
+                        }}
+                      </p>
+                      <p class="player-list-role lh-1 m-0 me-lg-3 ms-lg-0 ms-3" :class="getIcon(item.role, 'role')"
+                        v-if="extraOptions.roles && !extraOptions.heroes" />
+                      <p class="player-list-hero lh-1 m-0 me-lg-2 ms-lg-0 ms-2" data-bs-toggle="tooltip"
+                        data-bs-placement="top" data-bs-custom-class="custom-tooltip" :title="$t(`heroes.${item.hero}`)"
+                        :class="getIcon(item.hero, 'hero')" v-if="extraOptions.heroes" />
+                      <p class="d-none d-lg-block pb-0 pt-0 mb-0 h1"
+                        :class="{ 'ps-lg-2': !extraOptions.roles && !extraOptions.heroes }">
+                        {{ item.name.toUpperCase() }}
+                      </p>
+                    </div>
                   </li>
                 </ul>
               </div>
             </div>
-            <hr>
-            <!-- RANDOM MAP BLOCK -->
-            <div class="row justify-content-center" v-if="currentMap">
+            <hr v-if="extraOptions.map && currentMap && playerList.length != 0">
+            <!-- MAP BLOCK -->
+            <div class="row justify-content-center" v-if="extraOptions.map && currentMap">
               <div class="col-6 text-end">
                 <p class="h4 ow-font-middle">{{ $t('general.nextMap') }}</p>
               </div>
               <div class="clearfix col-6 text-start">
-                <p class="d-none d-md-block h2 ow-font-bold player-list lh-1 mb-0">{{ $t(`maps.${currentMap.id}`) }}
+                <p class="d-none d-md-block h2 ow-font-bold player-list lh-1 mb-0">{{
+                    $t(`maps.${currentMap.id}`)
+                }}
                 </p>
                 <p class="d-md-none h4 ow-font-bold player-list lh-1 mb-0">{{ $t(`maps.${currentMap.id}`) }}</p>
                 <p class="fs-6 ow-font-middle">{{ $t(`modes.${currentMap.mode}`) }}</p>
@@ -272,9 +359,10 @@
           <!-- SHUFFLE FOOTER -->
           <div class="modal-footer">
             <div class="col-xs-2 col-sm-2" />
-            <button type="button" class="btn btn-outline-ow btn-shuffle-modal col h3" data-bs-dismiss="modal">{{
-                $t('general.close').toUpperCase()
-            }}</button>
+            <button type="button" class="btn btn-outline-ow btn-shuffle-modal col h3" data-bs-dismiss="modal"
+              v-on:click="togglePlayerModal(false)">{{
+                  $t('general.close').toUpperCase()
+              }}</button>
             <div class="col-xs-2 col-sm-2" />
           </div>
         </div>
@@ -282,47 +370,22 @@
     </div>
   </div>
 
-  <!-- FOOTER -->
-  <div class="container">
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-2 fixed-bottom bg-light">
-      <div class="col-8 d-flex ps-2 me-0 align-items-center">
-        <img src="./assets/img/icon.png" class="ps-2" style="height:30px;">
-        <p class="ow-font-bold text-muted lh-1 m-1 pe-2">2022 CREATED BY GENESI5<br />OVERWATCH © 2022 BLIZZARD</p>
-      </div>
-      <ul class="col-4 justify-content-end align-items-center m-0 list-unstyled d-flex pe-2">
-        <li class="m-2 mb-0">
-          <a class="text-decoration-none" href="https://github.com/genesi5/ow-shuffler">
-            <p class="bi-github social-item h2" id="githubLink" />
-          </a>
-        </li>
-        <!-- <li class="m-2 mb-0">
-          <a class="text-decoration-none" href="">
-            <p class="bi-instagram social-item h2" id="instagramLink"></p>
-          </a>
-        </li> -->
-        <!--<li class="m-2 mb-0">
-            <a class="text-decoration-none text-reset" href="">
-              <p class="bi-twitter h2" id="twitterLink"></p>
-            </a>
-          </li> -->
-      </ul>
-    </footer>
-  </div>
-
 </template>
 
 <style lang="scss">
 @import "./assets/scss/_custom.scss";
+@import "./assets/scss/_overwatch-icons.scss";
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 </style>
 
 <script>
-
 import { default as mapList } from './misc/maps.json'
+import { default as heroList } from './misc/heroes.json'
 import { default as packageJson } from '../package.json'
 
-import { Collapse, Modal } from 'bootstrap'
+// import { Collapse, Modal } from 'bootstrap'
+import { Collapse, Modal, Tooltip } from 'bootstrap'
 import { SUPPORT_LOCALES } from './i18n'
 
 export default {
@@ -342,15 +405,18 @@ export default {
       mapModes: undefined,
       mapFilter: undefined,
       currentMap: undefined,
+      extraOptions: undefined,
       localStorageStatus: undefined,
       appVersion: packageJson.version,
       supportedLocales: SUPPORT_LOCALES,
+      // teamNames: {red: "TEAM RED", blue: "TEAM BLUE"},
     }
   },
   created() {
     this.setLocale()
     this.setMapList()
     this.setMapFilter()
+    this.setExtraOptions()
     document.title += ` ${this.appVersion}`
   },
   mounted() {
@@ -369,10 +435,14 @@ export default {
       handler(newValue, oldValue) { if (newValue != undefined && oldValue != undefined) this.updateLocalStorage("playerList") },
       deep: true,
     },
+    extraOptions: {
+      handler(newValue, oldValue) { if (newValue != undefined && oldValue != undefined) this.updateLocalStorage("extraOptions") },
+      deep: true,
+    },
     locale: {
       handler(newValue) { if (newValue != undefined) this.updateLocalStorage("locale") },
       deep: false,
-    },
+    }
   },
   methods: {
     setupEventHandlers() {
@@ -392,15 +462,37 @@ export default {
       document.getElementById('settingsButton').addEventListener('mouseleave', function () {
         document.getElementById('settingsButton').classList.replace('bi-gear-fill', 'bi-gear')
       })
+      // Shuffler modal
+      document.getElementById('shuffleResult').addEventListener('shown.bs.modal', function () {
+        document.querySelectorAll('p[data-bs-toggle="tooltip"]')
+          .forEach(tooltipNode => new Tooltip(tooltipNode))
+      })
+      document.getElementById('shuffleResult').addEventListener('hidden.bs.modal', function () {
+        this.teamBlue = []
+        this.teamRed = []
+      })
     },
     loadPlayersFromLocalStorage() {
       let ls = JSON.parse(window.localStorage.getItem("playerList"))
       if (ls != null) {
+        for (let i = 0; i < ls.length; i++) ls[i].id = i
         this.playerList = ls
-        // console.log("MAPS",this.mapList.map(x => this.mapNames[x.id]))
+        this.counter = ls.length
       }
       else this.playerList = []
     },
+    randomiseList(list) {
+      let
+        randomIndex,
+        currentIndex = list.length
+      while (currentIndex != 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex)
+        currentIndex--
+        [list[currentIndex], list[randomIndex]] = [list[randomIndex], list[currentIndex]]
+      }
+      return list
+    },
+
     setLocale() {
       let ls = window.localStorage.getItem("locale")
       if (ls != null) {
@@ -428,6 +520,12 @@ export default {
       else this.mapFilter = mapList.reduce((prev, cur) => ({ ...prev, [cur.id]: true }), {})
       // console.log("FILTERS", this.mapFilter)
     },
+    setExtraOptions() {
+      let ls = window.localStorage.getItem("extraOptions")
+      if (ls != undefined) this.extraOptions = JSON.parse(ls)
+      else this.extraOptions = { roles: false, heroes: false, map: false }
+    },
+
     getMapsByMode(mode) {
       if (String(mode)) return this.mapList.filter(x => x.mode == mode)
     },
@@ -438,6 +536,35 @@ export default {
       }
       return this.$i18n.fallbackLocale.default[0]
     },
+    getIcon(id, type) {
+      if (String(id) != null && String(type != null)) {
+        if (String(type) == "role") return `ow-role-${id}`
+        else if (String(type) == "hero") return `ow-hero-${id}`
+      }
+    },
+    getRoleSet(length) {
+      // Parametrize in future
+      const
+        roleSets = {
+          6: "2D-2T-2S",
+          5: "2D-1T-2S",
+          4: "2D-2S",
+          3: "2D-1S"
+        },
+        hash = { T: "tank", D: "damage", S: "support" }
+      if (Number(length) >= 3) {
+        let
+          roles = new Array(),
+          roleSet = roleSets[length].split('-')
+        for (let set of roleSet) {
+          roles.push(String(hash[set[1]]))
+          if (Number(set[0]) == 2) roles.push(roles[roles.length - 1])
+        }
+        return roles
+      }
+      return null
+    },
+
     addPlayer(name) {
       if (String(name)) {
         if (this.playerList) {
@@ -473,55 +600,107 @@ export default {
         }
       }
     },
-    pickRandomMap() {
-      let newMaps = Object.create(this.mapList.filter(x => this.mapFilter[x.id]))
-      this.currentMap = newMaps[Math.floor(Math.random() * newMaps.length)]
-      // console.info("CURRENT MAP", this.currentMap)
-    },
-    resetMapFilter() {
-      if (Object.keys(this.mapFilter).some((key) => !this.mapFilter[key])) {
-        this.mapFilter = Object.fromEntries(Object.keys(this.mapFilter).map((key) => [key, true]))
-        let mapFilterCollapse = {
-          lg: new Collapse("#collapseMapFilterAlertLg"),
-          sm: new Collapse("#collapseMapFilterAlertSm")
-        }
-        mapFilterCollapse.lg.show()
-        mapFilterCollapse.sm.show()
-        setTimeout(() => {
-          mapFilterCollapse.lg.hide()
-          mapFilterCollapse.sm.hide()
-        }, 3000)
-      }
-    },
+    
     shuffleTeams() {
-      if (this.playerList.length != 0 && this.playerList.length % 2 == 0) {
-        let list = Object.create(this.playerList)
-        var randomIndex, currentIndex = list.length, half = Math.ceil(list.length / 2);
-        while (currentIndex != 0) {
-          randomIndex = Math.floor(Math.random() * currentIndex)
-          currentIndex--
-          [list[currentIndex], list[randomIndex]] = [list[randomIndex], list[currentIndex]]
-        }
-        this.teamRed = list.slice(0, half)
-        // console.info('TEAM RED', this.teamRed.map(x => x.name))
-        this.teamBlue = list.slice(-half)
-        // console.info('TEAM BLUE', this.teamBlue.map(x => x.name))
-        this.pickRandomMap()
-        if (this.currentMap != undefined) this.togglePlayerModal(true)
+      // Randomize map
+      if (this.extraOptions.map) {
+        let newMaps = Object.create(this.mapList.filter(x => this.mapFilter[x.id]))
+        if (newMaps.length != 0) this.currentMap = newMaps[Math.floor(Math.random() * newMaps.length)]
         else {
           this.toggleAlertModal(true, this.$t('general.errors.mapPoolEmpty'))
           // console.warn("Map pool is empty")
+          return
         }
       }
-      else if (this.playerList.length % 2 != 0) {
-        this.toggleAlertModal(true, this.$t('general.errors.rosterNotEven'))
-        // console.warn("Roster is not even")
+      // Randomize player teams
+      if (this.playerList.length != 0) {
+        const
+          list = this.randomiseList(Object.create(this.playerList)),
+          half = Math.ceil(list.length / 2)
+        if (this.playerList.length % 2 != 0) {
+          this.toggleAlertModal(true, this.$t('general.errors.rosterNotEven'))
+          // console.warn("Roster is not even")
+          return
+        }
+        this.teamBlue = Object.create(list.slice(0, half))
+        this.teamRed = Object.create(list.slice(-half))
+
+        // Randomize roles
+        if (this.extraOptions.roles) {
+          if (half >= 3) {
+            let roles = {
+              blue: this.randomiseList(this.getRoleSet(half)),
+              red: this.randomiseList(this.getRoleSet(half))
+            }
+            this.teamBlue.forEach((x, i) => x.role = roles.blue[i])
+            this.teamRed.forEach((x, i) => x.role = roles.red[i])
+          }
+          // Don't assign roles if there's less than three players in teams
+          else if (half < 3) {
+            this.teamBlue.forEach((x) => x.role = null)
+            this.teamRed.forEach((x) => x.role = null)
+          }
+        }
+        // Randomize heroes
+        if (this.extraOptions.heroes) {
+          // Randomize heroes by roles
+          if (this.extraOptions.roles) {
+            const
+              heroSortedSet = {
+                damage: this.randomiseList(Object.create(heroList.filter(x => x.class == "damage"))),
+                support: this.randomiseList(Object.create(heroList.filter(x => x.class == "support"))),
+                tank: this.randomiseList(Object.create(heroList.filter(x => x.class == "tank")))
+              }
+            let
+              setBlue = Object.create(heroSortedSet),
+              setRed = Object.create(heroSortedSet)
+
+            this.teamBlue.forEach(function (x) {
+              while (setBlue[x.role].length) {
+                x.hero = setBlue[x.role].splice(setBlue[x.role].length * Math.random() | 0, 1)[0]['id'];
+                return
+              }
+            })
+            this.teamRed.forEach(function (x) {
+              while (setRed[x.role].length) {
+                x.hero = setRed[x.role].splice(setRed[x.role].length * Math.random() | 0, 1)[0]['id'];
+                return
+              }
+            })
+          }
+          // Assign random heroes
+          else {
+            let
+              setBlue = this.randomiseList(Object.create(heroList)),
+              setRed = this.randomiseList(Object.create(heroList))
+            this.teamBlue.forEach(function (x) {
+              while (setBlue.length) {
+                x.hero = setBlue.splice(setBlue.length * Math.random() | 0, 1)[0]['id'];
+                return
+              }
+            })
+            this.teamRed.forEach(function (x) {
+              while (setRed.length) {
+                x.hero = setRed.splice(setRed.length * Math.random() | 0, 1)[0]['id'];
+                return
+              }
+            })
+          }
+        }
+        // console.info('TEAM BLUE', this.teamBlue)
+        // console.info('TEAM RED', this.teamRed)
+        this.togglePlayerModal(true)
       }
-      else if (this.playerList.length == 0) {
-        this.toggleAlertModal(true, this.$t('general.errors.rosterEmpty'))
-        // console.warn("Roster is empty")
+      else {
+        if (this.extraOptions.map) this.togglePlayerModal(true)
+        else {
+          this.toggleAlertModal(true, this.$t('general.errors.rosterEmpty'))
+          // console.warn("Roster is empty")
+          return
+        }
       }
     },
+
     togglePlayerModal(opt) {
       let playerModal = new Modal(document.getElementById('shuffleResult'))
       if (opt) playerModal.show()
@@ -553,6 +732,21 @@ export default {
         this.alertInputMessage = undefined
       }, 3000)
     },
+    resetMapFilter() {
+      if (Object.keys(this.mapFilter).some((key) => !this.mapFilter[key])) {
+        this.mapFilter = Object.fromEntries(Object.keys(this.mapFilter).map((key) => [key, true]))
+        let mapFilterCollapse = {
+          lg: new Collapse("#collapseMapFilterAlertLg"),
+          sm: new Collapse("#collapseMapFilterAlertSm")
+        }
+        mapFilterCollapse.lg.show()
+        mapFilterCollapse.sm.show()
+        setTimeout(() => {
+          mapFilterCollapse.lg.hide()
+          mapFilterCollapse.sm.hide()
+        }, 3000)
+      }
+    },
     changeLocale(item) {
       this.locale = item
       if (this.locale != undefined) window.localStorage.setItem('locale', this.locale)
@@ -569,6 +763,11 @@ export default {
           this.$i18n.locale = this.locale
           window.localStorage.setItem("locale", this.locale)
           document.querySelector('html').setAttribute('lang', this.locale)
+          this.updateLocalStorageStatus()
+          break
+        case "extraOptions":
+          // console.log(`Updated ${obj}`, this.locale)
+          window.localStorage.setItem("extraOptions", JSON.stringify(this.extraOptions))
           this.updateLocalStorageStatus()
           break
         case "mapFilter":

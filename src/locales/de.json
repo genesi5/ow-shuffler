@@ -28,6 +28,14 @@
       "exist": "(zwischengespeicherte Daten im Speicher)",
       "alert": "Lokaler Speicher wurde erfolgreich gelöscht"
     },
+    "extra": {
+      "title": "Zusätzliche Optionen",
+      "options": {
+        "roles": "Zufällige Rollenzuweisung",
+        "heroes": "Zufällige Heldenzuweisung",
+        "map": "Zufällige Kartenzuweisung"
+      }
+    },
     "mapFilter": {
       "title": "Kartenfilter",
       "resetButton": "Filter zurücksetzen",
@@ -60,6 +68,46 @@
     "anubis": "Tempel des Anubis",
     "rome": "Colloseo",
     "toronto": "New Queen Street"
+  },
+  "heroes": {
+    "ana": "Ana",
+    "ashe": "Ashe",
+    "baptiste": "Baptiste",
+    "bastion": "Bastion",
+    "brigitte": "Brigitte",
+    "cassidy": "Cassidy",
+    "dva": "D.Va",
+    "doomfist": "Doomfist",
+    "genji": "Genji",
+    "echo": "Echo",
+    "hammond": "Wrecking Ball",
+    "hanzo": "Hanzo",
+    "junkrat": "Junkrat",
+    "lucio": "Lúcio",
+    "mei": "Mei",
+    "mercy": "Mercy",
+    "moira": "Moira",
+    "orisa": "Orisa",
+    "pharah": "Pharah",
+    "reaper": "Reaper",
+    "reinhardt": "Renhardt",
+    "roadhog": "Roadhog",
+    "sojourn": "Sojourn",
+    "soldier76": "Soldier-76",
+    "sombra": "Sombra",
+    "sigma": "Sigma",
+    "symmetra": "Symmetra",
+    "torbjorn": "Torbjörn",
+    "tracer": "Tracer",
+    "widowmaker": "Widowmaker",
+    "winston": "Winston",
+    "zarya": "Zarya",
+    "zenyatta": "Zenyatta"
+  },
+  "heroClass": {
+    "damage": "Schaden",
+    "tank": "Tank",
+    "support": "Unterstützung"
   },
   "modes": {
     "hybrid": "Hybrid",

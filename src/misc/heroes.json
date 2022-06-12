@@ -1,0 +1,162 @@
+[
+  {
+    "id": "ana",
+    "class": "support",
+    "legacy": true
+  },
+  {
+    "id": "ashe",
+    "class": "damage",
+    "legacy": true
+  },
+  {
+    "id": "baptiste",
+    "class": "support",
+    "legacy": true
+  },
+  {
+    "id": "bastion",
+    "class": "damage",
+    "legacy": true
+  },
+  {
+    "id": "brigitte",
+    "class": "support",
+    "legacy": true
+  },
+  {
+    "id": "cassidy",
+    "class": "damage",
+    "legacy": true
+  },
+  {
+    "id": "dva",
+    "class": "tank",
+    "legacy": true
+  },
+  {
+    "id": "doomfist",
+    "class": "damage",
+    "legacy": true
+  },
+  {
+    "id": "genji",
+    "class": "damage",
+    "legacy": true
+  },
+  {
+    "id": "echo",
+    "class": "damage",
+    "legacy": true
+  },
+  {
+    "id": "hammond",
+    "class": "tank",
+    "legacy": true
+  },
+  {
+    "id": "hanzo",
+    "class": "damage",
+    "legacy": true
+  },
+  {
+    "id": "junkrat",
+    "class": "damage",
+    "legacy": true
+  },
+  {
+    "id": "lucio",
+    "class": "support",
+    "legacy": true
+  },
+  {
+    "id": "mei",
+    "class": "damage",
+    "legacy": true
+  },
+  {
+    "id": "mercy",
+    "class": "support",
+    "legacy": true
+  },
+  {
+    "id": "moira",
+    "class": "support",
+    "legacy": true
+  },
+  {
+    "id": "orisa",
+    "class": "tank",
+    "legacy": true
+  },
+  {
+    "id": "pharah",
+    "class": "damage",
+    "legacy": true
+  },
+  {
+    "id": "reaper",
+    "class": "damage",
+    "legacy": true
+  },
+  {
+    "id": "reinhardt",
+    "class": "tank",
+    "legacy": true
+  },
+  {
+    "id": "roadhog",
+    "class": "tank",
+    "legacy": true
+  },
+  {
+    "id": "soldier76",
+    "class": "damage",
+    "legacy": true
+  },
+  {
+    "id": "sombra",
+    "class": "damage",
+    "legacy": true
+  },
+  {
+    "id": "sigma",
+    "class": "tank",
+    "legacy": true
+  },
+  {
+    "id": "symmetra",
+    "class": "damage",
+    "legacy": true
+  },
+  {
+    "id": "torbjorn",
+    "class": "damage",
+    "legacy": true
+  },
+  {
+    "id": "tracer",
+    "class": "damage",
+    "legacy": true
+  },
+  {
+    "id": "widowmaker",
+    "class": "damage",
+    "legacy": true
+  },
+  {
+    "id": "winston",
+    "class": "tank",
+    "legacy": true
+  },
+  {
+    "id": "zarya",
+    "class": "tank",
+    "legacy": true
+  },
+  {
+    "id": "zenyatta",
+    "class": "support",
+    "legacy": true
+  }
+]

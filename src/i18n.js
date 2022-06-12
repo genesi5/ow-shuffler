@@ -18,6 +18,7 @@ export default new function setupI18n(options = {
   fallbackLocale: {
     'uk': ['ru'],
     'be': ['ru'],
+    'kz': ['ru'],
     'default': ["en"]
   },
   legacy: true,

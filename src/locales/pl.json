@@ -28,6 +28,14 @@
       "exist": "(są zapisane dane)",
       "alert": "Pamięć lokalna została pomyślnie wyczyszczona"
     },
+    "extra": {
+      "title": "Dodatkowe opcje",
+      "options": {
+        "roles": "Przydziel losowo role",
+        "heroes": "Przypisz losowo bohaterów",
+        "map": "Wybierz losową kartę"
+      }
+    },
     "mapFilter": {
       "title": "Filtr kart",
       "resetButton": "Zresetuj filtr",
@@ -60,6 +68,46 @@
     "anubis": "Świątynia Anubisa",
     "rome": "Koloseum",
     "toronto": "New Queen Street"
+  },
+  "heroes": {
+    "ana": "Ana",
+    "ashe": "Ashe",
+    "baptiste": "Baptiste",
+    "bastion": "Bastion",
+    "brigitte": "Brigitte",
+    "cassidy": "Cassidy",
+    "dva": "D.Va",
+    "doomfist": "Pięść Zagłady",
+    "genji": "Genji",
+    "echo": "Echo",
+    "hammond": "Burzyciel",
+    "hanzo": "Hanzo",
+    "junkrat": "Złomiarz",
+    "lucio": "Lúcio",
+    "mei": "Mei",
+    "mercy": "Łaska",
+    "moira": "Moira",
+    "orisa": "Orisa",
+    "pharah": "Fara",
+    "reaper": "Żniwiarz",
+    "reinhardt": "Renhardt",
+    "roadhog": "Roadhog",
+    "sojourn": "Sojourn",
+    "soldier76": "Żołnierz-76",
+    "sombra": "Sombra",
+    "sigma": "Sigma",
+    "symmetra": "Symmetra",
+    "torbjorn": "Torbjörn",
+    "tracer": "Smuga",
+    "widowmaker": "Trupia Wdowa",
+    "winston": "Winston",
+    "zarya": "Zaria",
+    "zenyatta": "Zenyatta"
+  },
+  "heroClass": {
+    "damage": "Natarcie",
+    "tank": "Tank",
+    "support": "Wsparcie"
   },
   "modes": {
     "hybrid": "Hybryda",
