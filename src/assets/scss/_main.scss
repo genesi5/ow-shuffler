@@ -3,8 +3,9 @@
 @import "bootstrap/scss/bootstrap";
 
 @font-face {
-  font-family: 'Bebas Neue Pro Bold Italic';
-  src: local('Bebas Neue Pro Bold Italic'), local('Bebas-Neue-Pro-Bold-Italic'),
+  font-family: 'Bebas Neue Pro';
+  src:
+    // local('Bebas Neue Pro Bold Italic'), local('Bebas-Neue-Pro-Bold-Italic'),
     url('./assets/fonts/BebasNeuePro-BoldItalic.woff2') format('woff2'),
     url('./assets/fonts/BebasNeuePro-BoldItalic.woff') format('woff'),
     url('./assets/fonts/BebasNeuePro-BoldItalic.ttf') format('truetype');
@@ -13,8 +14,9 @@
 }
 
 @font-face {
-  font-family: 'Bebas Neue Pro Middle Italic';
-  src: local('Bebas Neue Pro Middle Italic'), local('Bebas-Neue-Pro-Middle-Italic'),
+  font-family: 'Bebas Neue Pro';
+  src:
+    // local('Bebas Neue Pro Middle Italic'), local('Bebas-Neue-Pro-Middle-Italic'),
     url('./assets/fonts/BebasNeuePro-MiddleItalic.woff2') format('woff2'),
     url('./assets/fonts/BebasNeuePro-MiddleItalic.woff') format('woff'),
     url('./assets/fonts/BebasNeuePro-MiddleItalic.ttf') format('truetype');
@@ -29,23 +31,82 @@
   }
 }
 
-@media (max-width: 992px) {
-  .player-list-role {
-    font-size: 1.4rem !important;
-  }
+body {
+  font-family: "Bebas Neue Pro";
+  // background: linear-gradient(0deg, rgba(46, 46, 46, 0.5), rgba(250, 250, 250, 0.25)), url("./assets/img/ow_wlp.jpg");
+  background-image: url("./assets/img/ow_wlp.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  margin-top: 100px !important;
+  margin-bottom: 75px !important;
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  /* Firefox */
+}
 
-  .player-list-hero {
-    font-size: 2rem;
-  }
+body::-webkit-scrollbar {
+  display: none;
+  /* Safari and Chrome */
 }
 
 .btn {
-  font-family: 'Bebas Neue Pro Bold Italic';
+  font-weight: 700;
 }
+
+.tooltip {
+  font-weight: normal;
+  font-size: $font-size-lg;
+}
+
+.ow-font-bold {
+  font-weight: 700;
+}
+
+.ow-font-middle {
+  font-weight: normal;
+}
+
 
 .btn-outline-ow {
   @include button-outline-variant($overwatch);
   font-size: 1.75rem;
+}
+
+.btn-outline-bg-ow {
+  @include button-outline-variant($overwatch);
+  background-color: rgba(255, 255, 255, $ow-opacity);
+  font-size: 1.75rem;
+}
+
+.btn-ow-main {
+  @include button-variant($overwatch, $overwatch);
+  border-color: $overwatch;
+  font-size: 1.75rem;
+}
+
+.btn-ow-main:hover {
+  border-color: rgba(0, 0, 0, 0);
+}
+
+.btn-ow-main.active,
+.btn-ow-main:active {
+  color: $overwatch;
+  background-color: $white;
+  border-color: rgba(0, 0, 0, 0.125);
+  // remove glow
+  outline: none;
+  box-shadow: none !important;
+  -webkit-appearance: none;
+}
+
+.btn-ow-main:focus {
+  // remove glow
+  outline: none;
+  box-shadow: none !important;
+  -webkit-appearance: none;
 }
 
 .btn-lg {
@@ -68,33 +129,20 @@
   padding-bottom: .25rem;
 }
 
+.chevron-rotate {
+  transition: transform 0.2s ease-in-out;
+}
+
+.chevron-rotate.out {
+  transform: rotate(180deg)
+}
+
 .navbar-title {
   color: $overwatch  !important;
 }
 
-.team-red {
-  color: $red-400;
-}
-
-.team-blue {
-  color: $blue-400;
-}
-
-.player-list {
+.team-grey {
   color: $gray-600  !important;
-}
-
-.player-list-hero {
-  font-size: 2.5rem;
-}
-
-.player-list-role {
-  font-size: 1.5rem;
-}
-
-.player-list-margin {
-  margin-top: 80px;
-  margin-bottom: 75px;
 }
 
 .player-roster {
@@ -102,53 +150,22 @@
   overflow-y: hidden;
 }
 
-.tooltip{
-  font-family: 'Bebas Neue Pro Middle Italic';
-  font-size:  $font-size-lg;
-}
 
-.gear {
+#settingsButton {
   color: $overwatch;
   font-size: 2.5rem;
 }
 
-.gear-enter-active,
-.gear-leave-active {
-  transition: opacity 0.5s;
-}
-
-.gear-enter-from,
-.gear-leave-to {
+// ???
+#settingsButton {
   opacity: 1;
 }
 
-.bg-img {
-  /* background: linear-gradient(0deg, rgba(46, 46, 46, 0.5), rgba(250, 250, 250, 0.25)), url("./assets/img/ow_wlp.jpg"); */
-  background-image: url("./assets/img/ow_wlp.jpg");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
-  background-size: cover;
+#settingsButton:hover .bi-gear::before {
+  content: '\F3E2';
+  // transition: opacity 0.5s;
 }
 
-
-.ow-font-bold {
-  font-family: 'Bebas Neue Pro Bold Italic';
-}
-
-.ow-font-middle {
-  font-family: 'Bebas Neue Pro Middle Italic';
-}
-
-.settings-status-enter-active,
-.settings-status-leave-active {
-  transition: opacity 1s;
-}
-
-.settings-status-enter-from,
-.settings-status-leave-to {
-  opacity: 0;
-}
 
 .list-enter-active,
 .list-leave-active {
@@ -178,11 +195,11 @@
 }
 
 .opac {
-  opacity: 0.9 !important;
+  opacity: $ow-opacity;
 }
 
-.opac p a button {
-  opacity: 1;
+.opac>* {
+  opacity: 1 !important;
 }
 
 .bi-github {

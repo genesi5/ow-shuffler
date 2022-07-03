@@ -1,0 +1,33 @@
+.sharp-edge-top {
+  border-top: none;
+  border-top-left-radius: 0rem !important;
+  border-top-right-radius: 0rem !important;
+}
+
+label[disabled="true"],
+input[disabled="true"],
+button[disabled="true"] {
+  color: $gray-600;
+  opacity: 0.5;
+}
+
+.btn-outline-secondary:disabled {
+  border-color: #ced4da;
+}
+
+#inputTank,
+#inputDamage,
+#inputSupport {
+  text-align: center !important;
+}
+
+// remove arrow buttonn for input of number type 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+// same for FF
+input[type=number] {
+  -moz-appearance: textfield;
+}

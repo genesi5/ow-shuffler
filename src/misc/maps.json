@@ -2,175 +2,156 @@
   {
     "id": "lijiang",
     "mode": "control",
-    "image": "./src/img/map_lijiang.jpg",
     "legacy": true,
     "deprecated": false
   },
   {
     "id": "ilios",
     "mode": "control",
-    "image": "./src/img/map_ilios.jpg",
     "legacy": true,
     "deprecated": false
   },
   {
     "id": "nepal",
     "mode": "control",
-    "image": "./src/img/map_nepal.jpg",
     "legacy": true,
     "deprecated": true
   },
   {
     "id": "oasis",
     "mode": "control",
-    "image": "./src/img/map_oasis.jpg",
     "legacy": true,
     "deprecated": false
   },
   {
     "id": "busan",
     "mode": "control",
-    "image": "./src/img/map_busan.jpg",
     "legacy": true,
     "deprecated": true
   },
   {
     "id": "havana",
     "mode": "escort",
-    "image": "./src/img/map_havana.jpg",
     "legacy": true,
     "deprecated": true
   },
   {
     "id": "junkertown",
     "mode": "escort",
-    "image": "./src/img/map_junkertown.jpg",
     "legacy": true,
-    "deprecated": true
+    "deprecated": false
   },
   {
     "id": "monaco",
     "mode": "escort",
-    "image": "./src/img/map_monaco.jpg",
     "legacy": false,
     "deprecated": false
   },
   {
     "id": "dorado",
     "mode": "escort",
-    "image": "./src/img/map_dorado.jpg",
     "legacy": true,
     "deprecated": false
   },
   {
     "id": "gibraltar",
     "mode": "escort",
-    "image": "./src/img/map_gibraltar.jpg",
     "legacy": true,
     "deprecated": false
   },
   {
     "id": "rialto",
     "mode": "escort",
-    "image": "./src/img/map_gibraltar.jpg",
     "legacy": true,
     "deprecated": true
   },
   {
     "id": "route66",
     "mode": "escort",
-    "image": "./src/img/map_route66.jpg",
     "legacy": true,
     "deprecated": false
   },
   {
     "id": "blizzworld",
     "mode": "hybrid",
-    "image": "./src/img/map_blizzworld.jpg",
     "legacy": true,
     "deprecated": true
   },
   {
     "id": "eichenwalde",
     "mode": "hybrid",
-    "image": "./src/img/map_eichenwalde.jpg",
     "legacy": true,
     "deprecated": false
   },
   {
     "id": "hollywood",
     "mode": "hybrid",
-    "image": "./src/img/map_hollywood.jpg",
     "legacy": true,
     "deprecated": true
   },
   {
     "id": "kingsrow",
     "mode": "hybrid",
-    "image": "./src/img/map_kingsrow.jpg",
     "legacy": true,
     "deprecated": false
   },
   {
     "id": "midtown",
     "mode": "hybrid",
-    "image": "./src/img/map_midtown.jpg",
     "legacy": false,
     "deprecated": false
   },
   {
     "id": "numbani",
     "mode": "hybrid",
-    "image": "./src/img/map_numbani.jpg",
     "legacy": true,
     "deprecated": true
   },
   {
     "id": "volskaya",
     "mode": "assault",
-    "image": "./src/img/map_volskaya.jpg",
     "legacy": true,
     "deprecated": true
   },
   {
     "id": "horizon",
     "mode": "assault",
-    "image": "./src/img/map_horizon.jpg",
     "legacy": true,
     "deprecated": true
   },
   {
+    "id": "paraiso",
+    "mode": "hybrid",
+    "legacy": false,
+    "deprecated": false
+  },
+  {
     "id": "paris",
     "mode": "assault",
-    "image": "./src/img/map_paris.jpg",
     "legacy": true,
     "deprecated": true
   },
   {
     "id": "hanamura",
     "mode": "assault",
-    "image": "./src/img/map_hanamura.jpg",
     "legacy": true,
     "deprecated": true
   },
   {
     "id": "anubis",
     "mode": "assault",
-    "image": "./src/img/map_anubis.jpg",
     "legacy": true,
     "deprecated": true
   },
   {
     "id": "rome",
     "mode": "push",
-    "image": "./src/img/rome.jpg",
     "legacy": false,
     "deprecated": false
   },
   {
     "id": "toronto",
     "mode": "push",
-    "image": "./src/img/map_toronto.jpg",
     "legacy": false,
     "deprecated": false
   }

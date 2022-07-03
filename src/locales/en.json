@@ -1,18 +1,30 @@
 {
   "general": {
     "close": "Close",
-    "nextMap": "Next map is:",
     "errors": {
       "title": "Error",
       "rosterNotEven": "Unable to assign players fairly: roster is not even.",
       "rosterEmpty": "Unable to assign players: roster is empty.",
-      "mapPoolEmpty": "Selected map pool for random pick is empty."
+      "mapPoolEmpty": "Selected map pool for random pick is empty.",
+      "notEnoughForCaps": "Unable to assign captains: at least 2 players required.",
+      "invalidTeamName": "Unable to assign players or captains: one of the teams has name with invalid value. | Unable to assign players or captains: both teams have name with invalid value.",
+      "invalidRoleSet": "Unable to assign roles: invalid role ratio for {0}-player teams."
+    }
+  },
+  "shuffle": {
+    "nextMap": "Next map is:",
+    "captains": "Team captains",
+    "restrictHeroes": "Heroes assignation is blocked - not enough available heroes for role",
+    "bannedHeroes": "Banned heroes:",
+    "photo": {
+      "tooltip": "Take a screenshot",
+      "clipboard": "Copied into clipboard!"
     }
   },
   "input": {
     "placeholder": " Enter player nickname...",
     "alerts": {
-      "rosterExceeded": "Player limit has been exceeded (12 players maximum)",
+      "rosterExceeded": "Player limit has been exceeded ({0} players maximum)",
       "duplicateFound": "Player with nickname \"{0}\" is already exists"
     }
   },
@@ -25,96 +37,126 @@
     "ls": {
       "title": "Local storage",
       "clearButton": "Clear cache",
-      "exist": "(cached data in storage)",
+      "exist": "Cached data in storage",
       "alert": "Local storage has been successfully cleared"
     },
-    "extra": {
-      "title": "Extra options",
-      "options": {
-        "roles": "Random role assignation",
-        "heroes": "Random hero assignation",
-        "map": "Random map assignation"
-      }
-    },
-    "mapFilter": {
-      "title": "Map filter",
-      "resetButton": "Reset filter",
-      "alert": "Map filter has been reset to default"
+    "switch": {
+      "title": "OVERWATCH™ version"
     }
   },
-  "maps": {
-    "lijiang": "Lijiang Tower",
-    "ilios": "Ilios",
-    "nepal": "Nepal",
-    "oasis": "Oasis",
-    "busan": "Busan",
-    "havana": "Havana",
-    "junkertown": "Junkertown",
-    "monaco": "Curcuit Royal",
-    "dorado": "Dorado",
-    "rialto": "Rialto",
-    "gibraltar": "Watchpoint: Gibraltar",
-    "route66": "Route 66",
-    "blizzworld": "Blizzard World",
-    "eichenwalde": "Eichenwalde",
-    "hollywood": "Hollywood",
-    "kingsrow": "King's Row",
-    "midtown": "Midtown",
-    "numbani": "Numbani",
-    "volskaya": "Volskaya Industries",
-    "horizon": "Horizon Lunar Colony",
-    "paris": "Paris",
-    "hanamura": "Hanamura",
-    "anubis": "Temple of Anubis",
-    "rome": "Colloseo",
-    "toronto": "New Queen Street"
+  "extra": {
+    "title": "Extra options",
+    "collapseButton": "Extra",
+    "options": {
+      "captains": "Random team captain pick",
+      "map": "Random map assignation",
+      "heroes": {
+        "switch": "Random hero assignation",
+        "heroBan": "Number of random heroes to ban:"
+      },
+      "roles": {
+        "switch": "Random role assignation",
+        "roleSets": "Role ratio by number of players in team",
+        "dropdown": "{0}  players",
+        "invalidRoleSet": "Invalid role ratio for {0}-player teams"
+      },
+      "teams": {
+        "blue": "Name of blue team",
+        "red": "Name of red team",
+        "alerts": {
+          "emptyValue": "Invalid input: empty value",
+          "outLimit": "Invalid input: {0} characters maximum"
+        }
+      }
+    }
   },
-  "heroes": {
-    "ana": "Ana",
-    "ashe": "Ashe",
-    "baptiste": "Baptiste",
-    "bastion": "Bastion",
-    "brigitte": "Brigitte",
-    "cassidy": "Cassidy",
-    "dva": "D.Va",
-    "doomfist": "Doomfist",
-    "genji": "Genji",
-    "echo": "Echo",
-    "hammond": "Wrecking Ball",
-    "hanzo": "Hanzo",
-    "junkrat": "Junkrat",
-    "lucio": "Lúcio",
-    "mei": "Mei",
-    "mercy": "Mercy",
-    "moira": "Moira",
-    "orisa": "Orisa",
-    "pharah": "Pharah",
-    "reaper": "Reaper",
-    "reinhardt": "Renhardt",
-    "roadhog": "Roadhog",
-    "sojourn": "Sojourn",
-    "soldier76": "Soldier-76",
-    "sombra": "Sombra",
-    "sigma": "Sigma",
-    "symmetra": "Symmetra",
-    "torbjorn": "Torbjörn",
-    "tracer": "Tracer",
-    "widowmaker": "Widowmaker",
-    "winston": "Winston",
-    "zarya": "Zarya",
-    "zenyatta": "Zenyatta"
+  "mapData": {
+    "title": "Map filter",
+    "collapseButton": "Maps",
+    "resetButton": "Reset filter",
+    "alert": "Map filter has been reset to default",
+    "maps": {
+      "lijiang": "Lijiang Tower",
+      "ilios": "Ilios",
+      "nepal": "Nepal",
+      "oasis": "Oasis",
+      "busan": "Busan",
+      "havana": "Havana",
+      "junkertown": "Junkertown",
+      "monaco": "Curcuit Royal",
+      "dorado": "Dorado",
+      "rialto": "Rialto",
+      "gibraltar": "Watchpoint: Gibraltar",
+      "route66": "Route 66",
+      "blizzworld": "Blizzard World",
+      "eichenwalde": "Eichenwalde",
+      "hollywood": "Hollywood",
+      "kingsrow": "King's Row",
+      "midtown": "Midtown",
+      "numbani": "Numbani",
+      "volskaya": "Volskaya Industries",
+      "horizon": "Horizon Lunar Colony",
+      "paraiso": "Paraíso",
+      "paris": "Paris",
+      "hanamura": "Hanamura",
+      "anubis": "Temple of Anubis",
+      "rome": "Colloseo",
+      "toronto": "New Queen Street"
+    },
+    "mapModes": {
+      "hybrid": "Hybrid",
+      "control": "Control",
+      "assault": "Assault",
+      "escort": "Escort",
+      "push": "Push"
+    }
   },
-  "heroClass": {
-    "damage": "Damage",
-    "tank": "Tank",
-    "support": "Support"
-  },
-  "modes": {
-    "hybrid": "Hybrid",
-    "control": "Control",
-    "assault": "Assault",
-    "escort": "Escort",
-    "push": "Push"
+  "heroData": {
+    "title": "Hero filter",
+    "collapseButton": "Heroes",
+    "resetButton": "Reset filter",
+    "alert": "Hero filter has been reset to default",
+    "heroes": {
+      "ana": "Ana",
+      "ashe": "Ashe",
+      "baptiste": "Baptiste",
+      "bastion": "Bastion",
+      "brigitte": "Brigitte",
+      "cassidy": "Cassidy",
+      "dva": "D.Va",
+      "doomfist": "Doomfist",
+      "genji": "Genji",
+      "echo": "Echo",
+      "hanzo": "Hanzo",
+      "junkerqueen": "Junker Queen",
+      "junkrat": "Junkrat",
+      "lucio": "Lúcio",
+      "mei": "Mei",
+      "mercy": "Mercy",
+      "moira": "Moira",
+      "orisa": "Orisa",
+      "pharah": "Pharah",
+      "reaper": "Reaper",
+      "reinhardt": "Renhardt",
+      "roadhog": "Roadhog",
+      "sojourn": "Sojourn",
+      "soldier76": "Soldier-76",
+      "sombra": "Sombra",
+      "sigma": "Sigma",
+      "symmetra": "Symmetra",
+      "torbjorn": "Torbjörn",
+      "tracer": "Tracer",
+      "widowmaker": "Widowmaker",
+      "winston": "Winston",
+      "wreckingball": "Wrecking Ball",
+      "zarya": "Zarya",
+      "zenyatta": "Zenyatta"
+    },
+    "heroClasses": {
+      "damage": "Damage",
+      "tank": "Tank",
+      "support": "Support"
+    }
   },
   "locales": {
     "de": "German (Deutsche)",

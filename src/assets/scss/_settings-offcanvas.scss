@@ -1,0 +1,28 @@
+@keyframes settings-icon-pulse {
+  0% {
+    opacity: 1;
+    transform: scale(100%);
+  }
+
+  50% {
+    opacity: 0;
+    transform: scale(70%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(100%);
+  }
+}
+
+.settings-icon {
+  cursor:help;
+  transition: all ease-in-out .125s;
+  animation: settings-icon-pulse 1s infinite;
+}
+
+.settings-tooltip {
+  --bs-tooltip-padding-y: .5rem;
+  font-size: 1rem;
+  line-height: 1.25;
+}

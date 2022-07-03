@@ -1,18 +1,29 @@
 {
   "general": {
     "close": "Zamknąć",
-    "nextMap": "Następna Mapa:",
     "errors": {
       "title": "Pomyłka",
       "rosterNotEven": "Nieparzysta liczba graczy: nie można uczciwie podzielić graczy według drużyn.",
       "rosterEmpty": "Nie można podzielić graczy według drużyn: lista graczy jest pusta.",
-      "mapPoolEmpty": "Pula kart oznaczonych do losowego wyboru jest pusta."
+      "mapPoolEmpty": "Pula kart oznaczonych do losowego wyboru jest pusta.",
+      "invalidTeamName": "Nie można przypisać graczy lub kapitanów: jedna z drużyn ma nazwę z nieprawidłową wartością. | Nie można przypisać graczy lub kapitanów: obie drużyny mają nazwy z nieprawidłową wartością.",
+      "invalidRoleSet": "Nie można przypisać ról: nieprawidłowy współczynnik ról dla {0}-osobowych drużyn."
+    }
+  },
+  "shuffle": {
+    "nextMap": "Następna Mapa:",
+    "captains": "Kapitanowie drużyn",
+    "restrictHeroes": "Przypisanie bohaterów jest zablokowane - za mało dostępnych bohaterów do roli",
+    "bannedHeroes": "Zbanowani bohaterowie:",
+    "photo": {
+      "tooltip": "Zrób zrzut ekranu",
+      "clipboard": "Skopiowano do schowka!"
     }
   },
   "input": {
     "placeholder": "Wprowadź pseudonim gracza...",
     "alerts": {
-      "rosterExceeded": "Limit graczy przekroczony (maksymalnie 12 graczy)",
+      "rosterExceeded": "Limit graczy przekroczony (maksymalnie {0} graczy)",
       "duplicateFound": "Gracz o pseudonimie \"{0}\" już istnieje"
     }
   },
@@ -25,96 +36,87 @@
     "ls": {
       "title": "Pamięć lokalna",
       "clearButton": "Wyczyść pamięć",
-      "exist": "(są zapisane dane)",
+      "exist": "Buforowane dane w pamięci",
       "alert": "Pamięć lokalna została pomyślnie wyczyszczona"
     },
-    "extra": {
-      "title": "Dodatkowe opcje",
-      "options": {
-        "roles": "Przydziel losowo role",
-        "heroes": "Przypisz losowo bohaterów",
-        "map": "Wybierz losową kartę"
-      }
-    },
-    "mapFilter": {
-      "title": "Filtr kart",
-      "resetButton": "Zresetuj filtr",
-      "alert": "Filtr kart został pomyślnie zresetowany"
+    "switch": {
+      "title": "Wersja OVERWATCH™"
     }
   },
-  "maps": {
-    "lijiang": "Wieża Lijiang",
-    "ilios": "Ilios",
-    "nepal": "Nepal",
-    "oasis": "Oaza",
-    "busan": "Pusan",
-    "havana": "Hawana",
-    "junkertown": "Junkertown",
-    "monaco": "Curcuit Royal",
-    "dorado": "Dorado",
-    "rialto": "Rialto",
-    "gibraltar": "Posterunek Gibraltar",
-    "route66": "Droga 66",
-    "blizzworld": "Blizzard World",
-    "eichenwalde": "Eichenwalde",
-    "hollywood": "Hollywood",
-    "kingsrow": "King's Row",
-    "midtown": "Midtown",
-    "numbani": "Numbani",
-    "volskaya": "Zakłady Volskaya Industries",
-    "horizon": "Kolonia księżycowa Horyzont",
-    "paris": "Paryż",
-    "hanamura": "Hanamura",
-    "anubis": "Świątynia Anubisa",
-    "rome": "Koloseum",
-    "toronto": "New Queen Street"
+  "extra": {
+    "title": "Dodatkowe opcje",
+    "collapseButton": "Dodatkowy",
+    "options": {
+      "captains": "Losowy wybór kapitana",
+      "map": "Wybierz losową kartę",
+      "heroes": {
+        "switch": "Przypisz losowo bohaterów",
+        "heroBan": "Liczba losowych bohaterów do zbanowania:"
+      },
+      "roles": {
+        "switch": "Przydziel losowo role",
+        "roleSets": "Stosunek ról według liczby graczy w drużynie",
+        "dropdown": "{0} graczy",
+        "invalidRoleSet": "Nieprawidłowy stosunek ról dla {0}-osobowych drużyn"
+      },
+      "teams": {
+        "blue": "Nazwa niebieskiej drużyny",
+        "red": "Nazwa drużyny czerwonej",
+        "alerts": {
+          "emptyValue": "Nieprawidłowe dane wejściowe: pusta wartość",
+          "outLimit": "Nieprawidłowe dane wejściowe: maksymalnie {0} znaków"
+        }
+      }
+    }
   },
-  "heroes": {
-    "ana": "Ana",
-    "ashe": "Ashe",
-    "baptiste": "Baptiste",
-    "bastion": "Bastion",
-    "brigitte": "Brigitte",
-    "cassidy": "Cassidy",
-    "dva": "D.Va",
-    "doomfist": "Pięść Zagłady",
-    "genji": "Genji",
-    "echo": "Echo",
-    "hammond": "Burzyciel",
-    "hanzo": "Hanzo",
-    "junkrat": "Złomiarz",
-    "lucio": "Lúcio",
-    "mei": "Mei",
-    "mercy": "Łaska",
-    "moira": "Moira",
-    "orisa": "Orisa",
-    "pharah": "Fara",
-    "reaper": "Żniwiarz",
-    "reinhardt": "Renhardt",
-    "roadhog": "Roadhog",
-    "sojourn": "Sojourn",
-    "soldier76": "Żołnierz-76",
-    "sombra": "Sombra",
-    "sigma": "Sigma",
-    "symmetra": "Symmetra",
-    "torbjorn": "Torbjörn",
-    "tracer": "Smuga",
-    "widowmaker": "Trupia Wdowa",
-    "winston": "Winston",
-    "zarya": "Zaria",
-    "zenyatta": "Zenyatta"
+  "mapData": {
+    "title": "Filtr kart",
+    "collapseButton": "Mapy",
+    "resetButton": "Zresetuj filtr",
+    "alert": "Filtr kart został pomyślnie zresetowany",
+    "maps": {
+      "lijiang": "Wieża Lijiang",
+      "oasis": "Oaza",
+      "busan": "Pusan",
+      "havana": "Hawana",
+      "gibraltar": "Posterunek Gibraltar",
+      "route66": "Droga 66",
+      "volskaya": "Zakłady Volskaya Industries",
+      "horizon": "Kolonia księżycowa Horyzont",
+      "paris": "Paryż",
+      "anubis": "Świątynia Anubisa",
+      "rome": "Koloseum"
+    },
+    "mapModes": {
+      "hybrid": "Hybryda",
+      "control": "Kontrola",
+      "assault": "Szturm",
+      "escort": "Eskorta",
+      "push": "Przepychanka"
+    }
   },
-  "heroClass": {
-    "damage": "Natarcie",
-    "tank": "Tank",
-    "support": "Wsparcie"
-  },
-  "modes": {
-    "hybrid": "Hybryda",
-    "control": "Kontrola",
-    "assault": "Szturm",
-    "escort": "Eskorta",
-    "push": "Przepychanka"
+  "heroData": {
+    "title": "Filtr bohaterów",
+    "collapseButton": "Bohaterowie",
+    "resetButton": "Zresetuj filtr",
+    "alert": "Filtr bohaterów został zresetowany do wartości domyślnych",
+    "heroes": {
+      "doomfist": "Pięść Zagłady",
+      "hammond": "Burzyciel",
+      "junkerqueen": "Królowa Junkertown",
+      "junkrat": "Złomiarz",
+      "mercy": "Łaska",
+      "pharah": "Fara",
+      "reaper": "Żniwiarz",
+      "soldier76": "Żołnierz-76",
+      "tracer": "Smuga",
+      "widowmaker": "Trupia Wdowa",
+      "zarya": "Zaria"
+    },
+    "heroClasses": {
+      "damage": "Natarcie",
+      "support": "Wsparcie"
+    }
   },
   "locales": {
     "de": "Niemiecki (Deutsche)",

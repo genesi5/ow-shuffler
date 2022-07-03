@@ -1,18 +1,29 @@
 {
   "general": {
     "close": "Fechar",
-    "nextMap": "Próximo mapa é:",
     "errors": {
       "title": "Erro",
       "rosterNotEven": "Incapaz de atribuir jogadores de forma justa: lista não é mesmo.",
       "rosterEmpty": "Não é possível atribuir jogadores: a lista está vazia.",
-      "mapPoolEmpty": "O pool de mapas selecionado para seleção aleatória está vazio."
+      "mapPoolEmpty": "O pool de mapas selecionado para seleção aleatória está vazio.",
+      "invalidTeamName": "Não foi possível atribuir jogadores ou capitães: uma das equipes tem nome com valor inválido.| Não foi possível atribuir jogadores ou capitães: ambas as equipes têm nome com valor inválido.",
+      "invalidRoleSet": "Não foi possível atribuir funções: proporção de função inválida para equipes de {0} jogadores."
+    }
+  },
+  "shuffle": {
+    "nextMap": "Próximo mapa é:",
+    "captains": "Capitães de equipe",
+    "restrictHeroes": "A atribuição de heróis está bloqueada - não há heróis disponíveis suficientes para a função",
+    "bannedHeroes": "Heróis banidos:",
+    "photo": {
+      "tooltip": "Faça uma captura de tela",
+      "clipboard": "Copiado para a área de transferência!"
     }
   },
   "input": {
     "placeholder": "Digite o apelido do jogador...",
     "alerts": {
-      "rosterExceeded": "O limite do jogador foi excedido(máximo de 12 jogadores).",
+      "rosterExceeded": "O limite do jogador foi excedido(máximo de {0} jogadores).",
       "duplicateFound": "Jogador com apelido \"{0}\" já existe"
     }
   },
@@ -25,96 +36,75 @@
     "ls": {
       "title": "Armazenamento Local",
       "clearButton": "Limpar cache",
-      "exist": "(dados armazenados em cache)",
+      "exist": "Dados armazenados em cache",
       "alert": "O armazenamento Local foi limpo com sucesso"
     },
-    "extra": {
-      "title": "Opções extras",
-      "options": {
-        "roles": "Atribuição de papel Aleatório",
-        "heroes": "Random hero atribuição",
-        "map": "Atribuição aleatória do mapa"
-      }
-    },
-    "mapFilter": {
-      "title": "Filtro mapa",
-      "resetButton": "Redefinir filtro",
-      "alert": "O filtro de mapa foi redefinido para Padrão"
+    "switch": {
+      "title": "Versão OVERWATCH™"
     }
   },
-  "maps": {
-    "lijiang": "Torre Lijiang",
-    "ilios": "Ilios",
-    "nepal": "Nepal",
-    "oasis": "Oásis",
-    "busan": "Busan",
-    "havana": "Havana",
-    "junkertown": "Junkertown",
-    "monaco": "Curcuit Royal",
-    "dorado": "Dorado",
-    "rialto": "Rialto",
-    "gibraltar": "Observatório: Gibraltar",
-    "route66": "Rota 66",
-    "blizzworld": "Blizzard World",
-    "eichenwalde": "Eichenwalde",
-    "hollywood": "Hollywood",
-    "kingsrow": "King's Row",
-    "midtown": "Midtown",
-    "numbani": "Numbani",
-    "volskaya": "Indústrias Volskaya",
-    "horizon": "Colônia Lunar Horizon",
-    "paris": "Paris",
-    "hanamura": "Hanamura",
-    "anubis": "Templo de Anúbis",
-    "rome": "Colloseo",
-    "toronto": "New Queen Street"
+  "extra": {
+    "title": "Opções extras",
+    "collapseButton": "Extra",
+    "options": {
+      "captains": "Escolha aleatória do capitão",
+      "map": "Atribuição aleatória do mapa",
+      "heroes": {
+        "switch": "Atribuição de herói aleatório",
+        "heroBan": "Número de heróis aleatórios para banir:"
+      },
+      "roles": {
+        "switch": "Atribuição de papel Aleatório",
+        "roleSets": "Razão de função por número de jogadores na equipe",
+        "dropdown": "{0} jogadoras",
+        "invalidRoleSet": "Proporção de função inválida para equipes de {0} jogadores"
+      },
+      "teams": {
+        "blue": "Nome da equipe azul",
+        "red": "Nome do time vermelho",
+        "alerts": {
+          "emptyValue": "Entrada inválida: valor vazio",
+          "outLimit": "Entrada inválida: máximo de {0} caracteres"
+        }
+      }
+    }
   },
-  "heroes": {
-    "ana": "Ana",
-    "ashe": "Ashe",
-    "baptiste": "Baptiste",
-    "bastion": "Bastion",
-    "brigitte": "Brigitte",
-    "cassidy": "Cassidy",
-    "dva": "D.Va",
-    "doomfist": "Doomfist",
-    "genji": "Genji",
-    "echo": "Echo",
-    "hammond": "Wrecking Ball",
-    "hanzo": "Hanzo",
-    "junkrat": "Junkrat",
-    "lucio": "Lúcio",
-    "mei": "Mei",
-    "mercy": "Mercy",
-    "moira": "Moira",
-    "orisa": "Orisa",
-    "pharah": "Pharah",
-    "reaper": "Reaper",
-    "reinhardt": "Renhardt",
-    "roadhog": "Roadhog",
-    "sojourn": "Sojourn",
-    "soldier76": "Soldado-76",
-    "sombra": "Sombra",
-    "sigma": "Sigma",
-    "symmetra": "Symmetra",
-    "torbjorn": "Torbjörn",
-    "tracer": "Tracer",
-    "widowmaker": "Widowmaker",
-    "winston": "Winston",
-    "zarya": "Zarya",
-    "zenyatta": "Zenyatta"
+  "mapData": {
+    "title": "Filtro mapa",
+    "collapseButton": "Mapas",
+    "resetButton": "Redefinir filtro",
+    "alert": "O filtro de mapa foi redefinido para Padrão",
+    "maps": {
+      "lijiang": "Torre Lijiang",
+      "oasis": "Oásis",
+      "gibraltar": "Observatório: Gibraltar",
+      "route66": "Rota 66",
+      "volskaya": "Indústrias Volskaya",
+      "horizon": "Colônia Lunar Horizon",
+      "anubis": "Templo de Anúbis"
+    },
+    "mapModes": {
+      "hybrid": "Híbrido",
+      "control": "Controle",
+      "assault": "Ataque",
+      "escort": "Escolta",
+      "push": "Avanço"
+    }
   },
-  "heroClass": {
-    "damage": "Dano",
-    "tank": "Tanque",
-    "support": "Suporte"
-  },
-  "modes": {
-    "hybrid": "Híbrido",
-    "control": "Controle",
-    "assault": "Ataque",
-    "escort": "Escolta",
-    "push": "Avanço"
+  "heroData": {
+    "title": "Filtro de herói",
+    "collapseButton": "Heróis",
+    "resetButton": "Redefinir filtro",
+    "alert": "O filtro de herói foi redefinido para o padrão",
+    "heroes": {
+      "junkerqueen": "Rainha Junker",
+      "soldier76": "Soldado-76"
+    },
+    "heroClasses": {
+      "damage": "Dano",
+      "tank": "Tanque",
+      "support": "Suporte"
+    }
   },
   "locales": {
     "de": "Alemão (Deutsche)",

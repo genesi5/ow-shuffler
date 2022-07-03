@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'overwatch-icons';
-  src: url('./assets/fonts/overwatch-icons.eot?78471097');
-  src: url('./assets/fonts/overwatch-icons.eot?78471097#iefix') format('embedded-opentype'),
-    url('./assets/fonts/overwatch-icons.woff2?78471097') format('woff2'),
-    url('./assets/fonts/overwatch-icons.woff?78471097') format('woff'),
-    url('./assets/fonts/overwatch-icons.ttf?78471097') format('truetype'),
-    url('./assets/fonts/overwatch-icons.svg?78471097#overwatch-icons') format('svg');
+  src: url('./assets/fonts/overwatch-icons.eot?83959010');
+  src: url('./assets/fonts/overwatch-icons.eot?83959010#iefix') format('embedded-opentype'),
+    url('./assets/fonts/overwatch-icons.woff2?83959010') format('woff2'),
+    url('./assets/fonts/overwatch-icons.woff?83959010') format('woff'),
+    url('./assets/fonts/overwatch-icons.ttf?83959010') format('truetype'),
+    url('./assets/fonts/overwatch-icons.svg?83959010#overwatch-icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -55,83 +55,83 @@
   content: '\e809';
 }
 
-.ow-hero-hammond:before {
+.ow-hero-hanzo:before {
   content: '\e80a';
 }
 
-.ow-hero-hanzo:before {
+.ow-hero-junkrat:before {
   content: '\e80b';
 }
 
-.ow-hero-junkrat:before {
+.ow-hero-lucio:before {
   content: '\e80c';
 }
 
-.ow-hero-lucio:before {
+.ow-hero-mei:before {
   content: '\e80d';
 }
 
-.ow-hero-mei:before {
+.ow-hero-mercy:before {
   content: '\e80e';
 }
 
-.ow-hero-mercy:before {
+.ow-hero-moira:before {
   content: '\e80f';
 }
 
-.ow-hero-moira:before {
+.ow-hero-orisa:before {
   content: '\e810';
 }
 
-.ow-hero-orisa:before {
+.ow-hero-reaper:before {
   content: '\e811';
 }
 
-.ow-hero-reaper:before {
+.ow-hero-pharah:before {
   content: '\e812';
 }
 
-.ow-hero-pharah:before {
+.ow-hero-reinhardt:before {
   content: '\e813';
 }
 
-.ow-hero-reinhardt:before {
+.ow-hero-roadhog:before {
   content: '\e814';
 }
 
-.ow-hero-roadhog:before {
+.ow-hero-sigma:before {
   content: '\e815';
 }
 
-.ow-hero-sigma:before {
+.ow-hero-soldier76:before {
   content: '\e816';
 }
 
-.ow-hero-soldier76:before {
+.ow-hero-sombra:before {
   content: '\e817';
 }
 
-.ow-hero-sombra:before {
+.ow-hero-symmetra:before {
   content: '\e818';
 }
 
-.ow-hero-symmetra:before {
+.ow-hero-torbjorn:before {
   content: '\e819';
 }
 
-.ow-hero-torbjorn:before {
+.ow-hero-tracer:before {
   content: '\e81a';
 }
 
-.ow-hero-tracer:before {
+.ow-hero-widowmaker:before {
   content: '\e81b';
 }
 
-.ow-hero-widowmaker:before {
+.ow-hero-winston:before {
   content: '\e81c';
 }
 
-.ow-hero-winston:before {
+.ow-hero-wreckingball:before {
   content: '\e81d';
 }
 
@@ -153,4 +153,34 @@
 
 .ow-role-tank:before {
   content: '\e822';
+}
+
+/* 
+Junker Queen's and Soujourn's icons are repalced with Bootsrap's 'bi-person-fill' untill fresh SVG's of 
+heroes will be available on playoverwatch.com website
+*/
+.ow-hero-junkerqueen:before {
+  content: '\F4E1';
+}
+
+.ow-hero-sojourn:before {
+  content: '\F4DA';
+}
+
+.ow-hero-junkerqueen:before,
+.ow-hero-sojourn:before {
+  font-size: 1.8rem !important;
+  margin-left: .35rem;
+  margin-right: .35rem;
+  font-family: 'bootstrap-icons';
+}
+
+@media (max-width: 575.98px) {
+
+  .ow-hero-junkerqueen:before,
+  .ow-hero-sojourn:before {
+    font-size: 1.5rem !important;
+    margin-left: .25rem;
+    margin-right: .25rem;
+  }
 }

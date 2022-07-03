@@ -1,0 +1,91 @@
+// 'Restrict heroes' flag keyframes
+@keyframes restrict-heroes-pulse {
+  0% {
+    opacity: 1;
+    transform: scale(100%);
+  }
+
+  50% {
+    opacity: 0;
+    transform: scale(70%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(100%);
+  }
+}
+
+.restrict-heroes {
+  cursor: help;
+  transition: all ease-in-out .125s;
+  animation: restrict-heroes-pulse 1s infinite;
+}
+
+// Downscale icons a lil' bit if low width
+@media (max-width: 992px) {
+  .player-list-role {
+    font-size: 1.4rem !important;
+  }
+
+  .player-list-hero {
+    font-size: 2rem;
+  }
+}
+
+// Same for mobile devices
+@media (max-width: 575.98px) {
+
+  li>div>p.player-list-hero,
+  div#bannedHeroStrip>p {
+    font-size: 2rem;
+  }
+}
+
+.player-list-role {
+  font-size: 1.5rem;
+}
+
+.player-list-hero {
+  font-size: 2.5rem;
+}
+
+#screenshotButton {
+  cursor: pointer;
+}
+
+// Switch camera icon with filled version when hovered
+#screenshotButton:hover .bi-camera::before {
+  content: "\F219";
+}
+
+// Fade-in-out animation for screenshot message
+.clipboard-alert-enter-active,
+.clipboard-alert-leave-active {
+  transition: all .5s;
+  transform: scale(100%);
+}
+
+.clipboard-alert-enter-from,
+.clipboard-alert-leave-to {
+  opacity: 0;
+  transform: scale(70%);
+}
+
+.team-red {
+  color: $red-400;
+  text-overflow: ellipsis;
+}
+
+.team-blue {
+  color: $blue-400;
+  text-overflow: ellipsis;
+}
+
+// custom background for 'restrict heroes' flag tooltip
+.restrict-hero-tooltip {
+  --bs-tooltip-padding-y: .5rem;
+  --bs-tooltip-bg: var(--bs-orange);
+  font-size: 1rem;
+  line-height: 1.25;
+}

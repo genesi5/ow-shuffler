@@ -1,18 +1,30 @@
 {
   "general": {
     "close": "Fermer",
-    "nextMap": "La carte suivante est:",
     "errors": {
       "title": "Erreur",
       "rosterNotEven": "Impossible d'attribuer les joueurs équitablement: la liste n'est même pas.",
       "rosterEmpty": "Impossible d'assigner des joueurs: la liste est vide.",
-      "mapPoolEmpty": "Le pool de cartes sélectionné pour un choix aléatoire est vide."
+      "mapPoolEmpty": "Le pool de cartes sélectionné pour un choix aléatoire est vide.",
+      "notEnoughForCaps": "Impossible d'assigner des capitaines : au moins 2 joueurs requis.",
+      "invalidTeamName": "Impossible d'affecter des joueurs ou des capitaines: l'une des équipes a un nom avec une valeur invalide. | Impossible d'assigner des joueurs ou des capitaines: les deux équipes ont un nom avec une valeur invalide.",
+      "invalidRoleSet": "Impossible d'attribuer des rôles: ratio de rôles non valide pour les équipes de {0} joueurs."
+    }
+  },
+  "shuffle": {
+    "nextMap": "La carte suivante est:",
+    "captains": "Capitaines d'équipe",
+    "restrictHeroes": "L'assignation des héros est bloquée - pas assez de héros disponibles pour le rôle",
+    "bannedHeroes": "Héros bannis:",
+    "photo": {
+      "tooltip": "Prendre une capture d'écran",
+      "clipboard": "Copié dans le presse-papier!"
     }
   },
   "input": {
     "placeholder": " Entrez le pseudo du joueur...",
     "alerts": {
-      "rosterExceeded": "La limite de joueurs a été dépassée (12 joueurs maximum).",
+      "rosterExceeded": "La limite de joueurs a été dépassée ({0} joueurs maximum).",
       "duplicateFound": "Le joueur avec le pseudo \"{0}\" existe déjà"
     }
   },
@@ -25,96 +37,80 @@
     "ls": {
       "title": "Stockage local",
       "clearButton": "Vider le cache",
-      "exist": "(données enregistrées dans le stockage)",
+      "exist": "Données enregistrées dans le stockage",
       "alert": "Le stockage local a été effacé avec succès"
     },
-    "extra": {
-      "title": "Options supplémentaires",
-      "options": {
-        "roles": "Attribution aléatoire des rôles",
-        "heroes": "Assignation aléatoire de héros",
-        "map": "Assignation aléatoire de la carte"
-      }
-    },
-    "mapFilter": {
-      "title": "Filtre de carte",
-      "resetButton": "Réinitialiser le filtre",
-      "alert": "Le filtre de la carte a été réinitialisé par défaut"
+    "switch": {
+      "title": "Version OVERWATCH™"
     }
   },
-  "maps": {
-    "lijiang": "Tour de Lijiang",
-    "ilios": "Ilios",
-    "nepal": "Népal",
-    "oasis": "Oasis",
-    "busan": "Busan",
-    "havana": "La Havane",
-    "junkertown": "Junkertown",
-    "monaco": "Curcuit Royal",
-    "dorado": "Dorado",
-    "rialto": "Rialto",
-    "gibraltar": "Observatoire: Gibraltar",
-    "route66": "Route 66",
-    "blizzworld": "Blizzard World",
-    "eichenwalde": "Eichenwalde",
-    "hollywood": "Hollywood",
-    "kingsrow": "King's Row",
-    "midtown": "Midtown",
-    "numbani": "Numbani",
-    "volskaya": "Usine Volskaya",
-    "horizon": "Colonie Lunaire Horizon",
-    "paris": "Paris",
-    "hanamura": "Hanamura",
-    "anubis": "Temple d'Anubis",
-    "rome": "Colloseo",
-    "toronto": "New Queen Street"
+  "extra": {
+    "title": "Options supplémentaires",
+    "collapseButton": "Extra",
+    "options": {
+      "captains": "Choix aléatoire du capitaine",
+      "map": "Assignation aléatoire de la carte",
+      "heroes": {
+        "switch": "Assignation aléatoire de héros",
+        "heroBan": "Nombre de héros aléatoires à bannir:"
+      },
+      "roles": {
+        "switch": "Attribution aléatoire des rôles",
+        "roleSets": "Ratio des rôles selon le nombre de joueurs dans l'équipe",
+        "dropdown": "{0} joueurs",
+        "invalidRoleSet": "Ratio de rôle non valide pour les équipes de {0} joueurs"
+      },
+      "teams": {
+        "blue": "Nom de l'équipe bleue",
+        "red": "Nom de l'équipe rouge",
+        "alerts": {
+          "emptyValue": "Entrée invalide: valeur vide",
+          "outLimit": "Entrée invalide: {0} caractères maximum"
+        }
+      }
+    }
   },
-  "heroes": {
-    "ana": "Ana",
-    "ashe": "Ashe",
-    "baptiste": "Baptiste",
-    "bastion": "Bastion",
-    "brigitte": "Brigitte",
-    "cassidy": "Cassidy",
-    "dva": "D.Va",
-    "doomfist": "Doomfist",
-    "genji": "Genji",
-    "echo": "Écho",
-    "hammond": "Bouldozer",
-    "hanzo": "Hanzo",
-    "junkrat": "Chacal",
-    "lucio": "Lucio",
-    "mei": "Mei",
-    "mercy": "Ange",
-    "moira": "Moira",
-    "orisa": "Orisa",
-    "pharah": "Pharah",
-    "reaper": "Faucheur",
-    "reinhardt": "Renhardt",
-    "roadhog": "Chopper",
-    "sojourn": "Sojourn",
-    "soldier76": "Soldat-76",
-    "sombra": "Sombra",
-    "sigma": "Sigma",
-    "symmetra": "Symmetra",
-    "torbjorn": "Torbjörn",
-    "tracer": "Tracer",
-    "widowmaker": "Fatale",
-    "winston": "Winston",
-    "zarya": "Zarya",
-    "zenyatta": "Zenyatta"
+  "mapData": {
+    "title": "Filtre de carte",
+    "collapseButton": "Cartes",
+    "resetButton": "Réinitialiser le filtre",
+    "alert": "Le filtre de la carte a été réinitialisé par défaut",
+    "maps": {
+      "lijiang": "Tour de Lijiang",
+      "nepal": "Népal",
+      "havana": "La Havane",
+      "gibraltar": "Observatoire: Gibraltar",
+      "volskaya": "Usine Volskaya",
+      "horizon": "Colonie Lunaire Horizon",
+      "anubis": "Temple d'Anubis"
+    },
+    "mapModes": {
+      "hybrid": "Hybride",
+      "control": "Contrôle",
+      "assault": "Assaut",
+      "escort": "Escorte",
+      "push": "Avancée"
+    }
   },
-  "heroClass": {
-    "damage": "Damage",
-    "tank": "Tank",
-    "support": "Support"
-  },
-  "modes": {
-    "hybrid": "Hybride",
-    "control": "Contrôle",
-    "assault": "Assaut",
-    "escort": "Escorte",
-    "push": "Avancée"
+  "heroData": {
+    "title": "Filtre de héros",
+    "collapseButton": "Héros",
+    "resetButton": "Réinitialiser le filtre",
+    "alert": "Le filtre de héros a été réinitialisé par défaut",
+    "heroes": {
+      "hammond": "Bouldozer",
+      "junkerqueen": "Reine des Junkers",
+      "junkrat": "Chacal",
+      "mercy": "Ange",
+      "reaper": "Faucheur",
+      "roadhog": "Chopper",
+      "soldier76": "Soldat-76",
+      "widowmaker": "Fatale"
+    },
+    "heroClasses": {
+      "damage": "Dégâts",
+      "support": "Soutien"
+    }
   },
   "locales": {
     "de": "Allemand (Deutsche)",

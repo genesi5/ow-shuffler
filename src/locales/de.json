@@ -1,18 +1,30 @@
 {
   "general": {
     "close": "Schließen",
-    "nextMap": "Die nächste Karte ist:",
     "errors": {
       "title": "Fehler",
       "rosterNotEven": "Spieler können nicht fair zugewiesen werden: Der Liste ist nicht gerade.",
       "rosterEmpty": "Spieler können nicht zugewiesen werden: Der Liste ist leer.",
-      "mapPoolEmpty": "Der ausgewählte Kartenpool für die zufällige Auswahl ist leer."
+      "mapPoolEmpty": "Der ausgewählte Kartenpool für die zufällige Auswahl ist leer.",
+      "notEnoughForCaps": "Kapitäne können nicht zugewiesen werden: Mindestens 2 Spieler erforderlich.",
+      "invalidTeamName": "Spieler oder Kapitäne können nicht zugewiesen werden: Eines der Teams hat einen ungültigen Namen. | Spieler oder Kapitäne können nicht zugewiesen werden: Beide Teams haben einen Namen mit ungültigem Wert.",
+      "invalidRoleSet": "Rollen können nicht zugewiesen werden: Ungültiges Rollenverhältnis für {0}-Spielerteams."
+    }
+  },
+  "shuffle": {
+    "nextMap": "Die nächste Karte ist:",
+    "captains": "Mannschaftskapitän",
+    "restrictHeroes": "Heldenzuweisung ist blockiert - nicht genügend Helden für die Rolle verfügbar",
+    "bannedHeroes": "Verbotene Helden:",
+    "photo": {
+      "tooltip": "Machen Sie einen Screenshot",
+      "clipboard": "In die Zwischenablage kopiert!"
     }
   },
   "input": {
     "placeholder": "Geben Sie den Spitznamen ein...",
     "alerts": {
-      "rosterExceeded": "Das Spielerlimit wurde überschritten (maximal 12 Spieler).",
+      "rosterExceeded": "Das Spielerlimit wurde überschritten (maximal {0} Spieler).",
       "duplicateFound": "Spieler mit Spitznamen \"{0}\" existiert bereits"
     }
   },
@@ -25,96 +37,66 @@
     "ls": {
       "title": "Lokale Speicherung",
       "clearButton": "Cache leeren",
-      "exist": "(zwischengespeicherte Daten im Speicher)",
+      "exist": "Zwischengespeicherte Daten im Speicher",
       "alert": "Lokaler Speicher wurde erfolgreich gelöscht"
     },
-    "extra": {
-      "title": "Zusätzliche Optionen",
-      "options": {
-        "roles": "Zufällige Rollenzuweisung",
-        "heroes": "Zufällige Heldenzuweisung",
-        "map": "Zufällige Kartenzuweisung"
-      }
-    },
-    "mapFilter": {
-      "title": "Kartenfilter",
-      "resetButton": "Filter zurücksetzen",
-      "alert": "Kartenfilter wurde auf Standard zurückgesetzt"
+    "switch": {
+      "title": "OVERWATCH™ Version"
     }
   },
-  "maps": {
-    "lijiang": "Lijiang Tower",
-    "ilios": "Ilios",
-    "nepal": "Nepal",
-    "oasis": "Oasis",
-    "busan": "Busan",
-    "havana": "Havanna",
-    "junkertown": "Junkertown",
-    "monaco": "Curcuit Royal",
-    "dorado": "Dorado",
-    "rialto": "Rialto",
-    "gibraltar": "Watchpoint: Gibraltar",
-    "route66": "Route 66",
-    "blizzworld": "Blizzard World",
-    "eichenwalde": "Eichenwalde",
-    "hollywood": "Hollywood",
-    "kingsrow": "King's Row",
-    "midtown": "Midtown",
-    "numbani": "Numbani",
-    "volskaya": "Volskaya Industries",
-    "horizon": "Mondkolonie Horizon",
-    "paris": "Paris",
-    "hanamura": "Hanamura",
-    "anubis": "Tempel des Anubis",
-    "rome": "Colloseo",
-    "toronto": "New Queen Street"
+  "extra": {
+    "title": "Zusätzliche Optionen",
+    "collapseButton": "Extra",
+    "options": {
+      "captains": "Zufällige Kapitänszuweisung",
+      "map": "Zufällige Kartenzuweisung",
+      "heroes": {
+        "switch": "Zufällige Heldenzuweisung",
+        "heroBan": "Anzahl der zu verbannenden zufälligen Helden:"
+      },
+      "roles": {
+        "switch": "Zufällige Rollenzuweisung",
+        "roleSets": "Rollenverhältnis nach Anzahl der Spieler im Team",
+        "dropdown": "{0} Spieler",
+        "invalidRoleSet": "Ungültiges Rollenverhältnis für {0}-Spielerteams"
+      },
+      "teams": {
+        "blue": "Name des blauen Teams",
+        "red": "Name des roten Teams",
+        "alerts": {
+          "emptyValue": "Ungültige Eingabe: leerer Wert",
+          "outLimit": "Ungültige Eingabe: {0} Zeichen maximal"
+        }
+      }
+    }
   },
-  "heroes": {
-    "ana": "Ana",
-    "ashe": "Ashe",
-    "baptiste": "Baptiste",
-    "bastion": "Bastion",
-    "brigitte": "Brigitte",
-    "cassidy": "Cassidy",
-    "dva": "D.Va",
-    "doomfist": "Doomfist",
-    "genji": "Genji",
-    "echo": "Echo",
-    "hammond": "Wrecking Ball",
-    "hanzo": "Hanzo",
-    "junkrat": "Junkrat",
-    "lucio": "Lúcio",
-    "mei": "Mei",
-    "mercy": "Mercy",
-    "moira": "Moira",
-    "orisa": "Orisa",
-    "pharah": "Pharah",
-    "reaper": "Reaper",
-    "reinhardt": "Renhardt",
-    "roadhog": "Roadhog",
-    "sojourn": "Sojourn",
-    "soldier76": "Soldier-76",
-    "sombra": "Sombra",
-    "sigma": "Sigma",
-    "symmetra": "Symmetra",
-    "torbjorn": "Torbjörn",
-    "tracer": "Tracer",
-    "widowmaker": "Widowmaker",
-    "winston": "Winston",
-    "zarya": "Zarya",
-    "zenyatta": "Zenyatta"
+  "mapData": {
+    "title": "Kartenfilter",
+    "collapseButton": "Karten",
+    "resetButton": "Filter zurücksetzen",
+    "alert": "Kartenfilter wurde auf Standard zurückgesetzt",
+    "maps": {
+      "havana": "Havanna",
+      "horizon": "Mondkolonie Horizon",
+      "anubis": "Tempel des Anubis"
+    },
+    "mapModes": {
+      "control": "Kontrolle",
+      "assault": "Angriff",
+      "escort": "Eskorte",
+      "push": "Schub"
+    }
   },
-  "heroClass": {
-    "damage": "Schaden",
-    "tank": "Tank",
-    "support": "Unterstützung"
-  },
-  "modes": {
-    "hybrid": "Hybrid",
-    "control": "Kontrolle",
-    "assault": "Angriff",
-    "escort": "Eskorte",
-    "push": "Schub"
+  "heroData": {
+    "title": "Heldenfilter",
+    "collapseButton": "Helden",
+    "resetButton": "Filter zurücksetzen",
+    "alert": "Heldenfilter wurde auf Standard zurückgesetzt",
+    "heroes": {},
+    "heroClasses": {
+      "damage": "Schaden",
+      "support": "Unterstützung"
+    }
   },
   "locales": {
     "de": "Deutsche",

@@ -1,162 +1,172 @@
 [
   {
     "id": "ana",
-    "class": "support",
+    "heroClass": "support",
     "legacy": true
   },
   {
     "id": "ashe",
-    "class": "damage",
+    "heroClass": "damage",
     "legacy": true
   },
   {
     "id": "baptiste",
-    "class": "support",
+    "heroClass": "support",
     "legacy": true
   },
   {
     "id": "bastion",
-    "class": "damage",
+    "heroClass": "damage",
     "legacy": true
   },
   {
     "id": "brigitte",
-    "class": "support",
+    "heroClass": "support",
     "legacy": true
   },
   {
     "id": "cassidy",
-    "class": "damage",
+    "heroClass": "damage",
     "legacy": true
   },
   {
     "id": "dva",
-    "class": "tank",
+    "heroClass": "tank",
     "legacy": true
   },
   {
     "id": "doomfist",
-    "class": "damage",
+    "heroClass": "damage",
     "legacy": true
   },
   {
     "id": "genji",
-    "class": "damage",
+    "heroClass": "damage",
     "legacy": true
   },
   {
     "id": "echo",
-    "class": "damage",
-    "legacy": true
-  },
-  {
-    "id": "hammond",
-    "class": "tank",
+    "heroClass": "damage",
     "legacy": true
   },
   {
     "id": "hanzo",
-    "class": "damage",
+    "heroClass": "damage",
     "legacy": true
   },
   {
+    "id": "junkerqueen",
+    "heroClass": "tank",
+    "legacy": false
+  },
+  {
     "id": "junkrat",
-    "class": "damage",
+    "heroClass": "damage",
     "legacy": true
   },
   {
     "id": "lucio",
-    "class": "support",
+    "heroClass": "support",
     "legacy": true
   },
   {
     "id": "mei",
-    "class": "damage",
+    "heroClass": "damage",
     "legacy": true
   },
   {
     "id": "mercy",
-    "class": "support",
+    "heroClass": "support",
     "legacy": true
   },
   {
     "id": "moira",
-    "class": "support",
+    "heroClass": "support",
     "legacy": true
   },
   {
     "id": "orisa",
-    "class": "tank",
+    "heroClass": "tank",
     "legacy": true
   },
   {
     "id": "pharah",
-    "class": "damage",
+    "heroClass": "damage",
     "legacy": true
   },
   {
     "id": "reaper",
-    "class": "damage",
+    "heroClass": "damage",
     "legacy": true
   },
   {
     "id": "reinhardt",
-    "class": "tank",
+    "heroClass": "tank",
     "legacy": true
   },
   {
     "id": "roadhog",
-    "class": "tank",
+    "heroClass": "tank",
     "legacy": true
   },
   {
+    "id": "sojourn",
+    "heroClass": "damage",
+    "legacy": false
+  },
+  {
     "id": "soldier76",
-    "class": "damage",
+    "heroClass": "damage",
     "legacy": true
   },
   {
     "id": "sombra",
-    "class": "damage",
+    "heroClass": "damage",
     "legacy": true
   },
   {
     "id": "sigma",
-    "class": "tank",
+    "heroClass": "tank",
     "legacy": true
   },
   {
     "id": "symmetra",
-    "class": "damage",
+    "heroClass": "damage",
     "legacy": true
   },
   {
     "id": "torbjorn",
-    "class": "damage",
+    "heroClass": "damage",
     "legacy": true
   },
   {
     "id": "tracer",
-    "class": "damage",
+    "heroClass": "damage",
     "legacy": true
   },
   {
     "id": "widowmaker",
-    "class": "damage",
+    "heroClass": "damage",
     "legacy": true
   },
   {
     "id": "winston",
-    "class": "tank",
+    "heroClass": "tank",
+    "legacy": true
+  },
+  {
+    "id": "wreckingball",
+    "heroClass": "tank",
     "legacy": true
   },
   {
     "id": "zarya",
-    "class": "tank",
+    "heroClass": "tank",
     "legacy": true
   },
   {
     "id": "zenyatta",
-    "class": "support",
+    "heroClass": "support",
     "legacy": true
   }
 ]
