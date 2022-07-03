@@ -4,9 +4,10 @@ Small SPA for shuffling custom lobbies in Overwatch
 
 ### Features:
 * Randomly shuffling lobby into two teams
+* Randomly picking captains for both teams
 * Randomizing map, roles and heroes for teams 
-* Map pool fltering
-* Caching lobby roster, map pool and language in browser's Local Storage
+* Map and hero pool filter
+* Caching settings data and filters into browser's Local Storage
 * Multilingual app with automatic localization from supported languages
 * Responsive desing (adopted for mobile)
 
