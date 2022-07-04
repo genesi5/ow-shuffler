@@ -5,8 +5,8 @@
       <!-- LOGO -->
       <div class="col-4 d-flex align-items-end navbar-title  ps-3">
         <img class="navbar-brand d-inline-block align-text-top me-2" width="50" src="./assets/svg/ow_icon.svg">
-        <p class="d-none d-md-block ow-font-bold mb-0 h4">OVERWATCH<br />TEAM SHUFFLER</p>
-        <p class="d-none d-md-block ow-font-middle ms-2 mb-0 fs-6">ver. {{ appVersion }}</p>
+        <p class="d-none d-md-block fw-bold mb-0 h4">OVERWATCH<br />TEAM SHUFFLER</p>
+        <p class="d-none d-md-block fw-normal ms-2 mb-0 fs-6">ver. {{ appVersion }}</p>
       </div>
       <!-- BUTTON -->
       <div class="col-4 d-flex justify-content-center">
@@ -31,7 +31,7 @@
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-2 fixed-bottom bg-light">
       <div class="col-8 d-flex ps-2 me-0 align-items-center">
         <img src="./assets/svg/ow_icon.svg" class="ps-2" style="height:30px;">
-        <p class="ow-font-bold text-muted lh-1 m-1 pe-2">2022 CREATED BY GENESI5<br />OVERWATCH © 2022 BLIZZARD</p>
+        <p class="fw-bold text-muted lh-1 m-1 pe-2">2022 CREATED BY GENESI5<br />OVERWATCH © 2022 BLIZZARD</p>
       </div>
       <ul class="col-4 justify-content-end align-items-center m-0 list-unstyled d-flex pe-2">
         <li class="m-2 mb-0">
@@ -79,10 +79,10 @@
       <div class="col-12 col-sm-12 col-md-10 col-lg-8 col-xl-8">
         <div class="card сard-body container pe-2 ps-2 ps-sm-4 pe-sm-4 sharp-edge-top">
           <div class="row mt-2 mb-3">
-            <p class="ow-font-bold h4">{{ $t('mapData.title') }}</p>
+            <p class="fw-bold h4">{{ $t('mapData.title') }}</p>
             <!-- MAP FILTER BUTTON -->
             <div class="col col-12 col-xs-12 col-lg-4">
-              <button class="btn btn-sm btn-outline-ow justify-content-center ow-font-bold pb-0 pt-0 mt-2 mb-1"
+              <button class="btn btn-sm btn-outline-ow justify-content-center fw-bold pb-0 pt-0 mt-2 mb-1"
                 :class="{ disabled: !mapData.state }" v-on:click="resetMapFilter">{{
                     $t('mapData.resetButton').toUpperCase()
                 }}
@@ -92,7 +92,7 @@
             <div class="col col-8 d-none d-lg-block">
               <div class="collapse mb-2" id="collapseMapFilterAlertLg">
                 <div class="alert alert-success mt-2 mb-0 p-1" role="alert">
-                  <h5 class="d-none d-lg-block ow-font-middle text-center p-0 m-0">{{
+                  <h5 class="d-none d-lg-block fw-normal text-center p-0 m-0">{{
                       $t('mapData.alert')
                   }}</h5>
                 </div>
@@ -102,7 +102,7 @@
           <!-- MAP FILTER ALERT MD -->
           <div class="row d-lg-none justify-content-center collapse m-0" id="collapseMapFilterAlertSm">
             <div class="col col-12 mb-2 alert alert-success p-1" role="alert">
-              <h6 class="d-lg-none ow-font-middle text-center p-0 m-0">{{ $t('mapData.alert') }}
+              <h6 class="d-lg-none fw-normal text-center p-0 m-0">{{ $t('mapData.alert') }}
               </h6>
             </div>
           </div>
@@ -111,12 +111,12 @@
             <div class="col col-12 col-lg-6 mb-3" v-for="mode in mapData.modes" v-bind:key="mode.id" v-show="mode.show">
               <div class="d-flex mb-2" data-bs-toggle="collapse" :id="`block-` + mode.id"
                 :href="`#collapse-mapFilter-` + mode.id">
-                <p class="ow-font-middle h4 pe-2 mb-0">{{ $t(`mapData.mapModes.${mode.id}`) }}</p>
+                <p class="fw-normal h4 pe-2 mb-0">{{ $t(`mapData.mapModes.${mode.id}`) }}</p>
                 <p class="d-lg-none bi bi-chevron-down chevron-rotate h3 lh-1 mb-0" :id="`chevron-` + mode.id" />
               </div>
               <!-- MAPS BY MODE COLLAPSE -->
               <ul class="d-lg-none list-group list-group-flush collapse" :id="`collapse-mapFilter-` + mode.id">
-                <li class="list-group-item ow-font-middle align-items-center text-break li-no-ul"
+                <li class="list-group-item fw-normal align-items-center text-break li-no-ul"
                   v-for="item in getMapsByMode(mode.id)" v-bind:key="item.id" v-show="mode.show">
                   <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" v-model="mapData.filter[item.id]"
@@ -129,7 +129,7 @@
               </ul>
               <!-- MAPS BY MODE LG+ -->
               <ul class="d-none d-lg-block list-group list-group-flush">
-                <li class="list-group-item ow-font-middle align-items-center text-break li-no-ul"
+                <li class="list-group-item fw-normal align-items-center text-break li-no-ul"
                   v-for="item in getMapsByMode(mode.id)" v-bind:key="item.id" v-show="mode.show">
                   <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" v-model="mapData.filter[item.id]"
@@ -150,10 +150,10 @@
       <div class="col col-12 col-sm-12 col-md-10 col-lg-8 col-xl-8">
         <div class="card сard-body container pe-2 ps-2 ps-sm-4 pe-sm-4 sharp-edge-top">
           <div class="row mt-2 mb-3">
-            <p class="ow-font-bold h4">{{ $t('heroData.title') }}</p>
+            <p class="fw-bold h4">{{ $t('heroData.title') }}</p>
             <!-- HERO FILTER BUTTON -->
             <div class="col col-12 col-xs-12 col-lg-4 ">
-              <button class="btn btn-sm btn-outline-ow justify-content-center ow-font-bold pb-0 pt-0 mt-2 mb-1"
+              <button class="btn btn-sm btn-outline-ow justify-content-center fw-bold pb-0 pt-0 mt-2 mb-1"
                 :class="{ disabled: !heroData.state }" v-on:click="resetHeroFilter">{{
                     $t('heroData.resetButton').toUpperCase()
                 }}
@@ -163,7 +163,7 @@
             <div class="col col-8 d-none d-lg-block">
               <div class="collapse mb-2" id="collapseHeroFilterAlertLg">
                 <div class="alert alert-success mt-2 mb-0 p-1" role="alert">
-                  <h5 class="d-none d-lg-block ow-font-middle text-center p-0 m-0">{{
+                  <h5 class="d-none d-lg-block fw-normal text-center p-0 m-0">{{
                       $t('heroData.alert')
                   }}</h5>
                 </div>
@@ -173,7 +173,7 @@
           <!-- HERO FILTER ALERT MD -->
           <div class="row d-lg-none justify-content-center collapse m-0" id="collapseHeroFilterAlertSm">
             <div class="col col-12 mb-2 alert alert-success p-1" role="alert">
-              <h6 class="d-lg-none ow-font-middle text-center p-0 m-0">{{ $t('heroData.alert') }}
+              <h6 class="d-lg-none fw-normal text-center p-0 m-0">{{ $t('heroData.alert') }}
               </h6>
             </div>
           </div>
@@ -182,12 +182,12 @@
             <div class="col col-12 d-lg-none mb-3" v-for="role in heroData.classes" v-bind:key="role">
               <div class="d-flex mb-2" data-bs-toggle="collapse" :id="`block-` + role"
                 :href="`#collapse-heroFilter-` + role">
-                <p class="ow-font-middle h4 pe-2 mb-0">{{ $t(`heroData.heroClasses.${role}`) }}</p>
+                <p class="fw-normal h4 pe-2 mb-0">{{ $t(`heroData.heroClasses.${role}`) }}</p>
                 <p class="h3 lh-1 mb-0 bi-chevron-down chevron-rotate" :id="`chevron-` + role" />
               </div>
               <!-- HERO FILTER CLASSES COLLAPSE -->
               <ul class="list-group list-group-flush collapse" :id="`collapse-heroFilter-` + role">
-                <li class="list-group-item ow-font-middle align-items-center text-break li-no-ul"
+                <li class="list-group-item fw-normal align-items-center text-break li-no-ul"
                   v-for="item in getHeroesByClass(role)" v-bind:key="item.id">
                   <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" v-model="heroData.filter[item.id]"
@@ -202,9 +202,9 @@
             </div>
             <!-- HERO FILTER CLASSES LG+ -->
             <div class="col col-lg-6 d-none d-lg-block mb-3" v-for="role in ['tank', 'support']" v-bind:key="role">
-              <p class="ow-font-middle h4">{{ $t(`heroData.heroClasses.${role}`) }}</p>
+              <p class="fw-normal h4">{{ $t(`heroData.heroClasses.${role}`) }}</p>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item ow-font-middle align-items-center text-break li-no-ul"
+                <li class="list-group-item fw-normal align-items-center text-break li-no-ul"
                   v-for="item in getHeroesByClass(role)" v-bind:key="item.id">
                   <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" v-model="heroData.filter[item.id]"
@@ -217,10 +217,10 @@
                 </li>
               </ul>
             </div>
-            <p class="d-none d-lg-block ow-font-middle h4">{{ $t(`heroData.heroClasses.damage`) }}</p>
+            <p class="d-none d-lg-block fw-normal h4">{{ $t(`heroData.heroClasses.damage`) }}</p>
             <div class="col col-lg-6 d-none d-lg-block mb-3">
               <ul class="list-group list-group-flush">
-                <li class="list-group-item ow-font-middle align-items-center text-break li-no-ul"
+                <li class="list-group-item fw-normal align-items-center text-break li-no-ul"
                   v-for="item in getHeroesByClass('damage').slice(0, Math.ceil(getHeroesByClass('damage').length / 2))"
                   v-bind:key="item.id">
                   <div class="form-check form-switch">
@@ -236,7 +236,7 @@
             </div>
             <div class="col col-lg-6 d-none d-lg-block mb-3">
               <ul class="list-group list-group-flush">
-                <li class="list-group-item ow-font-middle align-items-center text-break li-no-ul"
+                <li class="list-group-item fw-normal align-items-center text-break li-no-ul"
                   v-for="item in getHeroesByClass('damage').slice((Math.ceil(getHeroesByClass('damage').length) / 2) + 1)"
                   v-bind:key="item.id">
                   <div class="form-check form-switch">
@@ -261,7 +261,7 @@
           <!-- EXTRA OPTIONS -->
           <div class="row mt-2 mb-2">
             <div class="d-flex align-items-center">
-              <p class="ow-font-bold h4">{{ $t('extra.title') }}</p>
+              <p class="fw-bold h4">{{ $t('extra.title') }}</p>
             </div>
           </div>
           <!-- TEAM NAMES -->
@@ -272,24 +272,24 @@
               <div class="col col-12 col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-6 ps-sm-2 pe-sm-2 mb-2 mb-xl-0">
                 <div class="form-floating">
                   <input type="text" id="inputTeamBlue" :value="teamNames.blue" placeholder="placeholder"
-                    class="form-control ow-font-middle fs-4" :class="{ 'is-invalid': flags.invalidTeamName.blue }"
+                    class="form-control fw-normal fs-4" :class="{ 'is-invalid': flags.invalidTeamName.blue }"
                     @change="(event) => { if (event.target.value.length) teamNames['blue'] = event.target.value.trim() }"
-                    @input="validateTeamName($event, 'blue')">
-                  <label class="ow-font-middle fs-5 pt-2" v-text="$t('extra.options.teams.blue')" />
+                    @input="validateTeamNameInput($event, 'blue')">
+                  <label class="fw-normal fs-5 pt-2" v-text="$t('extra.options.teams.blue')" />
                 </div>
-                <p class="ow-font-middle text-danger lh-1 mb-2 pt-1" v-text="alerts.teamInput.blue"
+                <p class="fw-normal text-danger lh-1 mb-2 pt-1" v-text="alerts.teamInput.blue"
                   v-show="flags.invalidTeamName.blue" />
               </div>
               <!-- TEAM RED -->
               <div class="col col-12 col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-6 ps-sm-2 pe-sm-2">
                 <div class="form-floating">
                   <input type="text" id="inputTeamRed" :value="teamNames.red" placeholder="placeholder"
-                    class="form-control ow-font-middle fs-4" :class="{ 'is-invalid': flags.invalidTeamName.red }"
+                    class="form-control fw-normal fs-4" :class="{ 'is-invalid': flags.invalidTeamName.red }"
                     @change="(event) => { if (event.target.value.length) teamNames['red'] = event.target.value.trim() }"
-                    @input="validateTeamName($event, 'red')">
-                  <label class="ow-font-middle fs-5 pt-2" v-text="$t('extra.options.teams.red')" />
+                    @input="validateTeamNameInput($event, 'red')">
+                  <label class="fw-normal fs-5 pt-2" v-text="$t('extra.options.teams.red')" />
                 </div>
-                <p class="ow-font-middle text-danger lh-1 mb-2 pt-1" v-text="alerts.teamInput.red"
+                <p class="fw-normal text-danger lh-1 mb-2 pt-1" v-text="alerts.teamInput.red"
                   v-show="flags.invalidTeamName.red" />
               </div>
             </div>
@@ -299,7 +299,7 @@
             <div class="input-group p-2 pb-sm-3">
               <!-- RANDOM CAPTAINS -->
               <div class="col col-12 col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-6 ps-sm-2 pe-sm-2 mb-2 mb-xl-0">
-                <div class="form-check form-switch ow-font-middle mb-0">
+                <div class="form-check form-switch fw-normal mb-0">
                   <input class="form-check-input" type="checkbox" v-model="extraOptions.captains"
                     v-on:click="extraOptions.captains = !extraOptions.captains">
                   <label class="form-check-label h5 mb-0" v-bind:class="{ 'text-muted': !extraOptions.captains }">{{
@@ -309,7 +309,7 @@
               </div>
               <!-- RANDOM MAP -->
               <div class="col col-12 col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-6 ps-sm-2 pe-sm-2">
-                <div class="form-check form-switch ow-font-middle mb-0">
+                <div class="form-check form-switch fw-normal mb-0">
                   <input class="form-check-input" type="checkbox" v-model="extraOptions.map"
                     v-on:click="extraOptions.map = !extraOptions.map">
                   <label class="form-check-label h5 mb-0" v-bind:class="{ 'text-muted': !extraOptions.map }">{{
@@ -325,7 +325,7 @@
             <div class="input-group p-2 pb-sm-3">
               <!-- RANDOM ROLES FLAG -->
               <div class="col col-12 col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-6 ps-sm-2 pe-sm-2 mb-2 mb-xl-0">
-                <div class="form-check form-switch ow-font-middle">
+                <div class="form-check form-switch fw-normal">
                   <input class="form-check-input" type="checkbox" v-model="extraOptions.roles"
                     v-on:click="extraOptions.roles = !extraOptions.roles" :disabled="extraOptions.captains">
                   <label class="form-check-label h5 mb-0" v-bind:class="{ 'text-muted': !extraOptions.roles }">{{
@@ -335,7 +335,7 @@
               </div>
               <!-- ROLE RATIO SETUP -->
               <div class="col col-12 col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-6 ps-sm-2 pe-sm-2">
-                <label class="ow-font-middle mb-1" v-bind:class="{ 'text-muted': extraOptions.captains }"
+                <label class="fw-normal mb-1" v-bind:class="{ 'text-muted': extraOptions.captains }"
                   :disabled="!extraOptions.roles || extraOptions.captains">{{
                       $t('extra.options.roles.roleSets')
                   }}</label>
@@ -346,21 +346,21 @@
                       :disabled="!extraOptions.roles || extraOptions.captains">{{ currentRoleSet }}
                     </button>
                     <ul class="dropdown-menu">
-                      <li class="dropdown-item ow-font-middle" v-on:click="currentRoleSet = key"
+                      <li class="dropdown-item fw-normal" v-on:click="currentRoleSet = key"
                         v-for="key in Object.keys(roleSets).sort((a, b) => b - a)" :key="key"
                         :class="{ 'active': currentRoleSet == key, 'disabled': flags.beta && Number(key) == 6 }">
-                        {{ $tc('extra.options.roles.dropdown', Number(key-3), [key]) }}
+                        {{ $tc('extra.options.roles.dropdown', Number(key - 3), [key]) }}
                       </li>
                     </ul>
                   </div>
                   <div class="col col-3 ps-0">
                     <div class="input-group input-group-sm">
                       <span class="input-group-text p-0 ps-1 pe-1">
-                        <label class="ow-font-middle ow-role-tank fs-6"
+                        <label class="fw-normal ow-role-tank fs-6"
                           :class="{ 'text-black-50': !extraOptions.roles || extraOptions.captains }" />
                       </span>
                       <input type="number" min="0" :max="currentRoleSet" id="inputTank"
-                        class="form-control ow-font-middle fs-4 lh-1" :value="roleSets[currentRoleSet].tank"
+                        class="form-control fw-normal fs-4 lh-1" :value="roleSets[currentRoleSet].tank"
                         :disabled="!extraOptions.roles || extraOptions.captains" v-on:keydown.enter.prevent
                         @input="validateRoleInput(roleSets[currentRoleSet], $event, 'tank')">
                     </div>
@@ -368,11 +368,11 @@
                   <div class="col col-3 ps-0">
                     <div class="input-group input-group-sm">
                       <span class="input-group-text p-0 ps-1 pe-1">
-                        <label class="ow-font-middle ow-role-damage fs-6"
+                        <label class="fw-normal ow-role-damage fs-6"
                           :class="{ 'text-black-50': !extraOptions.roles || extraOptions.captains }" />
                       </span>
                       <input type="number" min="0" :max="currentRoleSet" id="inputDamage"
-                        class="form-control ow-font-middle fs-4 lh-1" :value="roleSets[currentRoleSet].damage"
+                        class="form-control fw-normal fs-4 lh-1" :value="roleSets[currentRoleSet].damage"
                         :disabled="!extraOptions.roles || extraOptions.captains" v-on:keydown.enter.prevent
                         @input="validateRoleInput(roleSets[currentRoleSet], $event, 'damage')">
 
@@ -381,17 +381,17 @@
                   <div class="col col-3 ps-0">
                     <div class="input-group input-group-sm">
                       <span class="input-group-text p-0 ps-1 pe-1">
-                        <label class="ow-font-middle ow-role-support fs-6"
+                        <label class="fw-normal ow-role-support fs-6"
                           :class="{ 'text-black-50': !extraOptions.roles || extraOptions.captains }" />
                       </span>
                       <input type="number" min="0" :max="currentRoleSet" id="inputSupport"
-                        class="form-control ow-font-middle fs-4 lh-1" :value="roleSets[currentRoleSet].support"
+                        class="form-control fw-normal fs-4 lh-1" :value="roleSets[currentRoleSet].support"
                         :disabled="!extraOptions.roles || extraOptions.captains" v-on:keydown.enter.prevent
                         @input="validateRoleInput(roleSets[currentRoleSet], $event, 'support')">
                     </div>
                   </div>
                 </div>
-                <p class="ow-font-middle text-danger lh-1 mb-2 pt-1"
+                <p class="fw-normal text-danger lh-1 mb-2 pt-1"
                   :class="{ 'opacity-50': !extraOptions.roles || extraOptions.captains }"
                   v-text="$t('extra.options.roles.invalidRoleSet', [currentRoleSet])"
                   v-show="flags.invalidRoleSets && Object.values(roleSets[currentRoleSet]).reduce((a, b) => a + b) != Number(currentRoleSet)" />
@@ -403,7 +403,7 @@
             <div class="input-group p-2 pb-sm-3">
               <!-- RANDOM HEROES FLAG -->
               <div class="col col-12 col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-6 ps-sm-2 pe-sm-2 mb-2 mb-xl-0">
-                <div class="form-check form-switch ow-font-middle">
+                <div class="form-check form-switch fw-normal">
                   <input class="form-check-input" type="checkbox" v-model="extraOptions.heroes"
                     v-on:click="extraOptions.heroes = !extraOptions.heroes" :disabled="extraOptions.captains">
                   <label class="form-check-label h5 mb-0" v-bind:class="{ 'text-muted': !extraOptions.heroes }">{{
@@ -415,8 +415,8 @@
               <div class="col col-12 col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-6 ps-sm-2 pe-sm-2">
                 <div class="input-group">
                   <div class="d-flex mb-1">
-                    <label class="ow-font-middle">{{ $t('extra.options.heroes.heroBan') }}</label>
-                    <label class="ow-font-bold m-0 ms-1">{{ extraOptions.heroBan }}</label>
+                    <label class="fw-normal">{{ $t('extra.options.heroes.heroBan') }}</label>
+                    <label class="fw-bold m-0 ms-1">{{ extraOptions.heroBan }}</label>
                   </div>
                   <input type="range" class="form-range" min="0" max="10" v-model.number="extraOptions.heroBan">
                 </div>
@@ -433,15 +433,15 @@
     <div class="row justify-content-center">
       <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6">
         <div class="form-floating opac">
-          <input class="form-control ow-font-middle fs-3" type="text" id="inputPlayer" placeholder="placeholder"
-            v-on:keyup.enter="addPlayer($event.target.value)">
-          <label class="ow-font-middle fs-5 pt-1">{{ $t('input.placeholder') }}</label>
+          <input class="form-control fw-normal fs-3" type="text" id="inputPlayer" placeholder="placeholder"
+            v-on:keyup.enter="addPlayer($event.target.value.trim())">
+          <label class="fw-normal fs-5 pt-1">{{ $t('input.placeholder') }}</label>
         </div>
         <!-- INPUT ALERT-->
         <div class="collapse" id="collapseInputAlert">
           <div class="alert alert-warning d-flex mb-0 align-items-center" id="alertInputMessage" role="alert">
             <p class="bi-exclamation-triangle-fill mb-0 h5" />
-            <p class="ow-font-middle h5 ms-2 mb-0">{{ alerts.playerInput }}</p>
+            <p class="fw-normal h5 ms-2 mb-0">{{ alerts.playerInput }}</p>
           </div>
         </div>
         <!-- PLAYER LIST-->
@@ -449,7 +449,7 @@
           <li class="list-group-item justify-content-between align-items-center opac d-flex text-break panel"
             v-for="(item, index) in playerList" :key="item.id" :id="`player-list-` + item.id"
             :class="{ 'opacity-50': index >= 10 && flags.beta }">
-            <p class="mb-0 ow-font-bold h4" :class="{ 'opacity-50': index >= versionVars.playerLimit }"
+            <p class="mb-0 fw-bold h4" :class="{ 'opacity-50': index >= versionVars.playerLimit }"
               v-text="item.name.toUpperCase()" />
             <p class="bi bi-trash h4 mb-0" style="cursor: pointer;"
               :class="{ 'opacity-50': index >= versionVars.playerLimit }" v-on:click="delPlayer(item.id)" />
@@ -464,12 +464,12 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title ow-font-bold h4" id="exampleModalLabel">{{ $t('general.errors.title').toUpperCase()
+          <h5 class="modal-title fw-bold h4" id="exampleModalLabel">{{ $t('general.errors.title').toUpperCase()
           }}
           </h5>
           <button type="button" class="btn-close d-sm-none" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body ow-font-middle h4">{{ alerts.modal }}</div>
+        <div class="modal-body fw-normal h4">{{ alerts.modal }}</div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-ow btn-close-modal" data-bs-dismiss="modal">{{
               $t('general.close').toUpperCase()
@@ -483,7 +483,7 @@
   <div class="offcanvas offcanvas-end" tabindex="-1" id="settingsOffcanvasPanel"
     aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
-      <h5 class="modal-title ow-font-bold h4">{{ $t('settings.navButton').toUpperCase() }}</h5>
+      <h5 class="modal-title fw-bold h4">{{ $t('settings.navButton').toUpperCase() }}</h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
@@ -491,7 +491,7 @@
       <!-- LANGUAGE -->
       <div class="row pt-2 pb-2 border-top">
         <div class="d-flex align-items-center">
-          <p class="ow-font-bold h4">{{ $t('settings.lang.title') }}</p>
+          <p class="fw-bold h4">{{ $t('settings.lang.title') }}</p>
           <p class="bi bi-translate ms-2 mb-2 mt-0" />
         </div>
         <div class="col col-xs-12 col-lg-4">
@@ -501,7 +501,7 @@
                   $t('settings.lang.langButton').toUpperCase()
               }}
             </button>
-            <ul class="dropdown-menu ow-font-middle">
+            <ul class="dropdown-menu fw-normal">
               <li class="dropdown-item" v-for="item in supportedLocales.filter(x => x != getCurrentLocale())"
                 v-bind:key="item" v-on:click="changeLocale(item)">
                 {{ $t(`locales.${item}`) }}</li>
@@ -513,11 +513,11 @@
       <!-- LOCAL STORAGE-->
       <div class="row pt-2 pb-2 mt-2 border-top">
         <div class="d-flex align-items-center">
-          <p class="ow-font-bold h4">{{ $t('settings.ls.title') }}</p>
+          <p class="fw-bold h4">{{ $t('settings.ls.title') }}</p>
           <transition name="settings-status" mode="out-in">
             <p class="bi bi-server ms-2 mb-2 mt-0" :class="{ 'settings-icon': flags.localStorage }"
-              :title="$t('settings.ls.exist')" data-bs-toggle="tooltip" data-bs-custom-class="settings-tooltip"
-              data-bs-placement="top" id="localStorageIcon" />
+              :style="flags.localStorage ? 'cursor: help;' : 'cursor: auto;'" id="localStorageIcon"
+              data-bs-toggle="tooltip" data-bs-custom-class="settings-tooltip" data-bs-placement="top" />
           </transition>
         </div>
         <!-- LOCAL STORAGE BUTTON -->
@@ -532,7 +532,7 @@
       <!-- LOCAL STORAGE ALERT -->
       <div class="row justify-content-center collapse p-0 mt-0 mb-1" id="collapseLocalStorageAlert">
         <div class="col col-12 mb-2 alert alert-success p-1" role="alert">
-          <h6 class="ow-font-middle text-center p-0 m-0">{{ $t('settings.ls.alert') }}
+          <h6 class="fw-normal text-center p-0 m-0">{{ $t('settings.ls.alert') }}
           </h6>
         </div>
       </div>
@@ -540,7 +540,7 @@
       <!-- OVERWATCH VERSION -->
       <div class="row pt-2 pb-2 mt-2 border-top" v-show="!betaEnd">
         <div class="d-flex align-items-center">
-          <p class="ow-font-bold h4">{{ $t('settings.switch.title') }}</p>
+          <p class="fw-bold h4">{{ $t('settings.switch.title') }}</p>
         </div>
         <!-- BUTTON SWITCH -->
         <div class="col col-12">
@@ -566,13 +566,12 @@
               : 'justify-content-end'">
                 <!-- RESTICT HEROES -->
                 <p class=" h4 bi bi-exclamation-triangle navbar-title restrict-heroes mb-0 ms-1"
-                  :title="$t(`shuffle.restrictHeroes`)" v-show="flags.restrictHeroes" data-bs-html="true"
-                  data-bs-toggle="tooltip" data-bs-custom-class="restrict-hero-tooltip" data-bs-placement="top"
-                  id="shuffleRestrictHeroes" />
+                  v-show="flags.restrictHeroes" data-bs-toggle="tooltip" data-bs-custom-class="restrict-hero-tooltip"
+                  data-bs-placement="top" id="shuffleRestrictHeroes" />
                 <!-- SCREENSHOT BUTTON -->
                 <div class="d-flex align-items-center " id="screenshotButton">
                   <transition name="clipboard-alert" mode="out-in">
-                    <p class="h6 mb-0 me-3 lh-1 ow-font-middle" v-if="flags.shuffleClipboard">{{
+                    <p class="h6 mb-0 me-3 lh-1 fw-normal" v-if="flags.shuffleClipboard">{{
                         $t(`shuffle.photo.clipboard`)
                     }}</p>
                   </transition>
@@ -587,18 +586,18 @@
             <!-- CAPTAINS -->
             <div class="row mb-2" v-if="extraOptions.captains && (captains.blue && captains.red)">
               <div class="col col-12">
-                <p class="h2 ow-font-bold text-center team-grey">{{ $t(`shuffle.captains`) }}</p>
+                <p class="h2 fw-bold text-center team-grey">{{ $t(`shuffle.captains`) }}</p>
               </div>
               <div class="col col-12 col-xs-12 col-lg-6">
-                <p class="h1 ow-font-bold team-blue text-start text-lg-end"
+                <p class="h1 fw-bold team-blue text-start text-lg-end"
                   v-text="String(extraOptions.teamNames.blue).toUpperCase()" />
-                <p class="h1 ow-font-bold team-grey text-start text-lg-end lh-1"
+                <p class="h1 fw-bold team-grey text-start text-lg-end lh-1"
                   v-text="String(captains.blue.name).toUpperCase()" />
               </div>
               <div class="col col-12 col-xs-12 col-lg-6">
-                <p class="h1 ow-font-bold team-red text-end text-lg-start"
+                <p class="h1 fw-bold team-red text-end text-lg-start"
                   v-text="String(extraOptions.teamNames.red).toUpperCase()" />
-                <p class="h1 ow-font-bold team-grey text-end text-lg-start lh-1"
+                <p class="h1 fw-bold team-grey text-end text-lg-start lh-1"
                   v-text="String(captains.red.name).toUpperCase()" />
               </div>
             </div>
@@ -606,25 +605,25 @@
             <div class="row mb-2" v-else-if="!extraOptions.captains && teams.blue.length != 0 && teams.red.length != 0">
               <!-- TEAM BLUE -->
               <div class="col col-12 col-xs-12 col-lg-6" v-if="teams.blue.length != 0">
-                <p class="ow-font-bold team-blue text-start text-lg-end h1 pe-lg-1">
+                <p class="fw-bold team-blue text-start text-lg-end h1 pe-lg-1">
                   {{ String(extraOptions.teamNames.blue).toUpperCase() }}</p>
                 <ul class="list-group list-group-flush border-top">
-                  <li class="list-group-item ow-font-bold team-grey bg-transparent border-bottom-0 p-0"
+                  <li class="list-group-item fw-bold team-grey bg-transparent border-bottom-0 p-0"
                     v-for="item in teams.blue" :key="item" :id="`player_${item.id}`">
-                    <div class="d-flex justify-content-start justify-content-lg-end  align-items-center">
-                      <p class="d-none d-lg-block pb-0 pt-0 mb-0 h1"
+                    <div class="d-flex justify-content-start justify-content-lg-end align-items-center lh-1 pt-1 pb-1">
+                      <p class="d-none d-lg-block fs-1 pb-0 pt-0 mb-0"
                         :class="{ 'pe-lg-2': !extraOptions.roles && !extraOptions.heroes }">{{
                             item.name.toUpperCase()
                         }}
                       </p>
-                      <p class="player-list-role lh-1 m-0 ms-lg-3 me-lg-0 me-3" :class="getIcon(item.role, 'role')"
-                        v-show="extraOptions.roles && (flags.restrictHeroes || !extraOptions.heroes)"
+                      <p class="player-list-role m-0 ms-lg-3 me-lg-0 me-3" :class="getIcon(item.role, 'role')"
+                        v-if="extraOptions.roles && (flags.restrictHeroes || !extraOptions.heroes)"
                         data-bs-toggle="tooltip" data-bs-placement="top"
                         :title="$t(`heroData.heroClasses.${item.role}`)" />
-                      <p class="player-list-hero lh-1 m-0 ms-lg-2 me-lg-0 me-2" data-bs-toggle="tooltip"
+                      <p class="player-list-hero m-0 ms-lg-2 me-lg-0 me-2" data-bs-toggle="tooltip"
                         data-bs-placement="top" :title="$t(`heroData.heroes.${item.hero}`)"
-                        :class="getIcon(item.hero, 'hero')" v-show="!flags.restrictHeroes && extraOptions.heroes" />
-                      <p class="d-lg-none pb-0 pt-0 mb-0 h1"
+                        :class="getIcon(item.hero, 'hero')" v-if="!flags.restrictHeroes && extraOptions.heroes" />
+                      <p class="d-lg-none fs-1 pb-0 pt-0 mb-0"
                         :class="{ 'ps-2': !extraOptions.roles && !extraOptions.heroes }">{{ item.name.toUpperCase()
                         }}
                       </p>
@@ -636,25 +635,25 @@
               <div class="col col-12 d-md-none m-2" whoe="teams.blue.length == 0 && teams.red.length == 0" />
               <!-- TEAM RED-->
               <div class="col col-12 col-xs-12 col-lg-6" v-if="teams.red.length != 0">
-                <p class="ow-font-bold team-red text-end text-lg-start text-truncate h1 ps-lg-1">
+                <p class="fw-bold team-red text-end text-lg-start text-truncate h1 ps-lg-1">
                   {{ String(extraOptions.teamNames.red).toUpperCase() }}</p>
                 <ul class="list-group list-group-flush border-top">
-                  <li class="list-group-item ow-font-bold team-grey bg-transparent border-bottom-0 p-0"
+                  <li class="list-group-item fw-bold team-grey bg-transparent border-bottom-0 p-0"
                     v-for="item in teams.red" :key="item" :id="`player_${item.id}`">
-                    <div class="d-flex justify-content-end justify-content-lg-start align-items-center">
-                      <p class="d-lg-none pb-0 pt-0 mb-0 h1"
+                    <div class="d-flex justify-content-end justify-content-lg-start align-items-center lh-1 pt-1 pb-1">
+                      <p class="d-lg-none fs-1 pb-0 pt-0 mb-0"
                         :class="{ 'pe-2': !extraOptions.roles && !extraOptions.heroes }">{{
                             item.name.toUpperCase()
                         }}
                       </p>
                       <p class="player-list-role lh-1 m-0 me-lg-3 ms-lg-0 ms-3" :class="getIcon(item.role, 'role')"
-                        v-show="extraOptions.roles && (flags.restrictHeroes || !extraOptions.heroes)"
+                        v-if="extraOptions.roles && (flags.restrictHeroes || !extraOptions.heroes)"
                         data-bs-toggle="tooltip" data-bs-placement="top"
                         :title="$t(`heroData.heroClasses.${item.role}`)" />
                       <p class="player-list-hero lh-1 m-0 me-lg-2 ms-lg-0 ms-2" data-bs-toggle="tooltip"
                         data-bs-placement="top" :title="$t(`heroData.heroes.${item.hero}`)"
-                        :class="getIcon(item.hero, 'hero')" v-show="!flags.restrictHeroes && extraOptions.heroes" />
-                      <p class="d-none d-lg-block pb-0 pt-0 mb-0 h1"
+                        :class="getIcon(item.hero, 'hero')" v-if="!flags.restrictHeroes && extraOptions.heroes" />
+                      <p class="d-none d-lg-block fs-1 pb-0 pt-0 mb-0"
                         :class="{ 'ps-lg-2': !extraOptions.roles && !extraOptions.heroes }"> {{ item.name.toUpperCase()
                         }}
                       </p>
@@ -668,7 +667,7 @@
               :class="(playerList.length != 0 && playerList.length % 2 == 0) ? ['pt-3', 'border-top'] : 'pt-0'"
               v-if="![0, heroData.list.length].includes(bannedHeroes.length) && !flags.restrictHeroes">
               <div class="col col-12">
-                <p class="h4 ow-font-middle text-center team-grey">{{ $t(`shuffle.bannedHeroes`) }}</p>
+                <p class="h4 fw-normal text-center team-grey">{{ $t(`shuffle.bannedHeroes`) }}</p>
                 <div class="d-flex flex-wrap justify-content-center" id="bannedHeroStrip">
                   <p class="player-list-hero team-grey lh-1 m-0 me-lg-1 ms-lg-1 ms-1 me-1" v-for="item in bannedHeroes"
                     :key="item" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
@@ -680,11 +679,11 @@
             <div class="row justify-content-center pb-3" v-if="extraOptions.map && currentMap"
               :class="(playerList.length != 0 && playerList.length % 2 == 0) || bannedHeroes.length != 0 ? ['pt-3', 'border-top'] : 'pt-0'">
               <div class="col-6 text-end">
-                <p class="h4 ow-font-middle team-grey">{{ $t('shuffle.nextMap') }}</p>
+                <p class="h4 fw-normal team-grey">{{ $t('shuffle.nextMap') }}</p>
               </div>
               <div class="clearfix col-6 text-start">
-                <p class="h2 h4-lg ow-font-bold team-grey lh-1 mb-0" v-text="$t(`mapData.maps.${currentMap.id}`)" />
-                <p class="fs-6 ow-font-middle team-grey  mb-0" v-text="$t(`mapData.mapModes.${currentMap.mode}`)" />
+                <p class="h2 h4-lg fw-bold team-grey lh-1 mb-0" v-text="$t(`mapData.maps.${currentMap.id}`)" />
+                <p class="fs-6 fw-normal team-grey  mb-0" v-text="$t(`mapData.mapModes.${currentMap.mode}`)" />
               </div>
             </div>
           </div>
@@ -798,31 +797,59 @@ export default {
   },
   watch: {
     locale: {
-      handler(newValue) { if (newValue != undefined) this.updateSupervisedObjects("locale") },
+      handler(newValue) {
+        // console.log('in watcher mapData', cloneDeep(newValue))
+        if (newValue != undefined)
+          this.updateSupervisedObjects("locale")
+      },
       deep: false
     },
     mapData: {
-      handler(newValue, oldValue) { if (newValue != undefined && oldValue != undefined) this.updateSupervisedObjects("mapData") },
+      handler(newValue, oldValue) {
+        // console.log('in watcher mapData', cloneDeep(newValue), cloneDeep(oldValue))
+        if (newValue != undefined && oldValue != undefined)
+          this.updateSupervisedObjects("mapData")
+      },
       deep: true
     },
     heroData: {
-      handler(newValue, oldValue) { if (newValue != undefined && oldValue != undefined) this.updateSupervisedObjects("heroData") },
+      handler(newValue, oldValue) {
+        // console.log('in watcher heroData', cloneDeep(newValue), cloneDeep(oldValue))
+        if (newValue != undefined && oldValue != undefined)
+          this.updateSupervisedObjects("heroData")
+      },
       deep: true
     },
     playerList: {
-      handler(newValue, oldValue) { if (newValue != undefined && oldValue != undefined) this.updateSupervisedObjects("playerList") },
+      handler(newValue, oldValue) {
+        // console.log('in watcher playerList', cloneDeep(newValue), cloneDeep(oldValue))
+        if (newValue != undefined && oldValue != undefined)
+          this.updateSupervisedObjects("playerList")
+      },
       deep: true
     },
     extraOptions: {
-      handler(newValue, oldValue) { if (newValue != undefined && oldValue != undefined) this.updateSupervisedObjects("extraOptions") },
+      handler(newValue, oldValue) {
+        // console.log('in watcher extraOptions', cloneDeep(newValue), cloneDeep(oldValue))
+        if (newValue != undefined && oldValue != undefined)
+          this.updateSupervisedObjects("extraOptions")
+      },
       deep: true
     },
     teamNames: {
-      handler(newValue, oldValue) { if (newValue != undefined && oldValue != undefined) this.extraOptions.teamNames = cloneDeep(this.teamNames) },
+      handler(newValue, oldValue) {
+        // console.log('in watcher teamNames', cloneDeep(newValue), cloneDeep(oldValue))
+        if (newValue != undefined && oldValue != undefined)
+          this.writeTeamNames()
+      },
       deep: true
     },
     roleSets: {
-      handler(newValue, oldValue) { if (newValue != undefined && oldValue != undefined) this.validateRoleRatio() },
+      handler(newValue, oldValue) {
+        // console.log('in watcher roleSets', cloneDeep(newValue), cloneDeep(oldValue))
+        if (newValue != undefined && oldValue != undefined)
+          this.validateRoleRatio()
+      },
       deep: true
     }
   },
@@ -881,15 +908,21 @@ export default {
       document.getElementById('collapseInputAlert').addEventListener('hidden.bs.collapse', () => {
         this.alerts.modal = undefined
       })
-      // Shuffler modal tooltip
+      // Shuffler modal tooltips
       document.getElementById('shuffleResult').addEventListener('shown.bs.modal', () => {
-        document.querySelectorAll('p[class="player-list-hero"], p[class^="player-list-role"]')
-          .forEach(tooltipNode => new Tooltip(tooltipNode)
-          )
+        // Hero restriction flag trinagle
+        if (this.flags.restrictHeroes) {
+          document.getElementById('shuffleRestrictHeroes').title = this.$t(`shuffle.restrictHeroes`)
+          new Tooltip(document.getElementById('shuffleRestrictHeroes'))
+        }
+        // Hero and role tooltips near players 
+        document.querySelectorAll('p[class^="player-list"]')
+          .forEach(tooltipNode => new Tooltip(tooltipNode))
       })
       // Initialize static tooltips
-      new Tooltip(document.getElementById('localStorageIcon'))
-      new Tooltip(document.getElementById('shuffleRestrictHeroes'))
+      document.getElementById('settingsOffcanvasPanel').addEventListener('show.bs.offcanvas', () => {
+        this.updateLocalStorageStatus()
+      })
       // Discard variables on hiding shuffle modal
       document.getElementById('shuffleResult').addEventListener('hidden.bs.modal', () => {
         this.teams.blue = []
@@ -898,6 +931,7 @@ export default {
         this.currentMap = undefined
         if (this.bannedHeroes != undefined) this.bannedHeroes = []
         if (this.extraOptions.captains) this.captains = { blue: undefined, red: undefined }
+        Tooltip.getOrCreateInstance(document.getElementById('shuffleRestrictHeroes')).dispose()
       })
       // Validate team names on load
       keys(this.teamNames).forEach((side) => {
@@ -939,7 +973,7 @@ export default {
       this.extraOptions.roleSets = cloneDeep(this.roleSets)
     },
     // Validate team name for invalid values
-    validateTeamName(event, side) {
+    validateTeamNameInput(event, side) {
       if (event.target.value.trim().length <= 20 && event.target.value.trim() != "") {
         this.flags.invalidTeamName[side] = false
       }
@@ -952,14 +986,19 @@ export default {
       }
       this.teamNames[side] = event.target.value
     },
+    writeTeamNames() {
+      this.extraOptions.teamNames = cloneDeep(this.teamNames)
+    },
 
     setVersion() {
       let
         ls = window.localStorage.getItem("beta")
       this.betaEnd = new Date('July 18, 2022 01:00:00 CST').getTime() < new Date().getTime()
-      this.flags.beta = (ls != null && !this.betaEnd)
-        ? JSON.parse(ls)
-        : false
+      if (ls != null && !this.betaEnd) {
+        this.flags.beta = JSON.parse(ls)
+        if (this.flags.beta) this.flags.localStorage = true
+      }
+      else this.flags.beta = false
       this.versionVars = {
         playerLimit: (this.flags.beta) ? 10 : 12,
         defaultRoleSet: (this.flags.beta) ? 5 : 6
@@ -1056,12 +1095,12 @@ export default {
           red: (ls.teamNames.red) ? ls.teamNames.red : "TEAM RED"
         }
         : { blue: "TEAM RED", red: "TEAM BLUE" }
-      this.extraOptions = extraOptions
       // Clone role sets into reactive buffer variable
-      this.roleSets = cloneDeep(this.extraOptions.roleSets)
+      this.roleSets = { ...extraOptions.roleSets }
       // Clone team names into reactive buffer variable
-      this.teamNames = cloneDeep(this.extraOptions.teamNames)
+      this.teamNames = { ...extraOptions.teamNames }
       this.currentRoleSet = clone(this.versionVars.defaultRoleSet)
+      this.extraOptions = extraOptions
     },
 
     getMapsByMode(mode) {
@@ -1454,9 +1493,16 @@ export default {
       // console.log("LOCALE", this.locale)
     },
     updateLocalStorageStatus() {
-      (window.localStorage.length > 0)
-        ? this.flags.localStorage = true
-        : this.flags.localStorage = false
+      const lsTooltip = document.getElementById('localStorageIcon')
+      if (window.localStorage.length > 0) {
+        this.flags.localStorage = true
+        lsTooltip.title = this.$t('settings.ls.exist')
+        new Tooltip(lsTooltip)
+      }
+      else {
+        this.flags.localStorage = false
+        Tooltip.getOrCreateInstance(lsTooltip).dispose()
+      }
     },
     // Save watched data into local storage on their change 
     updateSupervisedObjects(obj) {
@@ -1470,18 +1516,17 @@ export default {
           this.updateLocalStorageStatus()
           break
         case "beta":
-          // console.log(`Updated ${obj}`, this.locale)
+          // console.log(`Updated ${obj}`, this.flags.beta)
           window.localStorage.setItem("beta", this.flags.beta)
           this.updateLocalStorageStatus()
           break
         case "extraOptions":
-          // console.log(`Updated ${obj}`, this.locale)
+          // console.log(`Updated ${obj}`, this.extraOptions)
           window.localStorage.setItem("extraOptions", JSON.stringify(this.extraOptions))
           this.updateLocalStorageStatus()
           break
         case "mapData":
           // console.log(`Updated ${obj}`, this.mapData)
-          // console.log(Object.keys(this.mapData.filter))
           if (Object.keys(this.mapData.filter).every((key) => this.mapData.filter[key])) {
             window.localStorage.removeItem('mapFilter')
             this.mapData.state = false
@@ -1518,9 +1563,10 @@ export default {
     },
     clearLocalStorage() {
       if (this.flags.localStorage) {
-        window.localStorage.clear()
         let collapse = new Collapse("#collapseLocalStorageAlert")
-        this.flags.localStorage = false
+        window.localStorage.clear()
+        this.updateLocalStorageStatus()
+
         collapse.show()
         setTimeout(() => {
           collapse.hide()
