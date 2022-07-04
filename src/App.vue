@@ -610,7 +610,7 @@
                 <ul class="list-group list-group-flush border-top">
                   <li class="list-group-item fw-bold team-grey bg-transparent border-bottom-0 p-0"
                     v-for="item in teams.blue" :key="item" :id="`player_${item.id}`">
-                    <div class="d-flex justify-content-start justify-content-lg-end align-items-center lh-1 pt-1 pb-1">
+                    <div class="d-flex justify-content-start justify-content-lg-end align-items-center lh-1 pt-lg-1 pb-lg-1">
                       <p class="d-none d-lg-block fs-1 pb-0 pt-0 mb-0"
                         :class="{ 'pe-lg-2': !extraOptions.roles && !extraOptions.heroes }">{{
                             item.name.toUpperCase()
@@ -640,7 +640,7 @@
                 <ul class="list-group list-group-flush border-top">
                   <li class="list-group-item fw-bold team-grey bg-transparent border-bottom-0 p-0"
                     v-for="item in teams.red" :key="item" :id="`player_${item.id}`">
-                    <div class="d-flex justify-content-end justify-content-lg-start align-items-center lh-1 pt-1 pb-1">
+                    <div class="d-flex justify-content-end justify-content-lg-start align-items-center lh-1 pt-lg-1 pb-lg-1">
                       <p class="d-lg-none fs-1 pb-0 pt-0 mb-0"
                         :class="{ 'pe-2': !extraOptions.roles && !extraOptions.heroes }">{{
                             item.name.toUpperCase()
