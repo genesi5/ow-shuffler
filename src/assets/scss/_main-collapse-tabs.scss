@@ -41,3 +41,11 @@ input[type=number] {
 #mainCollapsePanel {
   margin-top: 85px;
 }
+
+.chevron-rotate {
+  transition: transform 0.2s ease-in-out;
+}
+
+.chevron-rotate.out {
+  transform: rotate(180deg)
+}

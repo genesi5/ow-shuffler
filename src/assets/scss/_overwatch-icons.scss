@@ -1,12 +1,11 @@
 @font-face {
   font-family: 'overwatch-icons';
-  src: 
-    url('./assets/fonts/overwatch-icons.woff2?62045565') format('woff2'),
-    url('./assets/fonts/overwatch-icons.woff?62045565') format('woff'),
-    url('./assets/fonts/overwatch-icons.ttf?62045565') format('truetype'),
-    url('./assets/fonts/overwatch-icons.svg?62045565#overwatch-icons') format('svg');
+  src:
+    url('./assets/fonts/overwatch-icons.woff2') format('woff2'),
+    url('./assets/fonts/overwatch-icons.woff') format('woff'),
+    url('./assets/fonts/overwatch-icons.ttf') format('truetype');
+  font-display: auto;
   font-weight: normal;
-  font-style: normal;
 }
 
 [class^="ow-"]:before,
@@ -155,7 +154,7 @@
 }
 
 /* 
-Junker Queen's and Soujourn's icons are repalced with Bootsrap's 'bi-person-fill' untill fresh SVG's of 
+Junker Queen's and Soujourn's icons are replaced with Bootsrap's 'bi-person(-fill)' untill fresh SVG's of 
 heroes will be available on playoverwatch.com website
 */
 .ow-hero-junkerqueen:before {
@@ -168,7 +167,7 @@ heroes will be available on playoverwatch.com website
 
 .ow-hero-junkerqueen:before,
 .ow-hero-sojourn:before {
-  font-size: 1.8rem !important;
+  font-size: 1.7rem !important;
   margin-left: .35rem;
   margin-right: .35rem;
   font-family: 'bootstrap-icons';
@@ -178,7 +177,7 @@ heroes will be available on playoverwatch.com website
 
   .ow-hero-junkerqueen:before,
   .ow-hero-sojourn:before {
-    font-size: 1.5rem !important;
+    font-size: 1.3rem !important;
     margin-left: .25rem;
     margin-right: .25rem;
   }

@@ -27,6 +27,7 @@ module.exports = defineConfig({
       .type('javascript/auto')
       .use('i18n')
       .loader('@intlify/vue-i18n-loader')
+    config.plugins.delete('fork-ts-checker')
   },
   publicPath: process.env.NODE_ENV === 'production'
     ? '/ow-shuffler/'

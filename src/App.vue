@@ -1,22 +1,25 @@
 <template>
   <!-- NAVBAR -->
   <header>
-    <!-- <div class="container"> -->
     <nav class="container-fluid navbar navbar-expand-lg bg-light fixed-top navbar-light m-0 py-1 py-sm-2">
       <!-- LOGO -->
-      <div class="col-4 d-flex align-items-end navbar-title ps-3">
+      <div class="col col-4 d-flex align-items-end navbar-title ps-3">
         <img class="navbar-brand d-inline-block align-text-top me-2" src="./assets/svg/ow_icon.svg"
           alt="Overwatch logo">
         <p class="d-none d-md-block fw-bold mb-0 h4">OVERWATCH<br />TEAM SHUFFLER</p>
         <p class="d-none d-md-block fw-normal ms-2 mb-0 fs-6">ver. {{ appVersion }}</p>
       </div>
       <!-- BUTTON -->
-      <div class="col-4 d-flex justify-content-center">
-        <button class="d-none d-sm-block btn btn-lg btn-outline-ow pb-0" v-on:click="shuffleTeams">SHUFFLE!</button>
-        <button class="d-sm-none btn btn-sm btn-outline-ow pt-0 pb-0" v-on:click="shuffleTeams">SHUFFLE!</button>
+      <div class="col col-4 d-flex justify-content-center">
+        <button class="d-none d-sm-block btn btn-lg btn-outline-ow pb-0" v-on:click="shuffleTeams">
+          <p class="m-0">SHUFFLE!</p>
+        </button>
+        <button class="d-sm-none btn btn-sm btn-outline-ow py-0" v-on:click="shuffleTeams">
+          <p class="m-0">SHUFFLE!</p>
+        </button>
       </div>
       <!-- SETTINGS -->
-      <div class="col-4 d-flex justify-content-end pb-0 pe-3">
+      <div class="col col-4 d-flex justify-content-end pb-0 pe-3">
         <button class="d-none d-sm-block btn btn-lg btn-outline-ow pb-0" v-on:click="toggleSettingsOffcanvas(true)">{{
             $t('settings.navButton').toUpperCase()
         }}
@@ -27,7 +30,6 @@
         </div>
       </div>
     </nav>
-    <!-- </div> -->
   </header>
 
   <!-- MAIN-->
@@ -54,12 +56,12 @@
   <div class="container">
     <div class="row justify-content-center collapse" id="collapse-main-mapFilter">
       <div class="col-12 col-sm-12 col-md-10 col-lg-8 col-xl-8">
-        <div class="card сard-body container pe-2 ps-2 ps-sm-4 pe-sm-4 sharp-edge-top">
+        <div class="card сard-body container px-2 px-sm-4 sharp-edge-top">
           <div class="row mt-2 mb-3">
             <p class="fw-bold h4">{{ $t('mapData.title') }}</p>
             <!-- MAP FILTER BUTTON -->
             <div class="col col-12 col-xs-12 col-lg-4">
-              <button class="btn btn-sm btn-outline-ow justify-content-center fw-bold pb-0 pt-0 mt-2 mb-1"
+              <button class="btn btn-sm btn-outline-ow justify-content-center fw-bold py-0 mt-2 mb-1"
                 :class="{ disabled: !mapData.state }" v-on:click="resetMapFilter">{{
                     $t('mapData.resetButton').toUpperCase()
                 }}
@@ -125,12 +127,12 @@
     <!-- HERO COLLAPSE BLOCK-->
     <div class="row justify-content-center collapse" id="collapse-main-heroFilter">
       <div class="col col-12 col-sm-12 col-md-10 col-lg-8 col-xl-8">
-        <div class="card сard-body container pe-2 ps-2 ps-sm-4 pe-sm-4 sharp-edge-top">
+        <div class="card сard-body container px-2 px-sm-4 sharp-edge-top">
           <div class="row mt-2 mb-3">
             <p class="fw-bold h4">{{ $t('heroData.title') }}</p>
             <!-- HERO FILTER BUTTON -->
             <div class="col col-12 col-xs-12 col-lg-4 ">
-              <button class="btn btn-sm btn-outline-ow justify-content-center fw-bold pb-0 pt-0 mt-2 mb-1"
+              <button class="btn btn-sm btn-outline-ow justify-content-center fw-bold py-0 mt-2 mb-1"
                 :class="{ disabled: !heroData.state }" v-on:click="resetHeroFilter">{{
                     $t('heroData.resetButton').toUpperCase()
                 }}
@@ -234,7 +236,7 @@
     <!-- EXTRA COLLAPSE BLOCK-->
     <div class="row justify-content-center collapse" id="collapse-main-extraOptions">
       <div class="col-12 col-sm-12 col-md-10 col-lg-8 col-xl-8">
-        <div class="card сard-body container pe-2 ps-2 ps-sm-4 pe-sm-4 pb-0 pb-sm-3 sharp-edge-top">
+        <div class="card сard-body container px-2 px-sm-4 pb-0 pb-sm-3 sharp-edge-top">
           <!-- EXTRA OPTIONS -->
           <div class="row mt-2 mb-2">
             <div class="d-flex align-items-center">
@@ -246,7 +248,7 @@
             :class="flags.invalidTeamName.blue || flags.invalidTeamName.red ? 'border-danger' : ''">
             <div class="input-group p-2 pt-sm-3 pb-sm-3">
               <!-- TEAM BLUE -->
-              <div class="col col-12 col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-6 ps-sm-2 pe-sm-2 mb-2 mb-xl-0">
+              <div class="col col-12 col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-6 px-sm-2 mb-2 mb-xl-0">
                 <div class="form-floating">
                   <input type="text" id="inputTeamBlue" :value="teamNames.blue" placeholder="placeholder"
                     class="form-control fw-normal fs-4" :class="{ 'is-invalid': flags.invalidTeamName.blue }"
@@ -258,7 +260,7 @@
                   v-show="flags.invalidTeamName.blue" />
               </div>
               <!-- TEAM RED -->
-              <div class="col col-12 col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-6 ps-sm-2 pe-sm-2">
+              <div class="col col-12 col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-6 px-sm-2">
                 <div class="form-floating">
                   <input type="text" id="inputTeamRed" :value="teamNames.red" placeholder="placeholder"
                     class="form-control fw-normal fs-4" :class="{ 'is-invalid': flags.invalidTeamName.red }"
@@ -275,7 +277,7 @@
           <div class="row card m-0 mb-2">
             <div class="input-group p-2 pb-sm-3">
               <!-- RANDOM CAPTAINS -->
-              <div class="col col-12 col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-6 ps-sm-2 pe-sm-2 mb-2 mb-xl-0">
+              <div class="col col-12 col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-6 px-sm-2 mb-2 mb-xl-0">
                 <div class="form-check form-switch fw-normal mb-0">
                   <input class="form-check-input" type="checkbox" v-model="extraOptions.captains"
                     v-on:click="extraOptions.captains = !extraOptions.captains">
@@ -285,7 +287,7 @@
                 </div>
               </div>
               <!-- RANDOM MAP -->
-              <div class="col col-12 col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-6 ps-sm-2 pe-sm-2">
+              <div class="col col-12 col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-6 px-sm-2">
                 <div class="form-check form-switch fw-normal mb-0">
                   <input class="form-check-input" type="checkbox" v-model="extraOptions.map"
                     v-on:click="extraOptions.map = !extraOptions.map">
@@ -301,7 +303,7 @@
             :class="{ 'border-opacity-50': extraOptions.captains || !extraOptions.roles, 'border-danger': flags.invalidRoleSets }">
             <div class="input-group p-2 pb-sm-3">
               <!-- RANDOM ROLES FLAG -->
-              <div class="col col-12 col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-6 ps-sm-2 pe-sm-2 mb-2 mb-xl-0">
+              <div class="col col-12 col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-6 px-sm-2 mb-2 mb-xl-0">
                 <div class="form-check form-switch fw-normal">
                   <input class="form-check-input" type="checkbox" v-model="extraOptions.roles"
                     v-on:click="extraOptions.roles = !extraOptions.roles" :disabled="extraOptions.captains">
@@ -311,7 +313,7 @@
                 </div>
               </div>
               <!-- ROLE RATIO SETUP -->
-              <div class="col col-12 col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-6 ps-sm-2 pe-sm-2">
+              <div class="col col-12 col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-6 px-sm-2">
                 <label class="fw-normal mb-1" v-bind:class="{ 'text-muted': extraOptions.captains }"
                   :disabled="!extraOptions.roles || extraOptions.captains">{{
                       $t('extra.options.roles.roleSets')
@@ -332,7 +334,7 @@
                   </div>
                   <div class="col col-3 ps-0">
                     <div class="input-group input-group-sm">
-                      <span class="input-group-text p-0 ps-1 pe-1">
+                      <span class="input-group-text p-0 px-1">
                         <label class="fw-normal ow-role-tank fs-6"
                           :class="{ 'text-black-50': !extraOptions.roles || extraOptions.captains }" />
                       </span>
@@ -344,7 +346,7 @@
                   </div>
                   <div class="col col-3 ps-0">
                     <div class="input-group input-group-sm">
-                      <span class="input-group-text p-0 ps-1 pe-1">
+                      <span class="input-group-text p-0 px-1">
                         <label class="fw-normal ow-role-damage fs-6"
                           :class="{ 'text-black-50': !extraOptions.roles || extraOptions.captains }" />
                       </span>
@@ -357,7 +359,7 @@
                   </div>
                   <div class="col col-3 ps-0">
                     <div class="input-group input-group-sm">
-                      <span class="input-group-text p-0 ps-1 pe-1">
+                      <span class="input-group-text p-0 px-1">
                         <label class="fw-normal ow-role-support fs-6"
                           :class="{ 'text-black-50': !extraOptions.roles || extraOptions.captains }" />
                       </span>
@@ -379,7 +381,7 @@
           <div class="row card m-0 mb-2">
             <div class="input-group p-2 pb-sm-3">
               <!-- RANDOM HEROES FLAG -->
-              <div class="col col-12 col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-6 ps-sm-2 pe-sm-2 mb-2 mb-xl-0">
+              <div class="col col-12 col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-6 px-sm-2 mb-2 mb-xl-0">
                 <div class="form-check form-switch fw-normal">
                   <input class="form-check-input" type="checkbox" v-model="extraOptions.heroes"
                     v-on:click="extraOptions.heroes = !extraOptions.heroes" :disabled="extraOptions.captains">
@@ -389,7 +391,7 @@
                 </div>
               </div>
               <!-- RANDOM HERO BAN -->
-              <div class="col col-12 col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-6 ps-sm-2 pe-sm-2">
+              <div class="col col-12 col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-6 px-sm-2">
                 <div class="input-group">
                   <div class="d-flex mb-1">
                     <label class="fw-normal">{{ $t('extra.options.heroes.heroBan') }}</label>
@@ -416,9 +418,12 @@
         </div>
         <!-- INPUT ALERT-->
         <div class="collapse" id="collapseInputAlert">
-          <div class="alert alert-warning d-flex mb-0 align-items-center" id="alertInputMessage" role="alert">
-            <p class="bi-exclamation-triangle-fill mb-0 h5" />
-            <p class="fw-normal h5 ms-2 mb-0">{{ alerts.playerInput }}</p>
+          <div class="d-flex alert alert-warning align-items-center mb-0 p-2 p-sm-3" id="alertInputMessage"
+            role="alert">
+            <p class="d-sm-none bi-exclamation-triangle-fill mb-0 h6" />
+            <p class="d-sm-none fw-normal h6 ms-2 mb-0">{{ alerts.playerInput }}</p>
+            <p class="d-none d-sm-block bi-exclamation-triangle-fill mb-0 h5" />
+            <p class="d-none d-sm-block fw-normal h5 ms-2 mb-0">{{ alerts.playerInput }}</p>
           </div>
         </div>
         <!-- PLAYER LIST-->
@@ -467,14 +472,14 @@
     <div class="offcanvas-body">
 
       <!-- LANGUAGE -->
-      <div class="row pt-2 pb-2 border-top">
+      <div class="row py-2 border-top">
         <div class="d-flex align-items-center">
           <p class="fw-bold h4">{{ $t('settings.lang.title') }}</p>
           <p class="bi bi-translate ms-2 mb-2 mt-0" />
         </div>
         <div class="col col-xs-12 col-lg-4">
           <div class="btn-group">
-            <button class="btn btn-sm btn-outline-ow align-items-center d-flex pb-0 pt-0 mt-2 mb-1 dropdown-toggle"
+            <button class="btn btn-sm btn-outline-ow align-items-center d-flex py-0 mt-2 mb-1 dropdown-toggle"
               type="button" data-bs-toggle="dropdown">{{
                   $t('settings.lang.langButton').toUpperCase()
               }}
@@ -489,7 +494,7 @@
       </div>
 
       <!-- LOCAL STORAGE-->
-      <div class="row pt-2 pb-2 mt-2 border-top">
+      <div class="row py-2 mt-2 border-top">
         <div class="d-flex align-items-center">
           <p class="fw-bold h4">{{ $t('settings.ls.title') }}</p>
           <transition name="settings-status" mode="out-in">
@@ -500,7 +505,7 @@
         </div>
         <!-- LOCAL STORAGE BUTTON -->
         <div class="col col-12">
-          <button class="btn btn-sm btn-outline-ow pb-0 pt-0 mt-2 mb-1" v-on:click="clearLocalStorage"
+          <button class="btn btn-sm btn-outline-ow py-0 mt-2 mb-1" v-on:click="clearLocalStorage"
             :class="{ disabled: !flags.localStorage }">{{
                 $t('settings.ls.clearButton').toUpperCase()
             }}
@@ -516,17 +521,17 @@
       </div>
 
       <!-- OVERWATCH VERSION -->
-      <div class="row pt-2 pb-2 mt-2 border-top" v-show="!betaEnd">
+      <div class="row py-0 mt-2 border-top" v-show="!betaEnd">
         <div class="d-flex align-items-center">
           <p class="fw-bold h4">{{ $t('settings.switch.title') }}</p>
         </div>
         <!-- BUTTON SWITCH -->
         <div class="col col-12">
           <div class="btn-group" role="group">
-            <button type="button" class="btn btn-sm btn-outline-ow pb-0 pt-0 mt-2 mb-1"
-              :class="{ 'active': !flags.beta }" v-on:click="changeVersion(false)">OVERWATCH</button>
-            <button type="button" class="btn btn-sm btn-outline-ow pb-0 pt-0 mt-2 mb-1"
-              :class="{ 'active': flags.beta }" v-on:click="changeVersion(true)">OVERWATCH 2 BETA</button>
+            <button type="button" class="btn btn-sm btn-outline-ow py-0 mt-2 mb-1" :class="{ 'active': !flags.beta }"
+              v-on:click="changeVersion(false)">OVERWATCH</button>
+            <button type="button" class="btn btn-sm btn-outline-ow py-0 mt-2 mb-1" :class="{ 'active': flags.beta }"
+              v-on:click="changeVersion(true)">OVERWATCH 2 BETA</button>
           </div>
         </div>
       </div>
@@ -537,7 +542,7 @@
   <div class="modal fade" id="shuffleResult" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
-        <div class="modal-header border-bottom-0 pt-0 pb-0 lh-1">
+        <div class="modal-header border-bottom-0 py-0 lh-1">
           <div class="container-fluid">
             <div class="row align-items-center">
               <div class="d-flex align-items-center mt-2 p-0" :class="flags.restrictHeroes ? 'justify-content-between'
@@ -603,8 +608,8 @@
                   <li class="list-group-item fw-bold team-grey bg-transparent border-bottom-0 p-0"
                     v-for="item in teams.blue" :key="item" :id="`player_${item.id}`">
                     <div
-                      class="d-flex justify-content-start justify-content-lg-end align-items-center lh-1 lh-lg-sm pt-lg-1 pb-lg-1">
-                      <p class="d-none d-lg-block fs-1 pb-0 pt-0 mb-0"
+                      class="d-flex justify-content-start justify-content-lg-end align-items-center lh-1 lh-lg-sm py-lg-1">
+                      <p class="d-none d-lg-block fs-1 py-0 mb-0"
                         :class="{ 'pe-lg-2': !extraOptions.roles && !extraOptions.heroes }">{{
                             item.name.toUpperCase()
                         }}
@@ -618,7 +623,7 @@
                         v-if="!flags.restrictHeroes && extraOptions.heroes" data-bs-toggle="tooltip"
                         data-bs-placement="top" :title="$t(`heroData.heroes.${item.hero}`)"
                         :class="getIcon(item.hero, 'hero')" />
-                      <p class="d-lg-none fs-1 pb-0 pt-0 mb-0"
+                      <p class="d-lg-none fs-1 py-0 mb-0"
                         :class="{ 'ps-2': !extraOptions.roles && !extraOptions.heroes }">{{ item.name.toUpperCase()
                         }}
                       </p>
@@ -636,8 +641,8 @@
                   <li class="list-group-item fw-bold team-grey bg-transparent border-bottom-0 p-0"
                     v-for="item in teams.red" :key="item" :id="`player_${item.id}`">
                     <div
-                      class="d-flex justify-content-end justify-content-lg-start align-items-center lh-1 lh-lg-sm pt-lg-1 pb-lg-1">
-                      <p class="d-lg-none fs-1 pb-0 pt-0 mb-0"
+                      class="d-flex justify-content-end justify-content-lg-start align-items-center lh-1 lh-lg-sm py-lg-1">
+                      <p class="d-lg-none fs-1 py-0 mb-0"
                         :class="{ 'pe-2': !extraOptions.roles && !extraOptions.heroes }">{{
                             item.name.toUpperCase()
                         }}
@@ -651,7 +656,7 @@
                         v-if="!flags.restrictHeroes && extraOptions.heroes" data-bs-toggle="tooltip"
                         data-bs-placement="top" :title="$t(`heroData.heroes.${item.hero}`)"
                         :class="getIcon(item.hero, 'hero')" />
-                      <p class="d-none d-lg-block fs-1 pb-0 pt-0 mb-0"
+                      <p class="d-none d-lg-block fs-1 py-0 mb-0"
                         :class="{ 'ps-lg-2': !extraOptions.roles && !extraOptions.heroes }"> {{ item.name.toUpperCase()
                         }}
                       </p>
@@ -667,8 +672,8 @@
               <div class="col col-12">
                 <p class="h4 fw-normal text-center team-grey">{{ $t(`shuffle.bannedHeroes`) }}</p>
                 <div class="d-flex flex-wrap justify-content-center" id="bannedHeroStrip">
-                  <p class="player-list-hero team-grey lh-1 m-0 me-lg-1 ms-lg-1 ms-1 me-1" v-for="item in bannedHeroes"
-                    :key="item" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                  <p class="player-list-hero team-grey lh-1 m-0 mx-lg-1 mx-1" v-for="item in bannedHeroes" :key="item"
+                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
                     :title="$t(`heroData.heroes.${item}`)" :class="getIcon(item, 'hero')" />
                 </div>
               </div>
@@ -680,8 +685,8 @@
                 <p class="h4 fw-normal team-grey">{{ $t('shuffle.nextMap') }}</p>
               </div>
               <div class="clearfix col-6 text-start">
-                <p class="h2 h4-lg fw-bold team-grey lh-1 mb-0" v-text="$t(`mapData.maps.${currentMap.id}`)" />
-                <p class="fs-6 fw-normal team-grey  mb-0" v-text="$t(`mapData.mapModes.${currentMap.mode}`)" />
+                <p class="h2 fw-bold team-grey lh-1 mb-0" v-text="$t(`mapData.maps.${currentMap.id}`)" />
+                <p class="fs-6 fw-normal team-grey mb-0" v-text="$t(`mapData.mapModes.${currentMap.mode}`)" />
               </div>
             </div>
           </div>
@@ -708,8 +713,8 @@
           <p class="fw-bold text-muted lh-1 fs-6 m-1 footer-copyright">2022 CREATED BY GENESI5<br />OVERWATCH © 2022
             BLIZZARD</p>
         </div>
-        <ul class="d-flex justify-content-end m-0 list-unstyled pe-0 pe-sm-2">
-          <li class="m-2 mb-0 mt-0">
+        <ul class="d-flex justify-content-end list-unstyled m-0  pe-0 pe-sm-2">
+          <li class="m-2 my-0">
             <a class="text-decoration-none" href="https://github.com/genesi5/ow-shuffler" alt="GitHub link">
               <p class="bi bi-github social-item m-0" id="githubLink" />
             </a>
@@ -1152,7 +1157,7 @@ export default {
         else if (String(type) == "hero") return `ow-hero-${id}`
       }
     },
-    // Get role set depending on hoew much players in the team
+    // Get role set depending on how much players in the team
     getRoleSet(players) {
       if (Number(players) >= 3) {
         let

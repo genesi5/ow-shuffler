@@ -1,9 +1,11 @@
-// @media (max-width: 575.98px) {
-//   .panel {
-//     // margin-top: 45px !important;
-//     // margin-bottom: 40px !important;
-//   }
-// }
+@media (max-width: 575.98px) {
+  #inputPlayer:focus {
+    // remove glow
+    outline: none;
+    box-shadow: none !important;
+    -webkit-appearance: none;
+  }
+}
 
 .player-roster {
   overflow-x: hidden;
