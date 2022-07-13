@@ -1,3 +1,9 @@
+@media (max-width: 575.98px) {
+  #mainCollapsePanel {
+    margin-top: 55px !important;
+  } 
+}
+
 .sharp-edge-top {
   border-top: none;
   border-top-left-radius: 0rem !important;
@@ -21,7 +27,7 @@ button[disabled="true"] {
   text-align: center !important;
 }
 
-// remove arrow buttonn for input of number type 
+// remove arrow button for input of number type 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -30,4 +36,8 @@ input::-webkit-inner-spin-button {
 // same for FF
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+#mainCollapsePanel {
+  margin-top: 85px;
 }

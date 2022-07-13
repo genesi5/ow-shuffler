@@ -1,0 +1,46 @@
+// @media (max-width: 575.98px) {
+//   .panel {
+//     // margin-top: 45px !important;
+//     // margin-bottom: 40px !important;
+//   }
+// }
+
+.player-roster {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.list-enter-active,
+.list-leave-active {
+  transition: opacity 1s;
+}
+
+.list-enter-from {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.list-leave-to {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.panel {
+  overflow: hidden;
+  transition: all 0.25s;
+  display: inline-block;
+}
+
+.li-no-ul {
+  border: none !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+.opac {
+  opacity: $ow-opacity;
+}
+
+.opac>* {
+  opacity: 1 !important;
+}

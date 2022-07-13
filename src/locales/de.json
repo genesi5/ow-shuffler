@@ -14,6 +14,7 @@
   "shuffle": {
     "nextMap": "Die nächste Karte ist:",
     "captains": "Mannschaftskapitän",
+    "firstPicker": "Zuerst pflücken",
     "restrictHeroes": "Heldenzuweisung ist blockiert - nicht genügend Helden für die Rolle verfügbar",
     "bannedHeroes": "Verbotene Helden:",
     "photo": {

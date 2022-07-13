@@ -14,6 +14,7 @@
   "shuffle": {
     "nextMap": "La prossima mappa è:",
     "captains": "Capitani delle squadre",
+    "firstPicker": "Scegliere prima",
     "restrictHeroes": "L'assegnazione degli eroi è bloccata: non ci sono abbastanza eroi disponibili per il ruolo",
     "bannedHeroes": "Eroi banditi:",
     "photo": {

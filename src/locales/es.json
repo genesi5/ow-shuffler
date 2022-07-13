@@ -15,6 +15,7 @@
   "shuffle": {
     "nextMap": "El siguiente mapa es:",
     "captains": "Capitanes de equipo",
+    "firstPicker": "Recogiendo primero",
     "restrictHeroes": "La asignación de héroes está bloqueada: no hay suficientes héroes disponibles para el rol",
     "bannedHeroes": "Héroes prohibidos:",
     "photo": {

@@ -22,15 +22,9 @@
   animation: restrict-heroes-pulse 1s infinite;
 }
 
-// Downscale icons a lil' bit if low width
-@media (max-width: 992px) {
-  .player-list-role {
-    font-size: 1.4rem !important;
-  }
-
-  .player-list-hero {
-    font-size: 2rem;
-  }
+.player-list-role,
+.player-list-hero {
+  font-size: 2.4rem;
 }
 
 // Same for mobile devices
@@ -40,16 +34,10 @@
   div#bannedHeroStrip>p {
     font-size: 2rem;
   }
-}
-
-.player-list-role {
-  font-size: 1.5rem;
-  font-weight: normal;
-}
-
-.player-list-hero {
-  font-size: 2.5rem;
-  font-weight: normal;
+  .player-list-role, 
+  .player-list-hero {
+    font-size: 1.8rem !important;
+  }
 }
 
 #screenshotButton {

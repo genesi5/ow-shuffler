@@ -14,6 +14,7 @@
   "shuffle": {
     "nextMap": "Next map is:",
     "captains": "Team captains",
+    "firstPicker": "Picking first",
     "restrictHeroes": "Heroes assignation is blocked - not enough available heroes for role",
     "bannedHeroes": "Banned heroes:",
     "photo": {

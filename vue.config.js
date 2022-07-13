@@ -9,7 +9,7 @@ module.exports = defineConfig({
       },
       scss: {
         additionalData: `@import "~@/assets/scss/_variables.scss";`
-      }, 
+      },
     }
   },
   chainWebpack: config => {

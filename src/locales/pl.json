@@ -13,6 +13,7 @@
   "shuffle": {
     "nextMap": "Następna Mapa:",
     "captains": "Kapitanowie drużyn",
+    "firstPicker": "Zbieranie jako pierwsze",
     "restrictHeroes": "Przypisanie bohaterów jest zablokowane - za mało dostępnych bohaterów do roli",
     "bannedHeroes": "Zbanowani bohaterowie:",
     "photo": {

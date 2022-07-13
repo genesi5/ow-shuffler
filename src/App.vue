@@ -1,62 +1,39 @@
 <template>
   <!-- NAVBAR -->
-  <div class="container">
-    <nav class="navbar navbar-expand-lg bg-light fixed-top navbar-light ">
+  <header>
+    <!-- <div class="container"> -->
+    <nav class="container-fluid navbar navbar-expand-lg bg-light fixed-top navbar-light m-0 py-1 py-sm-2">
       <!-- LOGO -->
-      <div class="col-4 d-flex align-items-end navbar-title  ps-3">
-        <img class="navbar-brand d-inline-block align-text-top me-2" width="50" src="./assets/svg/ow_icon.svg">
+      <div class="col-4 d-flex align-items-end navbar-title ps-3">
+        <img class="navbar-brand d-inline-block align-text-top me-2" src="./assets/svg/ow_icon.svg"
+          alt="Overwatch logo">
         <p class="d-none d-md-block fw-bold mb-0 h4">OVERWATCH<br />TEAM SHUFFLER</p>
         <p class="d-none d-md-block fw-normal ms-2 mb-0 fs-6">ver. {{ appVersion }}</p>
       </div>
       <!-- BUTTON -->
       <div class="col-4 d-flex justify-content-center">
-        <button class="btn btn-lg btn-outline-ow justify-content-center align-items-stretch pb-0"
-          v-on:click="shuffleTeams">SHUFFLE!</button>
+        <button class="d-none d-sm-block btn btn-lg btn-outline-ow pb-0" v-on:click="shuffleTeams">SHUFFLE!</button>
+        <button class="d-sm-none btn btn-sm btn-outline-ow pt-0 pb-0" v-on:click="shuffleTeams">SHUFFLE!</button>
       </div>
       <!-- SETTINGS -->
       <div class="col-4 d-flex justify-content-end pb-0 pe-3">
-        <button class="d-none d-sm-block btn btn-lg btn-outline-ow justify-content-between align-items-stretch pb-0"
-          v-on:click="toggleSettingsOffcanvas(true)">{{ $t('settings.navButton').toUpperCase() }}
+        <button class="d-none d-sm-block btn btn-lg btn-outline-ow pb-0" v-on:click="toggleSettingsOffcanvas(true)">{{
+            $t('settings.navButton').toUpperCase()
+        }}
         </button>
         <div id="settingsButton">
-          <p class="d-sm-none bi-gear pt-0 pe-2 mb-0" v-on:click="toggleSettingsOffcanvas(true)">
+          <p class="d-sm-none bi bi-gear fs-1 lh-1 mb-0" v-on:click="toggleSettingsOffcanvas(true)">
           </p>
         </div>
       </div>
     </nav>
-  </div>
-
-  <!-- FOOTER -->
-  <div class="container">
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-2 fixed-bottom bg-light">
-      <div class="col-8 d-flex ps-2 me-0 align-items-center">
-        <img src="./assets/svg/ow_icon.svg" class="ps-2" style="height:30px;">
-        <p class="fw-bold text-muted lh-1 m-1 pe-2">2022 CREATED BY GENESI5<br />OVERWATCH © 2022 BLIZZARD</p>
-      </div>
-      <ul class="col-4 justify-content-end align-items-center m-0 list-unstyled d-flex pe-2">
-        <li class="m-2 mb-0">
-          <a class="text-decoration-none" href="https://github.com/genesi5/ow-shuffler">
-            <p class="bi-github social-item h2" id="githubLink" />
-          </a>
-        </li>
-        <!-- <li class="m-2 mb-0">
-          <a class="text-decoration-none" href="">
-            <p class="bi-instagram social-item h2" id="instagramLink"></p>
-          </a>
-        </li> -->
-        <!--<li class="m-2 mb-0">
-            <a class="text-decoration-none text-reset" href="">
-              <p class="bi-twitter h2" id="twitterLink"></p>
-            </a>
-          </li> -->
-      </ul>
-    </footer>
-  </div>
+    <!-- </div> -->
+  </header>
 
   <!-- MAIN-->
-  <div class="container mt-5">
+  <div class="container" id="mainCollapsePanel">
     <!-- FILTERS AND OPTIONS-->
-    <div class="row justify-content-center mt-5">
+    <div class="row justify-content-center">
       <div class="col-12 col-sm-12 col-md-10 col-lg-8 col-xl-8 btn-group btn-group-justified" role="group">
         <button class="btn btn-sm btn-ow-main border-bottom-0 fs-5" id="button-main-mapFilter"
           v-on:click="toggleFilterCollapse('mapFilter')">{{
@@ -428,7 +405,7 @@
     </div>
   </div>
 
-  <div class="container mt-2">
+  <div class="container mt-2 mb-4">
     <!-- INPUT-->
     <div class="row justify-content-center">
       <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6">
@@ -445,13 +422,14 @@
           </div>
         </div>
         <!-- PLAYER LIST-->
-        <transition-group name="list" class="list-group player-roster mb-5" tag="ul">
-          <li class="list-group-item justify-content-between align-items-center opac d-flex text-break panel"
+        <transition-group name="list" class="list-group player-roster" tag="ul">
+          <li
+            class="list-group-item justify-content-between align-items-center opac d-flex text-break panel py-1 py-sm-2"
             v-for="(item, index) in playerList" :key="item.id" :id="`player-list-` + item.id"
             :class="{ 'opacity-50': index >= 10 && flags.beta }">
             <p class="mb-0 fw-bold h4" :class="{ 'opacity-50': index >= versionVars.playerLimit }"
               v-text="item.name.toUpperCase()" />
-            <p class="bi bi-trash h4 mb-0" style="cursor: pointer;"
+            <p class="bi bi-trash h5 mb-0" style="cursor: pointer;"
               :class="{ 'opacity-50': index >= versionVars.playerLimit }" v-on:click="delPlayer(item.id)" />
           </li>
         </transition-group>
@@ -565,11 +543,11 @@
               <div class="d-flex align-items-center mt-2 p-0" :class="flags.restrictHeroes ? 'justify-content-between'
               : 'justify-content-end'">
                 <!-- RESTICT HEROES -->
-                <p class=" h4 bi bi-exclamation-triangle navbar-title restrict-heroes mb-0 ms-1"
+                <p class="h4 bi bi-exclamation-triangle navbar-title restrict-heroes mb-0 ms-1"
                   v-show="flags.restrictHeroes" data-bs-toggle="tooltip" data-bs-custom-class="restrict-hero-tooltip"
                   data-bs-placement="top" id="shuffleRestrictHeroes" />
                 <!-- SCREENSHOT BUTTON -->
-                <div class="d-flex align-items-center " id="screenshotButton">
+                <div class="d-flex align-items-center" id="screenshotButton">
                   <transition name="clipboard-alert" mode="out-in">
                     <p class="h6 mb-0 me-3 lh-1 fw-normal" v-if="flags.shuffleClipboard">{{
                         $t(`shuffle.photo.clipboard`)
@@ -584,21 +562,35 @@
         <div class="modal-body" id="shuffleResultBody">
           <div class="container-fluid">
             <!-- CAPTAINS -->
-            <div class="row mb-2" v-if="extraOptions.captains && (captains.blue && captains.red)">
+            <div class="row mb-3" v-if="extraOptions.captains && (captains.blue && captains.red)">
               <div class="col col-12">
                 <p class="h2 fw-bold text-center team-grey">{{ $t(`shuffle.captains`) }}</p>
               </div>
               <div class="col col-12 col-xs-12 col-lg-6">
                 <p class="h1 fw-bold team-blue text-start text-lg-end"
                   v-text="String(extraOptions.teamNames.blue).toUpperCase()" />
-                <p class="h1 fw-bold team-grey text-start text-lg-end lh-1"
-                  v-text="String(captains.blue.name).toUpperCase()" />
+                <div class="d-flex justify-content-start justify-content-lg-end align-items-center">
+                  <p class="d-lg-none h1 fw-bold team-grey text-start text-lg-end lh-1 m-0"
+                    v-text="String(captains.blue.name).toUpperCase()" />
+                  <p class="team-grey mb-0 ms-1 me-lg-1" :class="captains.blue.first ? ['bi', 'bi-star-fill'] : ''"
+                    v-if="captains.blue.first" data-bs-toggle="tooltip" data-bs-placement="top"
+                    :title="$t('shuffle.firstPicker')" id="firstPicker" />
+                  <p class="d-none d-lg-block h1 fw-bold team-grey text-start text-lg-end lh-1 m-0"
+                    v-text="String(captains.blue.name).toUpperCase()" />
+                </div>
               </div>
               <div class="col col-12 col-xs-12 col-lg-6">
                 <p class="h1 fw-bold team-red text-end text-lg-start"
                   v-text="String(extraOptions.teamNames.red).toUpperCase()" />
-                <p class="h1 fw-bold team-grey text-end text-lg-start lh-1"
-                  v-text="String(captains.red.name).toUpperCase()" />
+                <div class="d-flex justify-content-end justify-content-lg-start align-items-center">
+                  <p class="d-none d-lg-block h1 fw-bold team-grey text-start lh-1 m-0"
+                    v-text="String(captains.red.name).toUpperCase()" />
+                  <p class="team-grey mb-0 me-1 ms-lg-1" :class="captains.red.first ? ['bi', 'bi-star-fill'] : ''"
+                    v-if="captains.red.first" data-bs-toggle="tooltip" data-bs-placement="top"
+                    :title="$t('shuffle.firstPicker')" id="firstPicker" />
+                  <p class="d-lg-none h1 fw-bold team-grey text-end text-start lh-1 m-0"
+                    v-text="String(captains.red.name).toUpperCase()" />
+                </div>
               </div>
             </div>
             <!-- TEAM ROSTER -->
@@ -610,19 +602,22 @@
                 <ul class="list-group list-group-flush border-top">
                   <li class="list-group-item fw-bold team-grey bg-transparent border-bottom-0 p-0"
                     v-for="item in teams.blue" :key="item" :id="`player_${item.id}`">
-                    <div class="d-flex justify-content-start justify-content-lg-end align-items-center lh-1 pt-lg-1 pb-lg-1">
+                    <div
+                      class="d-flex justify-content-start justify-content-lg-end align-items-center lh-1 lh-lg-sm pt-lg-1 pb-lg-1">
                       <p class="d-none d-lg-block fs-1 pb-0 pt-0 mb-0"
                         :class="{ 'pe-lg-2': !extraOptions.roles && !extraOptions.heroes }">{{
                             item.name.toUpperCase()
                         }}
                       </p>
-                      <p class="player-list-role m-0 ms-lg-3 me-lg-0 me-3" :class="getIcon(item.role, 'role')"
+                      <p class="player-list-role m-lg-0 ms-lg-3 me-lg-0 m-0 ms-0 me-3 fw-normal"
+                        :class="getIcon(item.role, 'role')"
                         v-if="extraOptions.roles && (flags.restrictHeroes || !extraOptions.heroes)"
                         data-bs-toggle="tooltip" data-bs-placement="top"
                         :title="$t(`heroData.heroClasses.${item.role}`)" />
-                      <p class="player-list-hero m-0 ms-lg-2 me-lg-0 me-2" data-bs-toggle="tooltip"
+                      <p class="player-list-hero ms-lg-2 me-lg-0 m-0 me-2 fw-normal"
+                        v-if="!flags.restrictHeroes && extraOptions.heroes" data-bs-toggle="tooltip"
                         data-bs-placement="top" :title="$t(`heroData.heroes.${item.hero}`)"
-                        :class="getIcon(item.hero, 'hero')" v-if="!flags.restrictHeroes && extraOptions.heroes" />
+                        :class="getIcon(item.hero, 'hero')" />
                       <p class="d-lg-none fs-1 pb-0 pt-0 mb-0"
                         :class="{ 'ps-2': !extraOptions.roles && !extraOptions.heroes }">{{ item.name.toUpperCase()
                         }}
@@ -640,19 +635,22 @@
                 <ul class="list-group list-group-flush border-top">
                   <li class="list-group-item fw-bold team-grey bg-transparent border-bottom-0 p-0"
                     v-for="item in teams.red" :key="item" :id="`player_${item.id}`">
-                    <div class="d-flex justify-content-end justify-content-lg-start align-items-center lh-1 pt-lg-1 pb-lg-1">
+                    <div
+                      class="d-flex justify-content-end justify-content-lg-start align-items-center lh-1 lh-lg-sm pt-lg-1 pb-lg-1">
                       <p class="d-lg-none fs-1 pb-0 pt-0 mb-0"
                         :class="{ 'pe-2': !extraOptions.roles && !extraOptions.heroes }">{{
                             item.name.toUpperCase()
                         }}
                       </p>
-                      <p class="player-list-role lh-1 m-0 me-lg-3 ms-lg-0 ms-3" :class="getIcon(item.role, 'role')"
+                      <p class="player-list-role m-lg-0 me-lg-3 ms-lg-0 m-0 ms-3 me-0 fw-normal"
+                        :class="getIcon(item.role, 'role')"
                         v-if="extraOptions.roles && (flags.restrictHeroes || !extraOptions.heroes)"
                         data-bs-toggle="tooltip" data-bs-placement="top"
                         :title="$t(`heroData.heroClasses.${item.role}`)" />
-                      <p class="player-list-hero lh-1 m-0 me-lg-2 ms-lg-0 ms-2" data-bs-toggle="tooltip"
+                      <p class="player-list-hero me-lg-2 ms-lg-0 ms-2 m-0 fw-normal"
+                        v-if="!flags.restrictHeroes && extraOptions.heroes" data-bs-toggle="tooltip"
                         data-bs-placement="top" :title="$t(`heroData.heroes.${item.hero}`)"
-                        :class="getIcon(item.hero, 'hero')" v-if="!flags.restrictHeroes && extraOptions.heroes" />
+                        :class="getIcon(item.hero, 'hero')" />
                       <p class="d-none d-lg-block fs-1 pb-0 pt-0 mb-0"
                         :class="{ 'ps-lg-2': !extraOptions.roles && !extraOptions.heroes }"> {{ item.name.toUpperCase()
                         }}
@@ -701,6 +699,36 @@
     </div>
   </div>
 
+  <!-- FOOTER -->
+  <div class="footer bg-light mt-auto">
+    <div class="container-fluid p-0 m-0 bg-light">
+      <div class="d-flex flex-wrap justify-content-between align-items-center py-1 py-sm-2 sticky-bottom">
+        <div class="d-flex ps-1 ps-sm-2 me-0 align-items-center">
+          <img src="./assets/svg/ow_icon.svg" class="ps-1 ps-sm-2 ow-footer-logo" alt="Overwatch logo">
+          <p class="fw-bold text-muted lh-1 fs-6 m-1 footer-copyright">2022 CREATED BY GENESI5<br />OVERWATCH © 2022
+            BLIZZARD</p>
+        </div>
+        <ul class="d-flex justify-content-end m-0 list-unstyled pe-0 pe-sm-2">
+          <li class="m-2 mb-0 mt-0">
+            <a class="text-decoration-none" href="https://github.com/genesi5/ow-shuffler" alt="GitHub link">
+              <p class="bi bi-github social-item m-0" id="githubLink" />
+            </a>
+          </li>
+          <!-- <li class="m-2 mb-0">
+          <a class="text-decoration-none" href="">
+            <p class="bi-instagram social-item h2" id="instagramLink"></p>
+          </a>
+        </li> -->
+          <!--<li class="m-2 mb-0">
+            <a class="text-decoration-none text-reset" href="">
+              <p class="bi-twitter h2" id="twitterLink"></p>
+            </a>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+  </div>
+
 </template>
 
 <style lang="scss">
@@ -709,6 +737,7 @@
 @import "./assets/scss/_overwatch-icons.scss";
 @import "./assets/scss/_main-collapse-tabs.scss";
 @import "./assets/scss/_settings-offcanvas.scss";
+@import "./assets/scss/_player-input.scss";
 
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import 'bootstrap-icons/font/bootstrap-icons.css';
@@ -721,7 +750,7 @@ import { default as packageJson } from '../package.json'
 
 import { Button, Collapse, Modal, Offcanvas, Tooltip } from 'bootstrap'
 
-import { clone, cloneDeep, shuffle, keys, values, random, ceil, round, sum } from 'lodash/fp'
+import { clone, cloneDeep, shuffle, keys, values, random, ceil, round, sum } from 'lodash'
 
 import { SUPPORT_LOCALES } from './i18n'
 
@@ -916,7 +945,7 @@ export default {
           new Tooltip(document.getElementById('shuffleRestrictHeroes'))
         }
         // Hero and role tooltips near players 
-        document.querySelectorAll('p[class^="player-list"]')
+        document.querySelectorAll('p[class^="player-list"], p[id="firstPicker"]')
           .forEach(tooltipNode => new Tooltip(tooltipNode))
       })
       // Initialize static tooltips
@@ -1094,7 +1123,7 @@ export default {
           blue: (ls.teamNames.blue) ? ls.teamNames.blue : "TEAM BLUE",
           red: (ls.teamNames.red) ? ls.teamNames.red : "TEAM RED"
         }
-        : { blue: "TEAM RED", red: "TEAM BLUE" }
+        : { blue: "TEAM BLUE", red: "TEAM RED" }
       // Clone role sets into reactive buffer variable
       this.roleSets = { ...extraOptions.roleSets }
       // Clone team names into reactive buffer variable
@@ -1195,7 +1224,7 @@ export default {
       }
       // Apply hero ban from extra options
       if (this.extraOptions.heroBan != 0) {
-        let
+        const
           tank = round((this.extraOptions.heroBan / 100) * random(10, 24)),     // 10-25% probability for tanks
           support = round((this.extraOptions.heroBan / 100) * random(10, 24)),  // 10-25% probability for supports
           damage = this.extraOptions.heroBan - (tank + support)                 // the rest for damage dealers
@@ -1240,7 +1269,12 @@ export default {
         // Pick random captains
         if (this.extraOptions.captains) {
           if (this.playerList.length >= 2) {
-            const pair = cloneDeep(this.playerList).sort(() => Math.random() - Math.random()).slice(0, 2)
+            let pair = cloneDeep(this.playerList)
+              .sort(() => Math.random() - Math.random())
+              .slice(0, 2)
+            pair.forEach((x) => { x.first = false })
+            // Chosing who will pick teammates first
+            pair[Math.round(Math.random())].first = true
             this.captains = { blue: pair.pop(), red: pair.pop() }
           }
           else {
