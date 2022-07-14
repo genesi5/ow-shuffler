@@ -20,9 +20,8 @@
       </div>
       <!-- SETTINGS -->
       <div class="col col-4 d-flex justify-content-end pb-0 pe-3">
-        <button class="d-none d-sm-block btn btn-lg btn-outline-ow pb-0" v-on:click="toggleSettingsOffcanvas(true)">{{
-            $t('settings.navButton').toUpperCase()
-        }}
+        <button class="d-none d-sm-block btn btn-lg btn-outline-ow pb-0" v-on:click="toggleSettingsOffcanvas(true)">
+          <p class="m-0">{{ $t('settings.navButton').toUpperCase() }}</p>
         </button>
         <div id="settingsButton">
           <p class="d-sm-none bi bi-gear fs-1 lh-1 mb-0" v-on:click="toggleSettingsOffcanvas(true)">
@@ -38,17 +37,11 @@
     <div class="row justify-content-center">
       <div class="col-12 col-sm-12 col-md-10 col-lg-8 col-xl-8 btn-group btn-group-justified" role="group">
         <button class="btn btn-sm btn-ow-main border-bottom-0 fs-5" id="button-main-mapFilter"
-          v-on:click="toggleFilterCollapse('mapFilter')">{{
-              $t('mapData.collapseButton').toUpperCase()
-          }}</button>
+          v-on:click="toggleFilterCollapse('mapFilter')" v-text="$t('mapData.collapseButton').toUpperCase()" />
         <button class="btn btn-sm btn-ow-main border-bottom-0 fs-5" id="button-main-heroFilter"
-          v-on:click="toggleFilterCollapse('heroFilter')">{{
-              $t('heroData.collapseButton').toUpperCase()
-          }}</button>
+          v-on:click="toggleFilterCollapse('heroFilter')" v-text="$t('heroData.collapseButton').toUpperCase()" />
         <button class="btn btn-sm btn-ow-main border-bottom-0 fs-5" id="button-main-extraOptions"
-          v-on:click="toggleFilterCollapse('extraOptions')">{{
-              $t('extra.collapseButton').toUpperCase()
-          }}</button>
+          v-on:click="toggleFilterCollapse('extraOptions')" v-text="$t('extra.collapseButton').toUpperCase()" />
       </div>
     </div>
   </div>
@@ -62,10 +55,8 @@
             <!-- MAP FILTER BUTTON -->
             <div class="col col-12 col-xs-12 col-lg-4">
               <button class="btn btn-sm btn-outline-ow justify-content-center fw-bold py-0 mt-2 mb-1"
-                :class="{ disabled: !mapData.state }" v-on:click="resetMapFilter">{{
-                    $t('mapData.resetButton').toUpperCase()
-                }}
-              </button>
+                :class="{ disabled: !mapData.state }" v-on:click="resetMapFilter"
+                v-text="$t('mapData.resetButton').toUpperCase()" />
             </div>
             <!-- MAP FILTER ALERT LG+ -->
             <div class="col col-8 d-none d-lg-block">
@@ -133,10 +124,8 @@
             <!-- HERO FILTER BUTTON -->
             <div class="col col-12 col-xs-12 col-lg-4 ">
               <button class="btn btn-sm btn-outline-ow justify-content-center fw-bold py-0 mt-2 mb-1"
-                :class="{ disabled: !heroData.state }" v-on:click="resetHeroFilter">{{
-                    $t('heroData.resetButton').toUpperCase()
-                }}
-              </button>
+                :class="{ disabled: !heroData.state }" v-on:click="resetHeroFilter"
+                v-text="$t('heroData.resetButton').toUpperCase()" />
             </div>
             <!-- HERO FILTER ALERT LG+ -->
             <div class="col col-8 d-none d-lg-block">
@@ -454,9 +443,8 @@
         </div>
         <div class="modal-body fw-normal h4">{{ alerts.modal }}</div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-outline-ow btn-close-modal" data-bs-dismiss="modal">{{
-              $t('general.close').toUpperCase()
-          }}</button>
+          <button type="button" class="btn btn-outline-ow btn-close-modal" data-bs-dismiss="modal"
+            v-text="$t('general.close').toUpperCase()" />
         </div>
       </div>
     </div>
@@ -480,14 +468,10 @@
         <div class="col col-xs-12 col-lg-4">
           <div class="btn-group">
             <button class="btn btn-sm btn-outline-ow align-items-center d-flex py-0 mt-2 mb-1 dropdown-toggle"
-              type="button" data-bs-toggle="dropdown">{{
-                  $t('settings.lang.langButton').toUpperCase()
-              }}
-            </button>
+              type="button" data-bs-toggle="dropdown" v-text="$t('settings.lang.langButton').toUpperCase()" />
             <ul class="dropdown-menu fw-normal">
               <li class="dropdown-item" v-for="item in supportedLocales.filter(x => x != getCurrentLocale())"
-                v-bind:key="item" v-on:click="changeLocale(item)">
-                {{ $t(`locales.${item}`) }}</li>
+                v-bind:key="item" v-on:click="changeLocale(item)" v-text="$t(`locales.${item}`)" />
             </ul>
           </div>
         </div>
@@ -506,10 +490,7 @@
         <!-- LOCAL STORAGE BUTTON -->
         <div class="col col-12">
           <button class="btn btn-sm btn-outline-ow py-0 mt-2 mb-1" v-on:click="clearLocalStorage"
-            :class="{ disabled: !flags.localStorage }">{{
-                $t('settings.ls.clearButton').toUpperCase()
-            }}
-          </button>
+            :class="{ disabled: !flags.localStorage }" v-text="$t('settings.ls.clearButton').toUpperCase()" />
         </div>
       </div>
       <!-- LOCAL STORAGE ALERT -->
@@ -521,7 +502,7 @@
       </div>
 
       <!-- OVERWATCH VERSION -->
-      <div class="row py-0 mt-2 border-top" v-show="!betaEnd">
+      <div v-show="!betaEnd" class="row py-0 mt-2 border-top">
         <div class="d-flex align-items-center">
           <p class="fw-bold h4">{{ $t('settings.switch.title') }}</p>
         </div>
@@ -554,9 +535,8 @@
                 <!-- SCREENSHOT BUTTON -->
                 <div class="d-flex align-items-center" id="screenshotButton">
                   <transition name="clipboard-alert" mode="out-in">
-                    <p class="h6 mb-0 me-3 lh-1 fw-normal" v-if="flags.shuffleClipboard">{{
-                        $t(`shuffle.photo.clipboard`)
-                    }}</p>
+                    <p v-if="flags.shuffleClipboard" class="h6 mb-0 me-3 lh-1 fw-normal"
+                      v-text="$t(`shuffle.photo.clipboard`)" />
                   </transition>
                   <p class="h4 bi bi-camera team-grey mb-0 me-1" v-on:click="saveTeamPic()" />
                 </div>
@@ -567,7 +547,7 @@
         <div class="modal-body" id="shuffleResultBody">
           <div class="container-fluid">
             <!-- CAPTAINS -->
-            <div class="row mb-3" v-if="extraOptions.captains && (captains.blue && captains.red)">
+            <div v-if="extraOptions.captains && (captains.blue && captains.red)" class="row mb-3">
               <div class="col col-12">
                 <p class="h2 fw-bold text-center team-grey">{{ $t(`shuffle.captains`) }}</p>
               </div>
@@ -577,9 +557,9 @@
                 <div class="d-flex justify-content-start justify-content-lg-end align-items-center">
                   <p class="d-lg-none h1 fw-bold team-grey text-start text-lg-end lh-1 m-0"
                     v-text="String(captains.blue.name).toUpperCase()" />
-                  <p class="team-grey mb-0 ms-1 me-lg-1" :class="captains.blue.first ? ['bi', 'bi-star-fill'] : ''"
-                    v-if="captains.blue.first" data-bs-toggle="tooltip" data-bs-placement="top"
-                    :title="$t('shuffle.firstPicker')" id="firstPicker" />
+                  <p v-if="captains.blue.first" class="team-grey mb-0 ms-1 me-lg-1"
+                    :class="captains.blue.first ? ['bi', 'bi-star-fill'] : ''" data-bs-toggle="tooltip"
+                    data-bs-placement="top" :title="$t('shuffle.firstPicker')" id="firstPicker" />
                   <p class="d-none d-lg-block h1 fw-bold team-grey text-start text-lg-end lh-1 m-0"
                     v-text="String(captains.blue.name).toUpperCase()" />
                 </div>
@@ -590,16 +570,16 @@
                 <div class="d-flex justify-content-end justify-content-lg-start align-items-center">
                   <p class="d-none d-lg-block h1 fw-bold team-grey text-start lh-1 m-0"
                     v-text="String(captains.red.name).toUpperCase()" />
-                  <p class="team-grey mb-0 me-1 ms-lg-1" :class="captains.red.first ? ['bi', 'bi-star-fill'] : ''"
-                    v-if="captains.red.first" data-bs-toggle="tooltip" data-bs-placement="top"
-                    :title="$t('shuffle.firstPicker')" id="firstPicker" />
+                  <p v-if="captains.red.first" class="team-grey mb-0 me-1 ms-lg-1"
+                    :class="captains.red.first ? ['bi', 'bi-star-fill'] : ''" data-bs-toggle="tooltip"
+                    data-bs-placement="top" :title="$t('shuffle.firstPicker')" id="firstPicker" />
                   <p class="d-lg-none h1 fw-bold team-grey text-end text-start lh-1 m-0"
                     v-text="String(captains.red.name).toUpperCase()" />
                 </div>
               </div>
             </div>
             <!-- TEAM ROSTER -->
-            <div class="row mb-2" v-else-if="!extraOptions.captains && teams.blue.length != 0 && teams.red.length != 0">
+            <div v-else-if="!extraOptions.captains && teams.blue.length != 0 && teams.red.length != 0" class="row mb-2">
               <!-- TEAM BLUE -->
               <div class="col col-12 col-xs-12 col-lg-6" v-if="teams.blue.length != 0">
                 <p class="fw-bold team-blue text-start text-lg-end h1 pe-lg-1">
@@ -609,24 +589,18 @@
                     v-for="item in teams.blue" :key="item" :id="`player_${item.id}`">
                     <div
                       class="d-flex justify-content-start justify-content-lg-end align-items-center lh-1 lh-lg-sm py-lg-1">
-                      <p class="d-none d-lg-block fs-1 py-0 mb-0"
-                        :class="{ 'pe-lg-2': !extraOptions.roles && !extraOptions.heroes }">{{
-                            item.name.toUpperCase()
-                        }}
-                      </p>
-                      <p class="player-list-role m-lg-0 ms-lg-3 me-lg-0 m-0 ms-0 me-3 fw-normal"
-                        :class="getIcon(item.role, 'role')"
-                        v-if="extraOptions.roles && (flags.restrictHeroes || !extraOptions.heroes)"
-                        data-bs-toggle="tooltip" data-bs-placement="top"
+                      <p class="d-none d-lg-block fs-1 py-0 mb-0" v-text="item.name.toUpperCase()"
+                        :class="{ 'pe-lg-2': !extraOptions.roles && !extraOptions.heroes }" />
+                      <p v-if="extraOptions.roles && (flags.restrictHeroes || !extraOptions.heroes)"
+                        class="player-list-role m-lg-0 ms-lg-3 me-lg-0 m-0 ms-0 me-3 fw-normal"
+                        :class="getIcon(item.role, 'role')" data-bs-toggle="tooltip" data-bs-placement="top"
                         :title="$t(`heroData.heroClasses.${item.role}`)" />
-                      <p class="player-list-hero ms-lg-2 me-lg-0 m-0 me-2 fw-normal"
-                        v-if="!flags.restrictHeroes && extraOptions.heroes" data-bs-toggle="tooltip"
+                      <p v-if="!flags.restrictHeroes && extraOptions.heroes"
+                        class="player-list-hero ms-lg-2 me-lg-0 m-0 me-2 fw-normal" data-bs-toggle="tooltip"
                         data-bs-placement="top" :title="$t(`heroData.heroes.${item.hero}`)"
                         :class="getIcon(item.hero, 'hero')" />
                       <p class="d-lg-none fs-1 py-0 mb-0"
-                        :class="{ 'ps-2': !extraOptions.roles && !extraOptions.heroes }">{{ item.name.toUpperCase()
-                        }}
-                      </p>
+                        :class="{ 'ps-2': !extraOptions.roles && !extraOptions.heroes }" />
                     </div>
                   </li>
                 </ul>
@@ -642,33 +616,27 @@
                     v-for="item in teams.red" :key="item" :id="`player_${item.id}`">
                     <div
                       class="d-flex justify-content-end justify-content-lg-start align-items-center lh-1 lh-lg-sm py-lg-1">
-                      <p class="d-lg-none fs-1 py-0 mb-0"
-                        :class="{ 'pe-2': !extraOptions.roles && !extraOptions.heroes }">{{
-                            item.name.toUpperCase()
-                        }}
-                      </p>
-                      <p class="player-list-role m-lg-0 me-lg-3 ms-lg-0 m-0 ms-3 me-0 fw-normal"
-                        :class="getIcon(item.role, 'role')"
-                        v-if="extraOptions.roles && (flags.restrictHeroes || !extraOptions.heroes)"
-                        data-bs-toggle="tooltip" data-bs-placement="top"
+                      <p class="d-lg-none fs-1 py-0 mb-0" v-text="item.name.toUpperCase()"
+                        :class="{ 'pe-2': !extraOptions.roles && !extraOptions.heroes }" />
+                      <p v-if="extraOptions.roles && (flags.restrictHeroes || !extraOptions.heroes)"
+                        class="player-list-role m-lg-0 me-lg-3 ms-lg-0 m-0 ms-3 me-0 fw-normal"
+                        :class="getIcon(item.role, 'role')" data-bs-toggle="tooltip" data-bs-placement="top"
                         :title="$t(`heroData.heroClasses.${item.role}`)" />
-                      <p class="player-list-hero me-lg-2 ms-lg-0 ms-2 m-0 fw-normal"
-                        v-if="!flags.restrictHeroes && extraOptions.heroes" data-bs-toggle="tooltip"
+                      <p v-if="!flags.restrictHeroes && extraOptions.heroes"
+                        class="player-list-hero me-lg-2 ms-lg-0 ms-2 m-0 fw-normal" data-bs-toggle="tooltip"
                         data-bs-placement="top" :title="$t(`heroData.heroes.${item.hero}`)"
                         :class="getIcon(item.hero, 'hero')" />
-                      <p class="d-none d-lg-block fs-1 py-0 mb-0"
-                        :class="{ 'ps-lg-2': !extraOptions.roles && !extraOptions.heroes }"> {{ item.name.toUpperCase()
-                        }}
-                      </p>
+                      <p class="d-none d-lg-block fs-1 py-0 mb-0" v-text="item.name.toUpperCase()"
+                        :class="{ 'ps-lg-2': !extraOptions.roles && !extraOptions.heroes }" />
                     </div>
                   </li>
                 </ul>
               </div>
             </div>
             <!-- HERO BAN -->
-            <div class="row pb-3"
-              :class="(playerList.length != 0 && playerList.length % 2 == 0) ? ['pt-3', 'border-top'] : 'pt-0'"
-              v-if="![0, heroData.list.length].includes(bannedHeroes.length) && !flags.restrictHeroes">
+            <div v-if="![0, heroData.list.length].includes(bannedHeroes.length) && !flags.restrictHeroes"
+              class="row pb-3"
+              :class="(playerList.length != 0 && playerList.length % 2 == 0) ? ['pt-3', 'border-top'] : 'pt-0'">
               <div class="col col-12">
                 <p class="h4 fw-normal text-center team-grey">{{ $t(`shuffle.bannedHeroes`) }}</p>
                 <div class="d-flex flex-wrap justify-content-center" id="bannedHeroStrip">
@@ -679,7 +647,7 @@
               </div>
             </div>
             <!-- MAP BLOCK -->
-            <div class="row justify-content-center pb-3" v-if="extraOptions.map && currentMap"
+            <div v-if="extraOptions.map && currentMap" class="row justify-content-center pb-3"
               :class="(playerList.length != 0 && playerList.length % 2 == 0) || bannedHeroes.length != 0 ? ['pt-3', 'border-top'] : 'pt-0'">
               <div class="col-6 text-end">
                 <p class="h4 fw-normal team-grey">{{ $t('shuffle.nextMap') }}</p>
@@ -695,9 +663,7 @@
         <div class="modal-footer">
           <div class="col-xs-2 col-sm-2" />
           <button type="button" class="btn btn-outline-ow btn-shuffle-modal col h3" data-bs-dismiss="modal"
-            v-on:click="togglePlayerModal(false)">{{
-                $t('general.close').toUpperCase()
-            }}</button>
+            v-on:click="togglePlayerModal(false)" v-text="$t('general.close').toUpperCase()" />
           <div class="col-xs-2 col-sm-2" />
         </div>
       </div>
@@ -713,21 +679,19 @@
           <p class="fw-bold text-muted lh-1 fs-6 m-1 footer-copyright">2022 CREATED BY GENESI5<br />OVERWATCH © 2022
             BLIZZARD</p>
         </div>
-        <ul class="d-flex justify-content-end list-unstyled m-0  pe-0 pe-sm-2">
+        <ul class="d-flex justify-content-end list-unstyled social-item m-0 pe-0 pe-sm-2">
           <li class="m-2 my-0">
-            <a class="text-decoration-none" href="https://github.com/genesi5/ow-shuffler" alt="GitHub link">
-              <p class="bi bi-github social-item m-0" id="githubLink" />
+            <a class="bi bi-github text-decoration-none m-0" href="https://github.com/genesi5/ow-shuffler"
+              id="githubLink" alt="GitHub link" />
+          </li>
+          <!-- <li class="m-2 my-0">
+            <a class="bi bi-instagram text-decoration-none d-inline-block position-relative m-0" href=""
+              id="instagramLink">
+              <span class="bi-instagram instagram-color position-absolute" />
             </a>
           </li>
-          <!-- <li class="m-2 mb-0">
-          <a class="text-decoration-none" href="">
-            <p class="bi-instagram social-item h2" id="instagramLink"></p>
-          </a>
-        </li> -->
-          <!--<li class="m-2 mb-0">
-            <a class="text-decoration-none text-reset" href="">
-              <p class="bi-twitter h2" id="twitterLink"></p>
-            </a>
+          <li class="m-2 my-0">
+            <a class="bi bi-twitter text-decoration-none m-0" href="" id="twitterLink" alt="Twitter link" />
           </li> -->
         </ul>
       </div>
