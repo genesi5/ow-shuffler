@@ -99,14 +99,14 @@
     "resetButton": "Réinitialiser le filtre",
     "alert": "Le filtre de héros a été réinitialisé par défaut",
     "heroes": {
-      "hammond": "Bouldozer",
       "junkerqueen": "Reine des Junkers",
       "junkrat": "Chacal",
       "mercy": "Ange",
       "reaper": "Faucheur",
       "roadhog": "Chopper",
       "soldier76": "Soldat-76",
-      "widowmaker": "Fatale"
+      "widowmaker": "Fatale",
+      "wreckingball": "Bouldozer"
     },
     "heroClasses": {
       "damage": "Dégâts",
