@@ -15,7 +15,7 @@
     "id": "nepal",
     "mode": "control",
     "legacy": true,
-    "deprecated": true
+    "deprecated": false
   },
   {
     "id": "oasis",
@@ -27,7 +27,7 @@
     "id": "busan",
     "mode": "control",
     "legacy": true,
-    "deprecated": true
+    "deprecated": false
   },
   {
     "id": "havana",
@@ -87,7 +87,7 @@
     "id": "hollywood",
     "mode": "hybrid",
     "legacy": true,
-    "deprecated": true
+    "deprecated": false
   },
   {
     "id": "kingsrow",

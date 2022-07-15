@@ -582,24 +582,24 @@
             <div v-else-if="!extraOptions.captains && teams.blue.length != 0 && teams.red.length != 0" class="row mb-2">
               <!-- TEAM BLUE -->
               <div class="col col-12 col-xs-12 col-lg-6" v-if="teams.blue.length != 0">
-                <p class="fw-bold team-blue text-start text-lg-end h1 pe-lg-1">
+                <p class="fw-bold team-blue text-start text-lg-end text-truncate h1 px-1">
                   {{ String(extraOptions.teamNames.blue).toUpperCase() }}</p>
                 <ul class="list-group list-group-flush border-top">
                   <li class="list-group-item fw-bold team-grey bg-transparent border-bottom-0 p-0"
                     v-for="item in teams.blue" :key="item" :id="`player_${item.id}`">
                     <div
                       class="d-flex justify-content-start justify-content-lg-end align-items-center lh-1 lh-lg-sm py-lg-1">
-                      <p class="d-none d-lg-block fs-1 py-0 mb-0" v-text="item.name.toUpperCase()"
+                      <p class="d-none d-lg-block text-truncate fs-1 py-0 px-1 mb-0" v-text="item.name.toUpperCase()"
                         :class="{ 'pe-lg-2': !extraOptions.roles && !extraOptions.heroes }" />
                       <p v-if="extraOptions.roles && (flags.restrictHeroes || !extraOptions.heroes)"
-                        class="player-list-role m-lg-0 ms-lg-3 me-lg-0 m-0 ms-0 me-3 fw-normal"
+                        class="player-list-role m-lg-0 ms-lg-2 me-lg-0 m-0 ms-0 me-2 fw-normal"
                         :class="getIcon(item.role, 'role')" data-bs-toggle="tooltip" data-bs-placement="top"
                         :title="$t(`heroData.heroClasses.${item.role}`)" />
                       <p v-if="!flags.restrictHeroes && extraOptions.heroes"
-                        class="player-list-hero ms-lg-2 me-lg-0 m-0 me-2 fw-normal" data-bs-toggle="tooltip"
+                        class="player-list-hero ms-lg-2 me-lg-0 m-0 me-1 fw-normal" data-bs-toggle="tooltip"
                         data-bs-placement="top" :title="$t(`heroData.heroes.${item.hero}`)"
                         :class="getIcon(item.hero, 'hero')" />
-                      <p class="d-lg-none fs-1 py-0 mb-0"
+                      <p class="d-lg-none text-truncate fs-1 py-0 px-1 mb-0" v-text="item.name.toUpperCase()"
                         :class="{ 'ps-2': !extraOptions.roles && !extraOptions.heroes }" />
                     </div>
                   </li>
@@ -609,24 +609,24 @@
               <div class="col col-12 d-md-none m-2" whoe="teams.blue.length == 0 && teams.red.length == 0" />
               <!-- TEAM RED-->
               <div class="col col-12 col-xs-12 col-lg-6" v-if="teams.red.length != 0">
-                <p class="fw-bold team-red text-end text-lg-start text-truncate h1 ps-lg-1">
+                <p class="fw-bold team-red text-end text-lg-start text-truncate h1 px-1">
                   {{ String(extraOptions.teamNames.red).toUpperCase() }}</p>
                 <ul class="list-group list-group-flush border-top">
                   <li class="list-group-item fw-bold team-grey bg-transparent border-bottom-0 p-0"
                     v-for="item in teams.red" :key="item" :id="`player_${item.id}`">
                     <div
                       class="d-flex justify-content-end justify-content-lg-start align-items-center lh-1 lh-lg-sm py-lg-1">
-                      <p class="d-lg-none fs-1 py-0 mb-0" v-text="item.name.toUpperCase()"
+                      <p class="d-lg-none text-truncate fs-1 py-0 px-1 mb-0" v-text="item.name.toUpperCase()"
                         :class="{ 'pe-2': !extraOptions.roles && !extraOptions.heroes }" />
                       <p v-if="extraOptions.roles && (flags.restrictHeroes || !extraOptions.heroes)"
-                        class="player-list-role m-lg-0 me-lg-3 ms-lg-0 m-0 ms-3 me-0 fw-normal"
+                        class="player-list-role m-lg-0 me-lg-2 ms-lg-0 m-0 ms-2 me-0 fw-normal"
                         :class="getIcon(item.role, 'role')" data-bs-toggle="tooltip" data-bs-placement="top"
                         :title="$t(`heroData.heroClasses.${item.role}`)" />
                       <p v-if="!flags.restrictHeroes && extraOptions.heroes"
-                        class="player-list-hero me-lg-2 ms-lg-0 ms-2 m-0 fw-normal" data-bs-toggle="tooltip"
+                        class="player-list-hero me-lg-2 ms-lg-0 ms-1 m-0 fw-normal" data-bs-toggle="tooltip"
                         data-bs-placement="top" :title="$t(`heroData.heroes.${item.hero}`)"
                         :class="getIcon(item.hero, 'hero')" />
-                      <p class="d-none d-lg-block fs-1 py-0 mb-0" v-text="item.name.toUpperCase()"
+                      <p class="d-none d-lg-block text-truncate fs-1 py-0 px-1 mb-0" v-text="item.name.toUpperCase()"
                         :class="{ 'ps-lg-2': !extraOptions.roles && !extraOptions.heroes }" />
                     </div>
                   </li>
