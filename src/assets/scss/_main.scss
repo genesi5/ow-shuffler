@@ -42,6 +42,12 @@
   }
 }
 
+html {
+  /* Hide scrollbar in Firefox */
+  overflow-y: scroll;
+  scrollbar-width: none !important;
+}
+
 body {
   font-family: "Bebas Neue Pro";
   background-image: url("./assets/img/ow_wlp.webp");
@@ -49,12 +55,10 @@ body {
   background-position: center center;
   background-attachment: fixed;
   background-size: cover;
-  /* Firefox */
-  scrollbar-width: none;
 }
 
+/* Hide scrollbar in Safari and Chrome */
 body::-webkit-scrollbar {
-  /* Safari and Chrome */
   display: none;
 }
 
