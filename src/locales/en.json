@@ -19,7 +19,8 @@
     "bannedHeroes": "Banned heroes:",
     "photo": {
       "tooltip": "Take a screenshot",
-      "clipboard": "Copied into clipboard!"
+      "clipboard": "Copied into clipboard!",
+      "clipboardItemError": "Firefox browser blocks access to clipboard.</br>To get permission for this operation, proceed to Firefox Configuration Editor  (<b>about:config</b> page) and set next preference to <b>true</b>:<p class='mono fw-bold m-0 mt-2'>dom.events.asyncClipboard.clipboardItem</p>"
     }
   },
   "input": {

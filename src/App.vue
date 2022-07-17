@@ -542,6 +542,10 @@
                 </div>
               </div>
             </div>
+            <div class="row collapse" id="clipboardFirefoxError">
+              <div class="alert alert-danger m-0" role="alert" v-html="$t(`shuffle.photo.clipboardItemError`)">
+              </div>
+            </div>
           </div>
         </div>
         <div class="modal-body" id="shuffleResultBody">
@@ -684,13 +688,17 @@
             <a class="bi bi-github text-decoration-none m-0" href="https://github.com/genesi5/ow-shuffler"
               id="githubLink" alt="GitHub link" />
           </li>
+          <li class="m-2 my-0">
+            <a class="bi bi-twitch text-decoration-none m-0" href="https://www.twitch.tv/genesi5_1995" id="twitchLink"
+              alt="Twitch link" />
+          </li>
           <!-- <li class="m-2 my-0">
             <a class="bi bi-instagram text-decoration-none d-inline-block position-relative m-0" href=""
               id="instagramLink">
               <span class="bi-instagram instagram-color position-absolute" />
             </a>
-          </li>
-          <li class="m-2 my-0">
+          </li> -->
+          <!-- <li class="m-2 my-0">
             <a class="bi bi-twitter text-decoration-none m-0" href="" id="twitterLink" alt="Twitter link" />
           </li> -->
         </ul>
@@ -756,7 +764,8 @@ export default {
           blue: false
         },
         invalidRoleSets: false,
-        shuffleClipboard: false
+        shuffleClipboard: false,
+        clipboardFirefoxError: false
       },
       alerts: {
         playerInput: undefined,
@@ -929,6 +938,7 @@ export default {
         this.currentMap = undefined
         if (this.bannedHeroes != undefined) this.bannedHeroes = []
         if (this.extraOptions.captains) this.captains = { blue: undefined, red: undefined }
+        Collapse.getOrCreateInstance(document.getElementById('clipboardFirefoxError')).hide()
         Tooltip.getOrCreateInstance(document.getElementById('shuffleRestrictHeroes')).dispose()
       })
       // Validate team names on load
@@ -1364,23 +1374,24 @@ export default {
 
     saveTeamPic() {
       const { ClipboardItem } = window;
-      this.flags.shuffleClipboard = true
       html2canvas(document.querySelector("#shuffleResultBody")).then(canvas => {
         canvas.toBlob((blob) => {
+          const content = Object.defineProperty({}, blob.type, { value: blob, enumerable: true })
+          /*  
+          Test 'dom.events.asyncClipboard.clipboardItem' parameter in Mozilla Firefox, 
+          since 'false' value causes ClipboardItem() constructor to fail 
+          */
+          if (navigator.userAgent.match(/firefox|fxios/i)) {
+            try { [new ClipboardItem(content)] }
+            catch (err) {
+              new Collapse(document.getElementById('clipboardFirefoxError')).show()
+              return
+            }
+          }
+          this.flags.shuffleClipboard = true
           navigator.clipboard
-            .write([
-              new ClipboardItem(
-                Object.defineProperty({}, blob.type, {
-                  value: blob,
-                  enumerable: true
-                })
-              )
-            ])
-            .then(() => {
-              setTimeout(() => {
-                this.flags.shuffleClipboard = false
-              }, 3000)
-            });
+            .write([new ClipboardItem(content)])
+            .then(() => { setTimeout(() => { this.flags.shuffleClipboard = false }, 3000) });
         });
       });
     },

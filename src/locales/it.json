@@ -19,7 +19,8 @@
     "bannedHeroes": "Eroi banditi:",
     "photo": {
       "tooltip": "Fai uno screenshot",
-      "clipboard": "Copiato negli appunti!"
+      "clipboard": "Copiato negli appunti!",
+      "clipboardItemError": "Il browser Firefox blocca l'accesso agli appunti.</br>Per ottenere l'autorizzazione per questa operazione, vai su Editor di configurazione di Firefox (pagina <b>about:config</b>) e imposta la preferenza successiva su <b>true</b>:<p class='mono fw-bold m-0 mt-2'>dom.events.asyncClipboard.clipboardItem</p>"
     }
   },
   "input": {

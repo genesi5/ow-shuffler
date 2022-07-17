@@ -19,7 +19,8 @@
     "bannedHeroes": "Verbotene Helden:",
     "photo": {
       "tooltip": "Machen Sie einen Screenshot",
-      "clipboard": "In die Zwischenablage kopiert!"
+      "clipboard": "In die Zwischenablage kopiert!",
+      "clipboardItemError": "Der Firefox-Browser blockiert den Zugriff auf die Zwischenablage.</br>Um die Erlaubnis für diesen Vorgang zu erhalten, gehen Sie zum Firefox-Konfigurationseditor (<b>about:config</b>) und setzen Sie die nächste Einstellung auf <b>true</b>:<p class='mono fw-bold m-0 mt-2'>dom.events.asyncClipboard.clipboardItem</p>"
     }
   },
   "input": {

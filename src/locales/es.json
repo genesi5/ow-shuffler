@@ -20,7 +20,8 @@
     "bannedHeroes": "Héroes prohibidos:",
     "photo": {
       "tooltip": "Tomar una captura de pantalla",
-      "clipboard": "¡Copiado en el portapapeles!"
+      "clipboard": "¡Copiado en el portapapeles!",
+      "clipboardItemError": "El navegador Firefox bloquea el acceso al portapapeles.</br>Para obtener permiso para esta operación, diríjase al Editor de configuración para Firefox (la página <b>about:config</b>) y establezca la siguiente preferencia en <b>true</b>:<p class='mono fw-bold m-0 mt-2'>dom.events.asyncClipboard.clipboardItem</p>"
     }
   },
   "input": {

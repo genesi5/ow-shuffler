@@ -34,7 +34,8 @@
   div#bannedHeroStrip>p {
     font-size: 2rem;
   }
-  .player-list-role, 
+
+  .player-list-role,
   .player-list-hero {
     font-size: 1.8rem !important;
   }
@@ -70,6 +71,10 @@
 .team-blue {
   color: $blue-400;
   text-overflow: ellipsis;
+}
+
+.mono {
+  font-family: monospace;
 }
 
 // custom background for 'restrict heroes' flag tooltip

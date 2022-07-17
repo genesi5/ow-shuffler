@@ -19,7 +19,8 @@
     "bannedHeroes": "Héros bannis:",
     "photo": {
       "tooltip": "Prendre une capture d'écran",
-      "clipboard": "Copié dans le presse-papier!"
+      "clipboard": "Copié dans le presse-papier!",
+      "clipboardItemError": "Le navigateur Firefox bloque l'accès au presse-papiers.</br>Pour obtenir l'autorisation pour cette opération, accédez à l'éditeur de configuration de Firefox (la page <b>about:config</b>) et définissez la préférence suivante sur <b>true</b>:<p class='mono fw-bold m-0 mt-2'>dom.events.asyncClipboard.clipboardItem</p>"
     }
   },
   "input": {

@@ -18,7 +18,8 @@
     "bannedHeroes": "Heróis banidos:",
     "photo": {
       "tooltip": "Faça uma captura de tela",
-      "clipboard": "Copiado para a área de transferência!"
+      "clipboard": "Copiado para a área de transferência!",
+      "clipboardItemError": "O navegador Firefox bloqueia o acesso à área de transferência.</br>Para obter permissão para esta operação, vá para o Editor de Configuração para Firefox (página <b>about:config</b>) e defina a próxima preferência como <b>true</b>:<p class='mono fw-bold m-0 mt-2'>dom.events.asyncClipboard.clipboardItem</p>"
     }
   },
   "input": {

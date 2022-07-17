@@ -19,7 +19,8 @@
     "bannedHeroes": "Забаненные герои:",
     "photo": {
       "tooltip": "Сделать скриншот",
-      "clipboard": "Скопировано в буфер обмена!"
+      "clipboard": "Скопировано в буфер обмена!",
+      "clipboardItemError": "Браузер Firefox блокирует доступ к буферу обмена.</br>Чтобы дать доступ на копирование в буфер, перейдите в редактор настроек Firefox (страница <b>about:config</b>) и поставьте значение <b>true</b> у следующего параметра:<p class='mono fw-bold m-0 mt-2'>dom.events.asyncClipboard.clipboardItem</p>"
     }
   },
   "input": {

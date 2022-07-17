@@ -1,6 +1,6 @@
 {
   "name": "ow-shuffler",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "private": true,
   "description": "Small SPA for shuffling custom lobbies in Overwatch",
   "homepage": "https://github.com/genesi5/ow-shuffler",

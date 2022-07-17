@@ -18,7 +18,8 @@
     "bannedHeroes": "Zbanowani bohaterowie:",
     "photo": {
       "tooltip": "Zrób zrzut ekranu",
-      "clipboard": "Skopiowano do schowka!"
+      "clipboard": "Skopiowano do schowka!",
+      "clipboardItemError": "Przeglądarka Firefox blokuje dostęp do schowka.</br>Aby uzyskać pozwolenie na tę operację, przejdź do Edytora ustawień w Firefoksie (strona <b>about:config</b>) i ustaw następną preferencję na <b>true</b>:<p class='mono fw-bold m-0 mt-2'>dom.events.asyncClipboard.clipboardItem</p>"
     }
   },
   "input": {
