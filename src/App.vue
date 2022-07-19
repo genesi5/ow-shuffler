@@ -938,7 +938,9 @@ export default {
         this.currentMap = undefined
         if (this.bannedHeroes != undefined) this.bannedHeroes = []
         if (this.extraOptions.captains) this.captains = { blue: undefined, red: undefined }
-        Collapse.getOrCreateInstance(document.getElementById('clipboardFirefoxError')).hide()
+        if (document.getElementById('clipboardFirefoxError').classList.contains("show")) {
+          Collapse.getOrCreateInstance(document.getElementById('clipboardFirefoxError')).hide()
+        }
         Tooltip.getOrCreateInstance(document.getElementById('shuffleRestrictHeroes')).dispose()
       })
       // Validate team names on load
@@ -1381,13 +1383,14 @@ export default {
           Test 'dom.events.asyncClipboard.clipboardItem' parameter in Mozilla Firefox, 
           since 'false' value causes ClipboardItem() constructor to fail 
           */
-          if (navigator.userAgent.match(/firefox|fxios/i)) {
-            try { [new ClipboardItem(content)] }
+         if (navigator.userAgent.match(/firefox|fxios/i)) {
+           try { [new ClipboardItem(content)] }
             catch (err) {
-              new Collapse(document.getElementById('clipboardFirefoxError')).show()
+              new Collapse(document.getElementById('clipboardFirefoxError'), { toggle: true })
               return
             }
           }
+
           this.flags.shuffleClipboard = true
           navigator.clipboard
             .write([new ClipboardItem(content)])
