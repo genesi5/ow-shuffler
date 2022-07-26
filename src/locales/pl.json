@@ -51,6 +51,7 @@
     "options": {
       "captains": "Losowy wybór kapitana",
       "map": "Wybierz losową kartę",
+      "mapOnly": "Wybierz mapę TYLKO",
       "heroes": {
         "switch": "Przypisz losowo bohaterów",
         "heroBan": "Liczba losowych bohaterów do zbanowania:"

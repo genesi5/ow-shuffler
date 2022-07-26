@@ -52,6 +52,7 @@
     "options": {
       "captains": "Random team captain pick",
       "map": "Random map assignation",
+      "mapOnly": "Pick map ONLY",
       "heroes": {
         "switch": "Random hero assignation",
         "heroBan": "Number of random heroes to ban:"

@@ -52,6 +52,7 @@
     "options": {
       "captains": "Scelta casuale del capitano",
       "map": "Assegnazione casuale della mappa",
+      "mapOnly": "Scegli SOLO la mappa",
       "heroes": {
         "switch": "Assegnazione eroe casuale",
         "heroBan": "Numero di eroi casuali da bandire:"

@@ -269,7 +269,7 @@
               <div class="col col-12 col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-6 px-sm-2 mb-2 mb-xl-0">
                 <div class="form-check form-switch fw-normal mb-0">
                   <input class="form-check-input" type="checkbox" v-model="extraOptions.captains"
-                    v-on:click="extraOptions.captains = !extraOptions.captains">
+                    v-on:click="extraOptions.captains = !extraOptions.captains" :disabled="extraOptions.mapOnly">
                   <label class="form-check-label h5 mb-0" v-bind:class="{ 'text-muted': !extraOptions.captains }">{{
                       $t('extra.options.captains')
                   }}</label>
@@ -284,6 +284,13 @@
                       $t('extra.options.map')
                   }}</label>
                 </div>
+                <div class="form-check form-switch fw-normal mb-0">
+                  <input class="form-check-input" type="checkbox" v-model="extraOptions.mapOnly"
+                    v-on:click="extraOptions.mapOnly = !extraOptions.mapOnly">
+                  <label class="form-check-label h5 mb-0" v-bind:class="{ 'text-muted': !extraOptions.mapOnly }">{{
+                      $t('extra.options.mapOnly')
+                  }}</label>
+                </div>
               </div>
             </div>
           </div>
@@ -295,7 +302,8 @@
               <div class="col col-12 col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-6 px-sm-2 mb-2 mb-xl-0">
                 <div class="form-check form-switch fw-normal">
                   <input class="form-check-input" type="checkbox" v-model="extraOptions.roles"
-                    v-on:click="extraOptions.roles = !extraOptions.roles" :disabled="extraOptions.captains">
+                    v-on:click="extraOptions.roles = !extraOptions.roles"
+                    :disabled="extraOptions.captains || extraOptions.mapOnly">
                   <label class="form-check-label h5 mb-0" v-bind:class="{ 'text-muted': !extraOptions.roles }">{{
                       $t('extra.options.roles.switch')
                   }}</label>
@@ -304,14 +312,15 @@
               <!-- ROLE RATIO SETUP -->
               <div class="col col-12 col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-6 px-sm-2">
                 <label class="fw-normal mb-1" v-bind:class="{ 'text-muted': extraOptions.captains }"
-                  :disabled="!extraOptions.roles || extraOptions.captains">{{
+                  :disabled="!extraOptions.roles || extraOptions.captains || extraOptions.mapOnly">{{
                       $t('extra.options.roles.roleSets')
                   }}</label>
                 <div class="row">
                   <div class="col col-3">
                     <button class="w-100 btn btn-sm btn-block btn-outline-ow dropdown-toggle fs-4 pb-0 pt-0"
                       type="button" data-bs-toggle="dropdown" aria-expanded="false"
-                      :disabled="!extraOptions.roles || extraOptions.captains">{{ currentRoleSet }}
+                      :disabled="!extraOptions.roles || extraOptions.captains || extraOptions.mapOnly">{{ currentRoleSet
+                      }}
                     </button>
                     <ul class="dropdown-menu">
                       <li class="dropdown-item fw-normal" v-on:click="currentRoleSet = key"
@@ -324,24 +333,25 @@
                   <div class="col col-3 ps-0">
                     <div class="input-group input-group-sm">
                       <span class="input-group-text p-0 px-1">
-                        <label class="fw-normal ow-role-tank fs-6"
-                          :class="{ 'text-black-50': !extraOptions.roles || extraOptions.captains }" />
+                        <label class="fw-normal ow-role-tank fs-5"
+                          :class="{ 'text-black-50': !extraOptions.roles || extraOptions.captains || extraOptions.mapOnly }" />
                       </span>
                       <input type="number" min="0" :max="currentRoleSet" id="inputTank"
                         class="form-control fw-normal fs-4 lh-1" :value="roleSets[currentRoleSet].tank"
-                        :disabled="!extraOptions.roles || extraOptions.captains" v-on:keydown.enter.prevent
-                        @input="validateRoleInput(roleSets[currentRoleSet], $event, 'tank')">
+                        :disabled="!extraOptions.roles || extraOptions.captains || extraOptions.mapOnly"
+                        v-on:keydown.enter.prevent @input="validateRoleInput(roleSets[currentRoleSet], $event, 'tank')">
                     </div>
                   </div>
                   <div class="col col-3 ps-0">
                     <div class="input-group input-group-sm">
                       <span class="input-group-text p-0 px-1">
-                        <label class="fw-normal ow-role-damage fs-6"
-                          :class="{ 'text-black-50': !extraOptions.roles || extraOptions.captains }" />
+                        <label class="fw-normal ow-role-damage fs-5"
+                          :class="{ 'text-black-50': !extraOptions.roles || extraOptions.captains || extraOptions.mapOnly }" />
                       </span>
                       <input type="number" min="0" :max="currentRoleSet" id="inputDamage"
                         class="form-control fw-normal fs-4 lh-1" :value="roleSets[currentRoleSet].damage"
-                        :disabled="!extraOptions.roles || extraOptions.captains" v-on:keydown.enter.prevent
+                        :disabled="!extraOptions.roles || extraOptions.captains || extraOptions.mapOnly"
+                        v-on:keydown.enter.prevent
                         @input="validateRoleInput(roleSets[currentRoleSet], $event, 'damage')">
 
                     </div>
@@ -349,18 +359,19 @@
                   <div class="col col-3 ps-0">
                     <div class="input-group input-group-sm">
                       <span class="input-group-text p-0 px-1">
-                        <label class="fw-normal ow-role-support fs-6"
-                          :class="{ 'text-black-50': !extraOptions.roles || extraOptions.captains }" />
+                        <label class="fw-normal ow-role-support fs-5"
+                          :class="{ 'text-black-50': !extraOptions.roles || extraOptions.captains || extraOptions.mapOnly }" />
                       </span>
                       <input type="number" min="0" :max="currentRoleSet" id="inputSupport"
                         class="form-control fw-normal fs-4 lh-1" :value="roleSets[currentRoleSet].support"
-                        :disabled="!extraOptions.roles || extraOptions.captains" v-on:keydown.enter.prevent
+                        :disabled="!extraOptions.roles || extraOptions.captains || extraOptions.mapOnly"
+                        v-on:keydown.enter.prevent
                         @input="validateRoleInput(roleSets[currentRoleSet], $event, 'support')">
                     </div>
                   </div>
                 </div>
                 <p class="fw-normal text-danger lh-1 mb-2 pt-1"
-                  :class="{ 'opacity-50': !extraOptions.roles || extraOptions.captains }"
+                  :class="{ 'opacity-50': !extraOptions.roles || extraOptions.captains || extraOptions.mapOnly }"
                   v-text="$t('extra.options.roles.invalidRoleSet', [currentRoleSet])"
                   v-show="flags.invalidRoleSets && Object.values(roleSets[currentRoleSet]).reduce((a, b) => a + b) != Number(currentRoleSet)" />
               </div>
@@ -373,7 +384,8 @@
               <div class="col col-12 col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-6 px-sm-2 mb-2 mb-xl-0">
                 <div class="form-check form-switch fw-normal">
                   <input class="form-check-input" type="checkbox" v-model="extraOptions.heroes"
-                    v-on:click="extraOptions.heroes = !extraOptions.heroes" :disabled="extraOptions.captains">
+                    v-on:click="extraOptions.heroes = !extraOptions.heroes"
+                    :disabled="extraOptions.captains || extraOptions.mapOnly">
                   <label class="form-check-label h5 mb-0" v-bind:class="{ 'text-muted': !extraOptions.heroes }">{{
                       $t('extra.options.heroes.switch')
                   }}</label>
@@ -502,12 +514,12 @@
       </div>
 
       <!-- OVERWATCH VERSION -->
-      <div v-show="!betaEnd" class="row py-0 mt-2 border-top">
+      <!-- <div v-show="!betaEnd" class="row py-0 mt-2 border-top">
         <div class="d-flex align-items-center">
           <p class="fw-bold h4">{{ $t('settings.switch.title') }}</p>
-        </div>
-        <!-- BUTTON SWITCH -->
-        <div class="col col-12">
+        </div> -->
+      <!-- BUTTON SWITCH -->
+      <!-- <div class="col col-12">
           <div class="btn-group" role="group">
             <button type="button" class="btn btn-sm btn-outline-ow py-0 mt-2 mb-1" :class="{ 'active': !flags.beta }"
               v-on:click="changeVersion(false)">OVERWATCH</button>
@@ -515,7 +527,8 @@
               v-on:click="changeVersion(true)">OVERWATCH 2 BETA</button>
           </div>
         </div>
-      </div>
+      </div> -->
+
     </div>
   </div>
 
@@ -538,7 +551,7 @@
                     <p v-if="flags.shuffleClipboard" class="h6 mb-0 me-3 lh-1 fw-normal"
                       v-text="$t(`shuffle.photo.clipboard`)" />
                   </transition>
-                  <p class="h4 bi bi-camera team-grey mb-0 me-1" v-on:click="saveTeamPic()" />
+                  <p class="h4 bi bi-camera team-grey mb-0 me-1" v-on:click="saveSufflePic()" />
                 </div>
               </div>
             </div>
@@ -640,7 +653,7 @@
             <!-- HERO BAN -->
             <div v-if="![0, heroData.list.length].includes(bannedHeroes.length) && !flags.restrictHeroes"
               class="row pb-3"
-              :class="(playerList.length != 0 && playerList.length % 2 == 0) ? ['pt-3', 'border-top'] : 'pt-0'">
+              :class="playerList.length != 0 && !extraOptions.mapOnly ? ['pt-3', 'border-top'] : 'pt-0'">
               <div class="col col-12">
                 <p class="h4 fw-normal text-center team-grey">{{ $t(`shuffle.bannedHeroes`) }}</p>
                 <div class="d-flex flex-wrap justify-content-center" id="bannedHeroStrip">
@@ -652,7 +665,7 @@
             </div>
             <!-- MAP BLOCK -->
             <div v-if="extraOptions.map && currentMap" class="row justify-content-center pb-3"
-              :class="(playerList.length != 0 && playerList.length % 2 == 0) || bannedHeroes.length != 0 ? ['pt-3', 'border-top'] : 'pt-0'">
+              :class="(playerList.length != 0 && !extraOptions.mapOnly) || bannedHeroes.length != 0 ? ['pt-3', 'border-top'] : 'pt-0'">
               <div class="col-6 text-end">
                 <p class="h4 fw-normal team-grey">{{ $t('shuffle.nextMap') }}</p>
               </div>
@@ -1001,14 +1014,14 @@ export default {
     },
 
     setVersion() {
-      let
-        ls = window.localStorage.getItem("beta")
-      this.betaEnd = new Date('July 18, 2022 01:00:00 CST').getTime() < new Date().getTime()
-      if (ls != null && !this.betaEnd) {
-        this.flags.beta = JSON.parse(ls)
-        if (this.flags.beta) this.flags.localStorage = true
-      }
-      else this.flags.beta = false
+      let ls = window.localStorage.getItem("beta")
+      // this.betaEnd = new Date(<end date>).getTime() < new Date().getTime()
+      // if (ls != null && !this.betaEnd) {
+      //   this.flags.beta = JSON.parse(ls)
+      //   if (this.flags.beta) this.flags.localStorage = true
+      // }
+      // else this.flags.beta = false
+      this.flags.beta = JSON.parse(ls)
       this.versionVars = {
         playerLimit: (this.flags.beta) ? 10 : 12,
         defaultRoleSet: (this.flags.beta) ? 5 : 6
@@ -1089,6 +1102,7 @@ export default {
       extraOptions.roles = ('roles' in ls) ? ls.roles : false
       extraOptions.heroes = ('heroes' in ls) ? ls.heroes : false
       extraOptions.map = ('map' in ls) ? ls.map : false
+      extraOptions.mapOnly = ('mapOnly' in ls) ? ls.mapOnly : false
       extraOptions.captains = ('captains' in ls) ? ls.captains : false
       extraOptions.heroBan = ('heroBan' in ls) ? Number(ls.heroBan) : 0
       extraOptions.roleSets = ('roleSets' in ls)
@@ -1235,6 +1249,11 @@ export default {
         this.bannedHeroes = keys(this.heroData.filter).filter((x) => !this.heroData.filter[x])
       }
 
+      if (this.extraOptions.map && this.extraOptions.mapOnly) {
+        this.togglePlayerModal(true)
+        return
+      }
+
       // Randomize player teams
       if (this.playerList.length != 0) {
         // Check team names for invalid values 
@@ -1374,7 +1393,7 @@ export default {
       }
     },
 
-    saveTeamPic() {
+    saveSufflePic() {
       const { ClipboardItem } = window;
       html2canvas(document.querySelector("#shuffleResultBody")).then(canvas => {
         canvas.toBlob((blob) => {
@@ -1383,8 +1402,8 @@ export default {
           Test 'dom.events.asyncClipboard.clipboardItem' parameter in Mozilla Firefox, 
           since 'false' value causes ClipboardItem() constructor to fail 
           */
-         if (navigator.userAgent.match(/firefox|fxios/i)) {
-           try { [new ClipboardItem(content)] }
+          if (navigator.userAgent.match(/firefox|fxios/i)) {
+            try { [new ClipboardItem(content)] }
             catch (err) {
               new Collapse(document.getElementById('clipboardFirefoxError'), { toggle: true })
               return

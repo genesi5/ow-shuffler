@@ -52,6 +52,7 @@
     "options": {
       "captains": "Zufällige Kapitänszuweisung",
       "map": "Zufällige Kartenzuweisung",
+      "mapOnly": "NUR Karte auswählen",
       "heroes": {
         "switch": "Zufällige Heldenzuweisung",
         "heroBan": "Anzahl der zu verbannenden zufälligen Helden:"

@@ -53,6 +53,7 @@
     "options": {
       "captains": "Elección aleatoria del capitán",
       "map": "Asignación aleatoria de mapas",
+      "mapOnly": "Elegir mapa SOLAMENTE",
       "heroes": {
         "switch": "Asignación aleatoria de héroes",
         "heroBan": "Número de héroes aleatorios para prohibir:"
